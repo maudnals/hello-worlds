@@ -5,6 +5,7 @@
     <title>Hello, Worlds!</title>
     <meta name="description" content="Hello, Worlds!">
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="cursorListener.js"></script>
   </head>
   <body>
@@ -13,6 +14,7 @@
         <a-cursor color="white" fuse="true" timeout="10"></a-cursor>
         <!--By default on desktop, fuse = false. So make it true to see how it would be on mobile-->
       </a-camera>
+      <a-entity bmfont-text="text: HELLO!; color: #333" position="0 0 -5"></a-entity>
       <!--<a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
