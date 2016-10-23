@@ -1,7 +1,8 @@
 AFRAME.registerComponent('cursor-listener',{
   init: function(){
-    this.el.addEventListener('click', function(){
-      console.log('gaze' + iterator);
+    this.el.addEventListener('click', function(){ //this.el is the entity
+      console.log('gaze');
+      this.setAttribute('color', 'white');
     });
   }
 });
