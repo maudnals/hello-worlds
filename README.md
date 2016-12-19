@@ -1,3 +1,5 @@
+Deployed at https://maudnals.github.io/hello-worlds/
+
 Based on # A-Frame Boilerplate, a boilerplate for creating WebVR scenes using A-Frame.
 
 ## License
