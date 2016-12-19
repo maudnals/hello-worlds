@@ -1,56 +1,72 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-      <meta charset="utf-8">
-      <title>Hello, Worlds!</title>
-      <meta name="description" content="Hello, Worlds!">
-      <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-      <!--     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script> -->
-      <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
-      <script src="cursorListener.js"></script>
-  </head>
+<head>
+    <meta charset="utf-8">
+    <title>Hello, Worlds!</title>
+    <meta name="description" content="Hello, Worlds!">
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <!--     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script> -->
+    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+    <script src="cursorListener.js"></script>
+</head>
 
-  <body>
-      <a-scene>
-          <a-camera position="0 0 0">
-              <a-cursor color="white" fuse="true" timeout="10"></a-cursor>
-              <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser -->
-          </a-camera>
-          <a-entity>
-              <a-entity template="src: cubes.template" position="-4 0 -8"></a-entity>
-              <a-entity template="src: cubes.template" position="0 4 -8"></a-entity>
-              <a-entity template="src: cubes.template" position="4 0 -8"></a-entity>
-              <!-- <a-animation attribute="rotation" dur="2000" to="0 360 0" repeat="indefinite"></a-animation> -->
-          </a-entity>
-  <!--         <a-entity material="color: red" text="text: What's up What's up What's up What's up" position="0 0 -10" size="8" color="white"> -->
-          </a-entity>
-          <!--         <a-sphere position="0 180 -200" radius="64.990" color="orange">
-              <a-animation attribute="material.color" from="orange" to="red" dur="2000"></a-animation>
+<body>
+    <a-scene>
+        <a-camera position="0 0 0">
+            <a-cursor color="white" fuse="true" timeout="10"></a-cursor>
+            <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser -->
+        </a-camera>
+        <a-entity>
+            <a-entity template="src: cubes.template" position="-4 0 -8"></a-entity>
+            <a-entity template="src: cubes.template" position="0 4 -8"></a-entity>
+            <a-entity template="src: cubes.template" position="4 0 -8"></a-entity>
+            <!-- <a-animation attribute="rotation" dur="2000" to="0 360 0" repeat="indefinite"></a-animation> -->
+        </a-entity>
+        <a-entity material="color: white" text="text: What's up What's up What's up What's up" position="0 0 -10" size="8">
+        </a-entity>
+        <!--         <a-sphere position="0 180 -200" radius="64.990" color="orange">
+              <a-animation attribute="material.color" from="blue" to="red" dur="2000"></a-animation>
           </a-sphere> -->
-          <a-entity>
-              <a-entity template="src: planet.template" position="0 180 -280"></a-entity>
-          </a-entity>
-          <!-- <a-ring color="teal" position="0 180 -400" radius-inner="3.000" radius-outer="10.000"></a-ring> -->
-          <a-sphere position="0 180 -400" radius="2.440" color="chocolate" cursor-listener></a-sphere>
-          <!--Mercury-->
-          <a-sphere position="280 180 -280" radius="6.052" color="gold" cursor-listener></a-sphere>
-          <!--Venus-->
-          <a-sphere position="400 180 0" radius="6.378" color="dodgerblue" cursor-listener></a-sphere>
-          <!--Earth-->
-          <a-sphere position="280 180 280" radius="3.397" color="orangered" cursor-listener></a-sphere>
-          <!--Mars-->
-          <a-sphere position="0 180 400" radius="71.492" color="peru" cursor-listener></a-sphere>
-          <!--Jupiter-->
-          <a-sphere position="-280 180 -280" radius="60.368" color="darkkhaki" cursor-listener></a-sphere>
-          <!--Saturn-->
-          <a-sphere position="-400 180 0" radius="25.559" color="aliceblue" cursor-listener></a-sphere>
-          <!--Uranus-->
-          <a-sphere position="-280 180 280" radius="24.766" color="mediumblue" cursor-listener></a-sphere>
-          <!--Neptune-->
-          <!-- <a-sky color="black"></a-sky> -->
-          <a-sky src="img/NightSky.jpg"></a-sky>
-      </a-scene>
-  </body>
+        <a-entity>
+            <a-entity template="src: planet.template" position="0 180 -280"></a-entity>
+        </a-entity>
+        <!-- <a-ring color="teal" position="0 180 -400" radius-inner="3.000" radius-outer="10.000"></a-ring> -->
+        <!--Mercury-->
+        <a-sphere position="0 180 -400" radius="2.440" src="img/2k_mercury.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-sphere>
+        <!--Venus-->
+        <a-sphere position="280 180 -280" radius="6.052" src="img/2k_venus_surface.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
+        </a-sphere>
+        <!--Earth-->
+        <a-sphere position="400 180 0" radius="6.378" src="img/2k_earth_daymap.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
+        </a-sphere>
+        <!--Mars-->
+        <a-sphere position="280 180 280" radius="3.397" src="img/2k_mars.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
+        </a-sphere>
+        <!--Jupiter-->
+        <a-sphere position="0 180 400" radius="71.492" src="img/Txtr-Jupiter.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
+        </a-sphere>
+        <!--Saturn-->
+        <a-sphere position="-280 180 -280" radius="60.368" src="img/2k_saturn.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="1000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
+        </a-sphere>
+        <!--Uranus-->
+        <a-sphere position="-400 180 0" radius="25.559" src="img/2k_uranus.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
+        </a-sphere>
+        <!--Neptune-->
+        <a-sphere position="-280 180 280" radius="24.766" src="img/2k_neptune.jpg" cursor-listener>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
+        </a-sphere>
+        <!-- <a-sky color="black"></a-sky> -->
+        <a-sky src="img/NightSky.jpg"></a-sky>
+    </a-scene>
+</body>
 
 </html>
