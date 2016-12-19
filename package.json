@@ -1,6 +1,6 @@
 {
   "name": "hello-worlds",
-  "description": "Started from Boilerplate with A-Frame's 'Hello, World!' of WebVR.",
+  "description": "Started from A-Frame Boilerplate 'Hello, World!' (WebVR).",
   "version": "0.3.0",
   "license": "MIT",
   "scripts": {
