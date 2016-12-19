@@ -10,35 +10,47 @@
       <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
       <script src="cursorListener.js"></script>
   </head>
+
   <body>
-    <a-scene>
-
-      <a-camera position="0 0 0">
-        <a-cursor color="white" fuse="true" timeout="10"></a-cursor>
-        <!--By default on desktop, fuse = false, ie need click. So make it true to see how it would be on mobile-->
-      </a-camera>
-
-      <a-entity>
+      <a-scene>
+          <a-camera position="0 0 0">
+              <a-cursor color="white" fuse="true" timeout="10"></a-cursor>
+              <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser -->
+          </a-camera>
+          <a-entity>
               <a-entity template="src: cubes.template" position="-4 0 -8"></a-entity>
               <a-entity template="src: cubes.template" position="0 4 -8"></a-entity>
               <a-entity template="src: cubes.template" position="4 0 -8"></a-entity>
-            <!--  <a-animation attribute="rotation" dur="2000" to="0 360 0"
-                           repeat="indefinite"></a-animation>-->
-      </a-entity>
-
-      <a-entity>
-              <a-entity template="src: planet.template" position="0 0 -280"></a-entity>
-      </a-entity>
-
-      <a-sphere position="0 0 -400" radius="2.440" color="brown" cursor-listener></a-sphere><!--Mercury-->
-      <a-sphere position="280 0 -280" radius="6.052" color="yellow" cursor-listener></a-sphere><!--Venus-->
-      <a-sphere position="400 0 0" radius="6.378" color="blue" cursor-listener></a-sphere><!--Earth-->
-      <a-sphere position="280 0 280" radius="3.397" color="red" cursor-listener></a-sphere><!--Mars-->
-      <a-sphere position="0 0 400" radius="71.492" color="grey" cursor-listener></a-sphere><!--Jupiter-->
-      <a-sphere position="-280 0 -280" radius="60.368" color="yellow" cursor-listener></a-sphere><!--Saturn-->
-      <a-sphere position="-400 0 0" radius="25.559" color="green" cursor-listener></a-sphere><!--Uranus-->
-      <a-sphere position="-280 0 280" radius="24.766" color="blue" cursor-listener></a-sphere><!--Neptune-->
-      <a-sky color="black"></a-sky>
-    </a-scene>
+              <!-- <a-animation attribute="rotation" dur="2000" to="0 360 0" repeat="indefinite"></a-animation> -->
+          </a-entity>
+  <!--         <a-entity material="color: red" text="text: What's up What's up What's up What's up" position="0 0 -10" size="8" color="white"> -->
+          </a-entity>
+          <!--         <a-sphere position="0 180 -200" radius="64.990" color="orange">
+              <a-animation attribute="material.color" from="orange" to="red" dur="2000"></a-animation>
+          </a-sphere> -->
+          <a-entity>
+              <a-entity template="src: planet.template" position="0 180 -280"></a-entity>
+          </a-entity>
+          <!-- <a-ring color="teal" position="0 180 -400" radius-inner="3.000" radius-outer="10.000"></a-ring> -->
+          <a-sphere position="0 180 -400" radius="2.440" color="chocolate" cursor-listener></a-sphere>
+          <!--Mercury-->
+          <a-sphere position="280 180 -280" radius="6.052" color="gold" cursor-listener></a-sphere>
+          <!--Venus-->
+          <a-sphere position="400 180 0" radius="6.378" color="dodgerblue" cursor-listener></a-sphere>
+          <!--Earth-->
+          <a-sphere position="280 180 280" radius="3.397" color="orangered" cursor-listener></a-sphere>
+          <!--Mars-->
+          <a-sphere position="0 180 400" radius="71.492" color="peru" cursor-listener></a-sphere>
+          <!--Jupiter-->
+          <a-sphere position="-280 180 -280" radius="60.368" color="darkkhaki" cursor-listener></a-sphere>
+          <!--Saturn-->
+          <a-sphere position="-400 180 0" radius="25.559" color="aliceblue" cursor-listener></a-sphere>
+          <!--Uranus-->
+          <a-sphere position="-280 180 280" radius="24.766" color="mediumblue" cursor-listener></a-sphere>
+          <!--Neptune-->
+          <!-- <a-sky color="black"></a-sky> -->
+          <a-sky src="img/NightSky.jpg"></a-sky>
+      </a-scene>
   </body>
+
 </html>
