@@ -13,9 +13,15 @@
 
 <body>
     <a-scene>
-        <a-camera position="0 0 0">
-            <a-cursor color="white" fuse="true" timeout="10"></a-cursor>
-            <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser -->
+        <a-camera position="0 20 0">
+            <a-cursor color="palegreen" fuse="true" timeout="2000" geometry="primitive: ring; radiusOuter: 0.005; radiusInner: 0.004;">
+                <!-- begin="click" -->
+                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="4 4 4" dur="880"></a-animation>
+                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="color" fill="forwards" from="palegreen" to="red" dur="880"></a-animation>
+                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="color" fill="forwards" from="red" to="palegreen" dur="280"></a-animation>
+                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="4 4 4" to="1 1 1" dur="280"></a-animation>
+            </a-cursor>
+            <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
         </a-camera>
         <a-entity>
             <a-entity template="src: cubes.template" position="-4 0 -8"></a-entity>
@@ -25,6 +31,7 @@
         </a-entity>
         <a-entity material="color: white" text="text: What's up What's up What's up What's up" position="0 0 -10" size="8">
         </a-entity>
+        <!-- <a-entity light="type: spot; angle: 45; target: #jupiter;"></a-entity> -->
         <!--         <a-sphere position="0 180 -200" radius="64.990" color="orange">
               <a-animation attribute="material.color" from="blue" to="red" dur="2000"></a-animation>
           </a-sphere> -->
