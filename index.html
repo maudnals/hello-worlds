@@ -15,7 +15,7 @@
 <body>
     <a-scene>
         <a-camera position="0 20 0">
-            <a-cursor color="palegreen" fuse="true" fuse-timeout="4000" geometry="primitive: ring; radiusOuter: 0.005; radiusInner: 0.004;">
+            <a-cursor color="palegreen" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.005; radiusInner: 0.004;">
                 <!-- begin="click" -->
                 <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="4 4 4" dur="880"></a-animation>
                 <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="color" fill="forwards" from="palegreen" to="red" dur="880"></a-animation>
@@ -30,8 +30,9 @@
             <a-entity template="src: cubes.template" position="4 0 -8"></a-entity>
             <!-- <a-animation attribute="rotation" dur="2000" to="0 360 0" repeat="indefinite"></a-animation> -->
         </a-entity>
-        <a-entity material="color: white" text="text: What's up What's up What's up What's up" position="0 0 -10" size="8">
-        </a-entity>
+<!--         <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
+            <a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>
+        </a-entity> -->
         <!-- <a-entity light="type: spot; angle: 45; target: #jupiter;"></a-entity> -->
         <!--         <a-sphere position="0 180 -200" radius="64.990" color="orange">
               <a-animation attribute="material.color" from="blue" to="red" dur="2000"></a-animation>
@@ -41,9 +42,15 @@
         </a-entity>
         <!-- <a-ring color="teal" position="0 180 -400" radius-inner="3.000" radius-outer="10.000"></a-ring> -->
         <!--Mercury-->
-        <a-sphere id="mercury" class="planet" position="0 180 -400" radius="2.440" src="img/2k_mercury.jpg" cursor-listener>
-            <a-animation attribute="rotation" dur="58000" to="0 360 0" repeat="indefinite"></a-animation>
-        </a-sphere>
+        <a-entity id="mercury-entity">
+            <a-sphere id="mercury" class="planet" position="0 180 -400" radius="2.440" src="img/2k_mercury.jpg" cursor-listener>
+                <a-animation attribute="rotation" dur="58000" to="0 360 0" repeat="indefinite">
+                </a-animation>
+            </a-sphere>
+            <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
+                <a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>
+            </a-entity>
+        </a-entity>
         <!--Venus-->
         <a-sphere id="venus" class="planet" position="280 180 -280" radius="6.052" src="img/2k_venus_surface.jpg" cursor-listener>
             <a-animation attribute="rotation" dur="243000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>

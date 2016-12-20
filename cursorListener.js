@@ -20,7 +20,7 @@ let state = {
 };
 
 /* ------------------
-HELPERS
+UTILS
 ------------------ */
 
 function getOtherPlanets() {
@@ -42,20 +42,33 @@ function checkObserving() {
 }
 
 function updatePlanets() {
-    if (state.currentPlanet === 'none') {
+    if (checkObserving()) {
+        // Otherwise hide all other planets
+        let otherPlanets = getOtherPlanets();
+        otherPlanets.forEach(p => {
+            p.setAttribute('visible', 'false');
+            //p.emit('hidePlanet');
+        });
+    } else {
         // If no planet is current (= none on focus): make all visible
         let allPlanets = getAllPlanets();
         allPlanets.forEach(p => {
             p.setAttribute('visible', 'true');
             //p.emit('showPlanet');
         });
+    }
+}
 
+function updateText() {
+    if (checkObserving()) {
+        document.querySelector('#' + state.currentPlanet.id + '-entity>.planet-name').setAttribute('visible', 'true');
     } else {
-        // Otherwise hide all other planets
-        let otherPlanets = getOtherPlanets();
-        otherPlanets.forEach(p => {
-            p.setAttribute('visible', 'false');
-            //p.emit('hidePlanet');
+        let allPlanets = getAllPlanets();
+        allPlanets.forEach(p => {
+            let planetName = document.querySelector('#' + p.id + '-entity>.planet-name');
+            if (planetName) {
+                planetName.setAttribute('visible', 'false');
+            }
         });
     }
 }
@@ -72,21 +85,29 @@ function updateSky() {
 function updateView() {
     updateSky();
     updatePlanets();
+    updateText();
+
+    //document.querySelector('#mercury').emit('showPlanetName');
+
 }
+
+
+/* ------------------
+MAIN
+------------------ */
 
 AFRAME.registerComponent('cursor-listener', {
 
     init: function() {
-
-        //const cursor = document.querySelector('a-cursor');
         const sky = document.querySelector('a-sky');
-
         //console.log(this);
 
         this.el.addEventListener('mouseleave', function() {
             state.currentPlanet = 'none';
             updateView();
         });
+
+        // just on hover: showPlanetName
 
         this.el.addEventListener('click', function() {
             // this.el is the entity (= the sphere)
@@ -96,9 +117,7 @@ AFRAME.registerComponent('cursor-listener', {
             console.log(this.id + ' is stared at or clicked on.');
 
             if (planets[this.id]) {
-
                 state.currentPlanet = planets[this.id];
-
                 // let skyAnimation = document.querySelector('#skyAnimation');
                 // skyAnimation.setAttribute('from', 'whitesmoke');
                 // skyAnimation.setAttribute('to', planets[this.id].color);
