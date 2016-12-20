@@ -42,8 +42,8 @@
         </a-entity>
         <!-- <a-ring color="teal" position="0 180 -400" radius-inner="3.000" radius-outer="10.000"></a-ring> -->
         <!--Mercury-->
-        <a-entity id="mercury-entity">
-            <a-sphere id="mercury" class="planet" position="0 180 -400" radius="2.440" src="img/2k_mercury.jpg" cursor-listener>
+        <a-entity id="mercury-entity" class='planet-entity'>
+            <a-sphere id="mercury" class="planet" cursor-listener>
                 <a-animation attribute="rotation" dur="58000" to="0 360 0" repeat="indefinite">
                 </a-animation>
             </a-sphere>
@@ -52,34 +52,32 @@
             </a-entity>
         </a-entity>
         <!--Venus-->
-        <a-sphere id="venus" class="planet" position="280 180 -280" radius="6.052" src="img/2k_venus_surface.jpg" cursor-listener>
+        <a-sphere id="venus" class="planet" cursor-listener>
             <a-animation attribute="rotation" dur="243000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
             <a-animation begin="click" attribute="position" from="280 180 -280" to="14 10 -14" dur="2000" fill="both"></a-animation>
         </a-sphere>
         <!--Earth-->
-        <a-sphere id="earth" class="planet" position="400 180 0" radius="6.378" src="img/2k_earth_daymap.jpg" cursor-listener>
+        <a-sphere id="earth" class="planet" cursor-listener>
             <a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
-            <!--            <a-animation attribute="visible" begin="showPlanet" to="true" dur="2000"></a-animation>
-            <a-animation attribute="visible" begin="hidePlanet" to="false" dur="2000"></a-animation> -->
         </a-sphere>
         <!--Mars-->
-        <a-sphere id="mars" class="planet" position="280 180 280" radius="3.397" src="img/2k_mars.jpg" cursor-listener>
+        <a-sphere id="mars" class="planet" cursor-listener>
             <a-animation attribute="rotation" dur="10200" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
         </a-sphere>
         <!--Jupiter-->
-        <a-sphere id="jupiter" class="planet" position="0 180 400" radius="71.492" src="img/Txtr-Jupiter.jpg" cursor-listener>
+        <a-sphere id="jupiter" class="planet" cursor-listener>
             <a-animation attribute="rotation" dur="4100" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
         </a-sphere>
         <!--Saturn-->
-        <a-sphere id="saturn" class="planet" position="-280 180 -280" radius="60.368" src="img/2k_saturn.jpg" cursor-listener>
+        <a-sphere id="saturn" class="planet" cursor-listener>
             <a-animation attribute="rotation" dur="4400" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
         </a-sphere>
         <!--Uranus-->
-        <a-sphere id="uranus" class="planet" position="-400 180 0" radius="25.559" src="img/2k_uranus.jpg" cursor-listener>
+        <a-sphere id="uranus" class="planet" cursor-listener>
             <a-animation attribute="rotation" dur="7000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
         </a-sphere>
         <!--Neptune-->
-        <a-sphere id="neptune" class="planet" position="-280 180 280" radius="24.766" src="img/2k_neptune.jpg" cursor-listener>
+        <a-sphere id="neptune" class="planet" cursor-listener>
             <a-animation attribute="rotation" dur="6700" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
         </a-sphere>
         <!-- <a-sky color="black"></a-sky> -->

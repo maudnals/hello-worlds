@@ -1,16 +1,32 @@
 // Todo:
 // Fix click trigger (too fast! see what happens when just hovering a planet)
 // Add good cursor transitions
-// Add good object transitions when selected
-// Remove transitions when relevant 
 // Display text on click
+// Move planet closer (later)
+
+// #1 Global layout
+// #2 Cursor feedback
+// #3 Selected planet: immersion and display text
+
+// Learnings: 
+// everything must be an entity
+// animations are tricky. esp .visibility
+// document.addEventListener("DOMContentLoaded"
+
 
 // Hover: cursor changes and planet display
 // Click: info
-//const sky = document.querySelector('a-sky');
+//const sky = document.querySelector('a-sky'); doesn't work when called globally -> self-calling anonymous function?
 
 // function updateState() {
 // }
+
+// Cool animation that doesn't work:
+// let skyAnimation = document.querySelector('#skyAnimation');
+// skyAnimation.setAttribute('from', 'whitesmoke');
+// skyAnimation.setAttribute('to', planets[this.id].color);
+// console.log("skyAnimation", skyAnimation);
+// sky.setAttribute('color', planets[this.id].color);
 
 
 const radiusFocus = 120;
@@ -86,15 +102,29 @@ function updateView() {
     updateSky();
     updatePlanets();
     updateText();
-
     //document.querySelector('#mercury').emit('showPlanetName');
-
 }
 
+function intializeAll() {
+    var planetEntities = getAllPlanets();
+    planetEntities.forEach(function(p) {
+        // should be replaced by planet-sphere
+        let planetId = p.getAttribute('id');
+        console.log("planetId", planetId);
+        p.setAttribute('position', planets[p.id].position);
+        p.setAttribute('radius', planets[p.id].radius);
+        p.setAttribute('src', planets[p.id].texture);
+    });
+    //planetIdclass="planet" position="0 180 -400" radius="2.440" src="img/2k_mercury.jpg"
+}
 
 /* ------------------
 MAIN
 ------------------ */
+
+document.addEventListener("DOMContentLoaded", function() {
+    intializeAll();
+});
 
 AFRAME.registerComponent('cursor-listener', {
 
@@ -118,11 +148,6 @@ AFRAME.registerComponent('cursor-listener', {
 
             if (planets[this.id]) {
                 state.currentPlanet = planets[this.id];
-                // let skyAnimation = document.querySelector('#skyAnimation');
-                // skyAnimation.setAttribute('from', 'whitesmoke');
-                // skyAnimation.setAttribute('to', planets[this.id].color);
-                // console.log("skyAnimation", skyAnimation);
-                // sky.setAttribute('color', planets[this.id].color);
             }
 
             updateView();
