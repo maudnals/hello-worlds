@@ -8,5 +8,6 @@ This program is free software and is distributed under an [MIT License](LICENSE)
 
 ## Resources
 
-http://vrspace.jmvisualcreativity.es/
-http://codepen.io/anon/pen/dpmpJP
+* http://vrspace.jmvisualcreativity.es/  
+* http://codepen.io/anon/pen/dpmpJP  
+* https://github.com/aframevr/awesome-aframe +++++
