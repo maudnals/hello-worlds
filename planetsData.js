@@ -5,7 +5,8 @@ var planets = {
         position: '0 180 -400',
         radius: '2.440',
         texture: 'img/2k_mercury.jpg',
-        rotationPeriod: '58000'
+        rotationPeriod: '58000',
+        textPosition: '0 16 -28'
     },
     'venus': {
         id: 'venus',
@@ -13,7 +14,8 @@ var planets = {
         position: '280 180 -280',
         radius: '6.052',
         texture: 'img/2k_venus_surface.jpg',
-        rotationPeriod: '243000'
+        rotationPeriod: '243000',
+        textPosition: '20 16 -20'
     },
     'earth': {
         id: 'earth',
@@ -21,7 +23,8 @@ var planets = {
         position: '400 180 0',
         radius: '6.378',
         texture: 'img/2k_earth_daymap.jpg',
-        rotationPeriod: '10000'
+        rotationPeriod: '10000',
+        textPosition: '28 16 0'
     },
     'mars': {
         id: 'mars',
@@ -29,7 +32,8 @@ var planets = {
         position: '280 180 280',
         radius: '3.397',
         texture: 'img/2k_mars.jpg',
-        rotationPeriod: '10200'
+        rotationPeriod: '10200',
+        textPosition: '20 16 20'
     },
     'jupiter': {
         id: 'jupiter',
@@ -37,7 +41,8 @@ var planets = {
         position: '0 180 400',
         radius: '71.492',
         texture: 'img/Txtr-Jupiter.jpg',
-        rotationPeriod: '4100'
+        rotationPeriod: '4100',
+        textPosition: '0 16 28'
     },
     'saturn': {
         id: 'saturn',
@@ -45,7 +50,8 @@ var planets = {
         position: '-280 180 -280',
         radius: '60.368',
         texture: 'img/2k_saturn.jpg',
-        rotationPeriod: '4400'
+        rotationPeriod: '4400',
+        textPosition: '-20 16 -20'
     },
     'uranus': {
         id: 'uranus',
@@ -53,7 +59,8 @@ var planets = {
         position: '-400 180 0',
         radius: '25.559',
         texture: 'img/2k_uranus.jpg',
-        rotationPeriod: '7000'
+        rotationPeriod: '7000',
+        textPosition: '-28 16 0'
     },
     'neptune': {
         id: 'neptune',
@@ -61,7 +68,8 @@ var planets = {
         position: '-280 180 280',
         radius: '24.766',
         texture: 'img/2k_neptune.jpg',
-        rotationPeriod: '6700'
+        rotationPeriod: '6700',
+        textPosition: '-20 5 20'
     }
 };
 
