@@ -69,4 +69,4 @@ var planets = {
 var distance = 400;
 }*/
 /*initialize.js: for each planet in planets: launch template*/
-/*coordinate: each planet's coordinates are the same as the neighbour but rotated*/
+/*coordinate: each planet's coordinates are the same as their neighbor but simply rotated*/

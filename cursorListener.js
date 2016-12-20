@@ -106,16 +106,26 @@ function updateView() {
 }
 
 function intializeAll() {
-    var planetEntities = getAllPlanets();
+    let planetEntities = getAllPlanets();
     planetEntities.forEach(function(p) {
         // should be replaced by planet-sphere
         let planetId = p.getAttribute('id');
-        console.log("planetId", planetId);
+        console.log('planetId', planetId);
         p.setAttribute('position', planets[p.id].position);
         p.setAttribute('radius', planets[p.id].radius);
         p.setAttribute('src', planets[p.id].texture);
+
+        // Or let e = document.createElement('a-animation');
+        // then set its attributes
+        // then append it
+        // planets[p.id].rotationPeriod;
+        p.innerHTML = '<a-animation attribute="rotation" dur="' 
+        + planets[p.id].rotationPeriod 
+        + '" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>';
+        //p.appendChild(e);
     });
-    //planetIdclass="planet" position="0 180 -400" radius="2.440" src="img/2k_mercury.jpg"
+    // Append animation
+    //<a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>
 }
 
 /* ------------------
