@@ -1,19 +1,35 @@
+// Todo:
+// Fix click trigger (too fast! see what happens when just hovering a planet)
+// Add good cursor transitions
+// Add good object transitions when selected
+// Remove transitions when relevant 
+// Display text on click
+
+// Hover: cursor changes and planet display
+// Click: info
+//const sky = document.querySelector('a-sky');
+
+// function updateState() {
+// }
+
+
 const radiusFocus = 120;
 
 let state = {
-    focusedPlanet: "none"
+    currentPlanet: 'none'
 };
 
-function updateState() {
+// Helpers
 
+function getOtherPlanets() {
+    let currentPlanetId = state.currentPlanet.id;
+    let otherPlanets = document.querySelectorAll('.planet:not(#' + currentPlanetId + ')');
+    return otherPlanets;
 }
 
-
-
-// Hover: 
-// cursor changes and planet halo
-
-// Click: info
+function getAllPlanets() {
+    return document.querySelectorAll('.planet');
+}
 
 
 AFRAME.registerComponent('cursor-listener', {
@@ -21,38 +37,57 @@ AFRAME.registerComponent('cursor-listener', {
     init: function() {
 
         const cursor = document.querySelector('a-cursor');
+        const sky = document.querySelector('a-sky');
 
         console.log(this);
 
-        this.el.addEventListener('mouseleave', function(){
-        	// console.log("leave");
-        	// 	if (cursor) {
-        	// 		cursor.setAttribute('color', 'palegreen');
-        	// 	}
-        		// cursor
-        	 //              <a-animation begin="cursor-fusing" easing="ease-out-back" attribute="scale"
-          //      fill="forwards" from="1 1 1" to="4 4 4" dur="880"></a-animation>
-          //     <a-animation begin="cursor-fusing" easing="ease-out-back" attribute="color"
-          //      fill="forwards" from="palegreen" to="red" dur="880"></a-animation>
+        this.el.addEventListener('mouseleave', function() {
+            state.currentPlanet = 'none';
+            sky.emit('resetSky');
+            updateVisibility();
         });
 
         this.el.addEventListener('click', function() {
-            // this.el is the entity
+            // this.el is the entity (= the sphere)
             // this becomes this.el
             // click is like gaze
 
-            this.setAttribute('color', 'white'); // this is the sphere... ie the entity
+            console.log(this.id);
 
-            // Todo:
-            // Add good cursor transitions
-            // Add good object transitions when selected
-            // Remove transitions when relevant 
-            // Display text on click
+            //this.setAttribute('color', 'white'); // this is the sphere... ie the entity
 
-            // this.setAttribute('radius', radiusFocus);
-            //cursor.setAttribute('color', 'red');
+
+            if (planets[this.id]) {
+
+                state.currentPlanet = planets[this.id];
+
+                // let skyAnimation = document.querySelector('#skyAnimation');
+                // skyAnimation.setAttribute('from', 'whitesmoke');
+                // skyAnimation.setAttribute('to', planets[this.id].color);
+                // console.log("skyAnimation", skyAnimation);
+                // sky.setAttribute('color', planets[this.id].color);
+
+                sky.emit('darkenSky');
+                updateVisibility();
+            }
+
         });
     }
 });
 
-// Init Animations
+function updateVisibility() {
+    if (state.currentPlanet === 'none') {
+        // If no planet is current (= none on focus): make all visible
+        let allPlanets = getAllPlanets();
+        allPlanets.forEach(p => {
+            p.setAttribute('visible', 'true');
+        });
+
+    } else {
+        // Otherwise hide all other planets
+        let otherPlanets = getOtherPlanets();
+        otherPlanets.forEach(p => {
+            p.setAttribute('visible', 'false');
+        });
+    }
+}

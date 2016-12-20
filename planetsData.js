@@ -1,18 +1,38 @@
-var mercury = {
-  name: "Mercury",
-  color: "brown",
-  radius: "2.440",
-  position: "0 0 -400"
+var planets = {
+    'mercury': {
+        id: 'mercury',
+        color: 'slategrey'
+    },
+    'venus': {
+        id: 'venus',
+       	color: 'darkorange'
+        //color: 'whitesmoke'
+    },
+    'earth': {
+        id: 'earth',
+        color: '#0054FF'
+    },
+    'mars': {
+        id: 'mars',
+        color: 'orangered'
+    },
+    'jupiter': {
+        id: 'jupiter',
+        color: 'burlywood'
+    },
+    'saturn': {
+        id: 'saturn',
+        color: 'wheat'
+    },
+    'uranus': {
+        id: 'uranus',
+        color: 'powderblue'
+    },
+    'neptune': {
+        id: 'neptune',
+        color: 'royalblue'
+    }
 };
-
-var venus = {
-  name: "Venus",
-  color: "yellow",
-  radius: "6.052",
-  position="280 0 -280"
-}
-
-var planets=[mercury, venus];
 
 /*function setPosition(){
 var distance = 400;
