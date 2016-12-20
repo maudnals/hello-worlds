@@ -19,7 +19,9 @@ let state = {
     currentPlanet: 'none'
 };
 
-// Helpers
+/* ------------------
+HELPERS
+------------------ */
 
 function getOtherPlanets() {
     let currentPlanetId = state.currentPlanet.id;
@@ -31,20 +33,59 @@ function getAllPlanets() {
     return document.querySelectorAll('.planet');
 }
 
+/* ------------------
+DISPLAY
+------------------ */
+
+function checkObserving() {
+    return !(state.currentPlanet === 'none');
+}
+
+function updatePlanets() {
+    if (state.currentPlanet === 'none') {
+        // If no planet is current (= none on focus): make all visible
+        let allPlanets = getAllPlanets();
+        allPlanets.forEach(p => {
+            p.setAttribute('visible', 'true');
+            //p.emit('showPlanet');
+        });
+
+    } else {
+        // Otherwise hide all other planets
+        let otherPlanets = getOtherPlanets();
+        otherPlanets.forEach(p => {
+            p.setAttribute('visible', 'false');
+            //p.emit('hidePlanet');
+        });
+    }
+}
+
+function updateSky() {
+    const sky = document.querySelector('a-sky');
+    if (checkObserving()) {
+        sky.emit('darkenSky');
+    } else {
+        sky.emit('resetSky');
+    }
+}
+
+function updateView() {
+    updateSky();
+    updatePlanets();
+}
 
 AFRAME.registerComponent('cursor-listener', {
 
     init: function() {
 
-        const cursor = document.querySelector('a-cursor');
+        //const cursor = document.querySelector('a-cursor');
         const sky = document.querySelector('a-sky');
 
-        console.log(this);
+        //console.log(this);
 
         this.el.addEventListener('mouseleave', function() {
             state.currentPlanet = 'none';
-            sky.emit('resetSky');
-            updateVisibility();
+            updateView();
         });
 
         this.el.addEventListener('click', function() {
@@ -52,10 +93,7 @@ AFRAME.registerComponent('cursor-listener', {
             // this becomes this.el
             // click is like gaze
 
-            console.log(this.id);
-
-            //this.setAttribute('color', 'white'); // this is the sphere... ie the entity
-
+            console.log(this.id + ' is stared at or clicked on.');
 
             if (planets[this.id]) {
 
@@ -66,28 +104,9 @@ AFRAME.registerComponent('cursor-listener', {
                 // skyAnimation.setAttribute('to', planets[this.id].color);
                 // console.log("skyAnimation", skyAnimation);
                 // sky.setAttribute('color', planets[this.id].color);
-
-                sky.emit('darkenSky');
-                updateVisibility();
             }
 
+            updateView();
         });
     }
 });
-
-function updateVisibility() {
-    if (state.currentPlanet === 'none') {
-        // If no planet is current (= none on focus): make all visible
-        let allPlanets = getAllPlanets();
-        allPlanets.forEach(p => {
-            p.setAttribute('visible', 'true');
-        });
-
-    } else {
-        // Otherwise hide all other planets
-        let otherPlanets = getOtherPlanets();
-        otherPlanets.forEach(p => {
-            p.setAttribute('visible', 'false');
-        });
-    }
-}
