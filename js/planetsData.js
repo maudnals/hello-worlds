@@ -1,10 +1,10 @@
-const textPosition = '-1 -2 -15';
+const textPosition = '-1 -3 -15';
 
 let planets = {
     'mercury': {
         id: 'mercury',
         color: 'slategrey',
-        position: '-180 180 -400',
+        defaultPosition: '-180 180 -400',
         radius: '2.440',
         texture: 'img/2k_mercury.jpg',
         rotationPeriod: '58000',
@@ -13,7 +13,7 @@ let planets = {
     'venus': {
         id: 'venus',
         color: 'darkorange',
-        position: '-150 180 -400',
+        defaultPosition: '-150 180 -400',
         radius: '6.052',
         texture: 'img/2k_venus_surface.jpg',
         rotationPeriod: '243000',
@@ -22,7 +22,7 @@ let planets = {
     'earth': {
         id: 'earth',
         color: '#0054FF',
-        position: '25 2010 -35',
+        defaultPosition: '25 2010 -35',
         radius: '1.0',
         // originial 6.378 = 0.6378 but too small 
         texture: 'img/2k_earth_daymap.jpg',
@@ -32,7 +32,7 @@ let planets = {
     'mars': {
         id: 'mars',
         color: 'orangered',
-        position: '30 2010 -30',
+        defaultPosition: '30 2010 -30',
         radius: '0.8',
         // originial 3.397 = 0.3397 but too small 
         texture: 'img/2k_mars.jpg',
@@ -42,7 +42,7 @@ let planets = {
     'jupiter': {
         id: 'jupiter',
         color: 'burlywood',
-        position: '40 2010 -20',
+        defaultPosition: '40 2010 -20',
         radius: '7.1492',
         texture: 'img/Txtr-Jupiter.jpg',
         rotationPeriod: '4100',
@@ -51,7 +51,7 @@ let planets = {
     'saturn': {
         id: 'saturn',
         color: 'wheat',
-        position: '60 2010 -10',
+        defaultPosition: '60 2010 -10',
         radius: '6.0368',
         texture: 'img/2k_saturn.jpg',
         rotationPeriod: '4400',
@@ -61,7 +61,7 @@ let planets = {
     'uranus': {
         id: 'uranus',
         color: 'powderblue',
-        position: '270 180 -400',
+        defaultPosition: '270 180 -400',
         radius: '25.559',
         texture: 'img/2k_uranus.jpg',
         rotationPeriod: '7000',
@@ -70,7 +70,7 @@ let planets = {
     'neptune': {
         id: 'neptune',
         color: 'royalblue',
-        position: '340 180 -400',
+        defaultPosition: '340 180 -400',
         radius: '24.766',
         texture: 'img/2k_neptune.jpg',
         rotationPeriod: '6700',

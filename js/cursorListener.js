@@ -21,6 +21,9 @@
 CURSOR LISTENER
 ------------------ */
 
+// when ready:
+
+
 // let cursorListener = function() {}
 AFRAME.registerComponent('cursor-listener', {
 
@@ -28,18 +31,29 @@ AFRAME.registerComponent('cursor-listener', {
         console.log("test", this);
 
         this.el.addEventListener('mouseleave', function() {
-            state.currentPlanet = 'none';
-            renderer().updateView();
+            // state.currentPlanet = 'none';
+            // renderer().updateView();
         });
 
         // just on hover: showPlanetName
+
+        let that = this.el;
 
         this.el.addEventListener('click', function() {
             // this.el is the entity (= the sphere)
             // this becomes this.el
             // click is like gaze
 
-            console.log(this.id + ' is stared at or clicked on.');
+            console.log('click', that);
+            //console.log(that);
+            //console.log(document.querySelector('#leaveButton'));
+            
+            if (that === document.querySelector('#leaveButton')){
+                state.currentPlanet = 'none';
+                renderer().updateView();
+            }
+
+            //console.log(this.id + ' is stared at or clicked on.');
 
             if (planets[this.id]) {
                 state.currentPlanet = planets[this.id];

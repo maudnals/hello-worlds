@@ -20,7 +20,7 @@
 <body>
     <a-scene>
         <a-camera>
-<!--         <a-box src="#boxTexture" position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
+            <!--         <a-box src="#boxTexture" position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
             <a-cursor color="palegreen" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.005; radiusInner: 0.004;">
                 <!-- begin="click" -->
                 <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="4 4 4" dur="880"></a-animation>
@@ -28,6 +28,7 @@
                 <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="color" fill="forwards" from="red" to="palegreen" dur="280"></a-animation>
                 <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="4 4 4" to="1 1 1" dur="280"></a-animation>
             </a-cursor>
+            <!--          <a-plane color="darkslategrey" height="2" width="6" position="0 -10 -15"></a-plane> -->
             <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
         </a-camera>
         <a-entity>
@@ -50,7 +51,7 @@
         <a-entity id="mercury-entity" class="planet-entity">
             <a-sphere id="mercury" class="planet-sphere" cursor-listener>
             </a-sphere>
-<!--             <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
+            <!--             <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
                 <a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>
             </a-entity> -->
         </a-entity>
@@ -91,6 +92,13 @@
             <a-sphere id="neptune" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
+
+
+        <a-entity material="color: red" text="text: OK" position="20 1996 -10" rotation="0 297 0" visible="false" id="leaveButton" cursor-listener>
+            <!--             dur="2000" -->
+        </a-entity>
+
+
         <!-- <a-sky color="black"></a-sky> -->
         <!-- <a-animation id="skyAnimation" attribute="color" begin="changeColor" from="whitesmoke" to="red" dur="2000" fill="forwards"> -->
         <!--           </a-animation> -->

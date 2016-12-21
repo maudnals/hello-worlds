@@ -27,8 +27,10 @@ let renderer = function() {
 
         //text.setAttribute('id', 'planet-name-' + planets[p.id].id);
         if (utils().checkObserving()) {
+            document.querySelector('#leaveButton').setAttribute('visible', 'true');
             document.querySelector('#planet-name-' + state.currentPlanet.id).setAttribute('visible', 'true');
         } else {
+            document.querySelector('#leaveButton').setAttribute('visible', 'false');
             let allPlanets = utils().getAllPlanets();
             allPlanets.forEach(p => {
                 let planetName = document.querySelector('#planet-name-' + p.id);

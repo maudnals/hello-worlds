@@ -10,7 +10,7 @@ let planetGenerator = function() {
             let planetId = p.getAttribute('id');
             console.log('planetId', planetId);
             // Set the sphere's essential attributes
-            p.setAttribute('position', planets[p.id].position);
+            p.setAttribute('position', planets[p.id].defaultPosition);
             p.setAttribute('radius', planets[p.id].radius);
             p.setAttribute('src', planets[p.id].texture);
             // Set rotation animation
@@ -28,7 +28,7 @@ let planetGenerator = function() {
             let moveTowardsAnimation = document.createElement('a-animation');
             moveTowardsAnimation.setAttribute('begin', 'click');
             moveTowardsAnimation.setAttribute('attribute', 'position');
-            moveTowardsAnimation.setAttribute('from', planets[p.id].position);
+            moveTowardsAnimation.setAttribute('from', planets[p.id].defaultPosition);
             moveTowardsAnimation.setAttribute('to', '20 2010 -10');
             moveTowardsAnimation.setAttribute('dur', '2000');
             moveTowardsAnimation.setAttribute('fill', 'both');
@@ -54,7 +54,7 @@ let planetGenerator = function() {
             text.setAttribute('visible', 'false');
             text.setAttribute('id', 'planet-name-' + planets[p.id].id);
 
-            text.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
+            //text.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
 
             //let entity = document.querySelector('#' + planetId + '-entity');
             //entity.append(text);
@@ -62,6 +62,25 @@ let planetGenerator = function() {
             let camera = document.querySelector('a-camera');
             camera.append(text);
 
+
+
+            let leaveButton = document.createElement('a-entity');
+            // leaveButton.setAttribute('material', 'color: green');
+            // leaveButton.setAttribute('text', 'text: ' + 'OK');
+            // leaveButton.setAttribute('position', '20 1996 -10');
+            // leaveButton.setAttribute('rotation', '0 297 0');
+            // leaveButton.setAttribute('visible', 'false');
+            // leaveButton.setAttribute('id', 'leaveButton');
+
+            //leaveButton.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
+            
+            // let entity = document.querySelector('#' + planetId + '-entity');
+            // entity.append(leaveButton);
+
+
+            
+            // console.log(entity);
+            // console.log('leaveButton appended to ' + entity);
 
 
             // let camera = document.querySelector('a-camera');
