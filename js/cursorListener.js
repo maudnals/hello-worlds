@@ -1,16 +1,11 @@
 // Todo today:
 // Refactor
-// Better init only based on data
+// Better init only based on data (not on dom classes)
+// Position generator
 // Click vs fuse - Display text on click
 // Layout: organize planets by cluster
+// Fix move transition
 // Enrich content
-
-
-
-// Tech learnings: 
-// Everything must be an entity
-// Animations (+ transitions) are tricky. esp .visibility
-// Document.addEventListener("DOMContentLoaded"
 
 // function updateState() {
 // }

@@ -29,7 +29,7 @@ let planetGenerator = function() {
             moveTowardsAnimation.setAttribute('begin', 'click');
             moveTowardsAnimation.setAttribute('attribute', 'position');
             moveTowardsAnimation.setAttribute('from', planets[p.id].position);
-            moveTowardsAnimation.setAttribute('to', '0 80 -250');
+            moveTowardsAnimation.setAttribute('to', '20 2010 -10');
             moveTowardsAnimation.setAttribute('dur', '2000');
             moveTowardsAnimation.setAttribute('fill', 'both');
 
@@ -51,7 +51,7 @@ let planetGenerator = function() {
             text.setAttribute('material', 'color: white');
             text.setAttribute('text', 'text: ' + planets[p.id].id);
             text.setAttribute('position', planets[p.id].textPosition);
-            text.setAttribute('visible', 'false');
+            text.setAttribute('visible', 'true');
 
             text.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
 

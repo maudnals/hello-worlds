@@ -6,7 +6,7 @@ var planets = {
         radius: '2.440',
         texture: 'img/2k_mercury.jpg',
         rotationPeriod: '58000',
-        textPosition: '-18 16 -28'
+        textPosition: '0 20 -28'
     },
     'venus': {
         id: 'venus',
@@ -20,8 +20,9 @@ var planets = {
     'earth': {
         id: 'earth',
         color: '#0054FF',
-        position: '-120 180 -400',
-        radius: '6.378',
+        position: '25 2010 -35',
+        radius: '1.0',
+        // originial 6.378 = 0.6378 but too small 
         texture: 'img/2k_earth_daymap.jpg',
         rotationPeriod: '10000',
         textPosition: '28 16 0'
@@ -29,8 +30,9 @@ var planets = {
     'mars': {
         id: 'mars',
         color: 'orangered',
-        position: '-90 180 -400',
-        radius: '3.397',
+        position: '30 2010 -30',
+        radius: '0.8',
+        // originial 3.397 = 0.3397 but too small 
         texture: 'img/2k_mars.jpg',
         rotationPeriod: '10200',
         textPosition: '20 16 20'
@@ -38,8 +40,8 @@ var planets = {
     'jupiter': {
         id: 'jupiter',
         color: 'burlywood',
-        position: '5 180 -400',
-        radius: '71.492',
+        position: '40 2010 -20',
+        radius: '7.1492',
         texture: 'img/Txtr-Jupiter.jpg',
         rotationPeriod: '4100',
         textPosition: '0 16 28'
@@ -47,12 +49,13 @@ var planets = {
     'saturn': {
         id: 'saturn',
         color: 'wheat',
-        position: '150 180 -400',
-        radius: '60.368',
+        position: '60 2010 -10',
+        radius: '6.0368',
         texture: 'img/2k_saturn.jpg',
         rotationPeriod: '4400',
         textPosition: '-20 16 -20'
-    },
+    }
+    ,
     'uranus': {
         id: 'uranus',
         color: 'powderblue',
