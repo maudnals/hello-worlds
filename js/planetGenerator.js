@@ -33,11 +33,22 @@ let planetGenerator = function() {
             moveTowardsAnimation.setAttribute('dur', '2000');
             moveTowardsAnimation.setAttribute('fill', 'both');
 
+
+
+            let moveBackwardsAnimation = document.createElement('a-animation');
+            moveBackwardsAnimation.setAttribute('begin', 'moveBack');
+            moveBackwardsAnimation.setAttribute('attribute', 'position');
+            moveBackwardsAnimation.setAttribute('from', '20 2010 -10');
+            moveBackwardsAnimation.setAttribute('to', planets[p.id].defaultPosition);
+            moveBackwardsAnimation.setAttribute('dur', '2000');
+            moveBackwardsAnimation.setAttribute('fill', 'both');
+
             //let camera = document.get..
             //let rotation = camera.getAttribute('rotation');
 
             p.append(rotationAnimation);
             p.append(moveTowardsAnimation);
+            p.append(moveBackwardsAnimation);
 
 
             // <a-animation begin="click" attribute="position" from="280 180 -280" to="14 10 -14" dur="2000" fill="both">
@@ -78,7 +89,7 @@ let planetGenerator = function() {
             // entity.append(leaveButton);
 
 
-            
+
             // console.log(entity);
             // console.log('leaveButton appended to ' + entity);
 

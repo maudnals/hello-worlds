@@ -2,7 +2,8 @@ let sky;
 const radiusFocus = 120;
 
 let state = {
-    currentPlanet: 'none'
+    currentPlanet: 'none',
+    lastCurrentPlanet: 'none'
 };
 
 // document.addEventListener("DOMContentLoaded", function() {

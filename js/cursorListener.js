@@ -49,6 +49,7 @@ AFRAME.registerComponent('cursor-listener', {
             //console.log(document.querySelector('#leaveButton'));
             
             if (that === document.querySelector('#leaveButton')){
+                state.lastCurrentPlanet = state.currentPlanet;
                 state.currentPlanet = 'none';
                 renderer().updateView();
             }

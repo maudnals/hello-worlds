@@ -20,6 +20,12 @@ let renderer = function() {
                 p.setAttribute('visible', 'true');
                 //p.emit('showPlanet');
             });
+
+            if (state.lastCurrentPlanet !== 'none') {
+                console.log('moveBack');
+                document.querySelector('#' + state.lastCurrentPlanet.id).emit('moveBack');
+            }
+
         }
     }
 
@@ -50,14 +56,14 @@ let renderer = function() {
     }
 
     function updateView() {
-    	console.log('update view');
+        console.log('update view');
         updateSky();
         updatePlanets();
         updateText();
     }
 
     return {
-    	updateView: updateView
+        updateView: updateView
     }
 
 };
