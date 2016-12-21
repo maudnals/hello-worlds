@@ -1,5 +1,5 @@
 // const textPosition = '-1 -3 -15';
-const textPosition = '0 -2 -20';
+const textPosition = '3 1 -6';
 
 let planets = {
     'mercury': {

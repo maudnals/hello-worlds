@@ -30,7 +30,7 @@ let planetGenerator = function() {
             moveTowardsAnimation.setAttribute('attribute', 'position');
             moveTowardsAnimation.setAttribute('from', planets[p.id].defaultPosition);
             // moveTowardsAnimation.setAttribute('to', '20 2010 -10');
-            moveTowardsAnimation.setAttribute('to', '0 20 -20');
+            moveTowardsAnimation.setAttribute('to', '0 10 -20');
             moveTowardsAnimation.setAttribute('dur', '2000');
             moveTowardsAnimation.setAttribute('fill', 'both');
 
@@ -39,7 +39,7 @@ let planetGenerator = function() {
             let moveBackwardsAnimation = document.createElement('a-animation');
             moveBackwardsAnimation.setAttribute('begin', 'moveBack');
             moveBackwardsAnimation.setAttribute('attribute', 'position');
-            moveBackwardsAnimation.setAttribute('from', '0 20 -20');
+            moveBackwardsAnimation.setAttribute('from', '0 10 -20');
             moveBackwardsAnimation.setAttribute('to', planets[p.id].defaultPosition);
             moveBackwardsAnimation.setAttribute('dur', '2000');
             moveBackwardsAnimation.setAttribute('fill', 'both');
