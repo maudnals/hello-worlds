@@ -1,4 +1,5 @@
-const textPosition = '-1 -3 -15';
+// const textPosition = '-1 -3 -15';
+const textPosition = '0 -2 -20';
 
 let planets = {
     'mercury': {
@@ -42,7 +43,8 @@ let planets = {
     'jupiter': {
         id: 'jupiter',
         color: 'burlywood',
-        defaultPosition: '40 2010 -20',
+        defaultPosition: '-0.5 20 -40',
+        // defaultPosition: '40 2010 -20',
         radius: '7.1492',
         texture: 'img/Txtr-Jupiter.jpg',
         rotationPeriod: '4100',
