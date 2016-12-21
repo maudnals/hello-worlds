@@ -5,6 +5,6 @@ let state = {
     currentPlanet: 'none'
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-    sky = document.querySelector('a-sky');
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     sky = document.querySelector('a-sky');
+// });

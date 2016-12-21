@@ -5,6 +5,8 @@
 // Layout: organize planets by cluster
 // Enrich content
 
+
+
 // Tech learnings: 
 // Everything must be an entity
 // Animations (+ transitions) are tricky. esp .visibility
@@ -28,12 +30,11 @@ CURSOR LISTENER
 AFRAME.registerComponent('cursor-listener', {
 
     init: function() {
-        const sky = document.querySelector('a-sky');
-        //console.log(this);
+        console.log("test", this);
 
         this.el.addEventListener('mouseleave', function() {
             state.currentPlanet = 'none';
-            renderer.updateView();
+            renderer().updateView();
         });
 
         // just on hover: showPlanetName
