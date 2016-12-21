@@ -8,6 +8,7 @@
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <!--     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script> -->
     <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+    <script src="js/cartoonMarker.typeface.js"></script>
     <script src="js/state.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/renderer.js"></script>
@@ -19,6 +20,9 @@
 
 <body>
     <a-scene>
+<!--         <a-assets>
+            <a-mixin id="font" text="font: myfont"></a-mixin>
+        </a-assets> -->
         <a-camera>
             <!--         <a-box src="#boxTexture" position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
             <a-cursor color="palegreen" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.005; radiusInner: 0.004;">
@@ -92,13 +96,9 @@
             <a-sphere id="neptune" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
-
-
-        <a-entity material="color: mediumspringgreen" text="text: OK" position="0 1 -4" rotation="0 0 0" visible="false" id="leaveButton" cursor-listener>
+        <a-entity material="color: mediumspringgreen" text="text: OK; font: Cartoon Marker;" position="0 1 -4" rotation="0 0 0" visible="true" id="leaveButton" cursor-listener>
             <!--             dur="2000" -->
         </a-entity>
-
-
         <!-- <a-sky color="black"></a-sky> -->
         <!-- <a-animation id="skyAnimation" attribute="color" begin="changeColor" from="whitesmoke" to="red" dur="2000" fill="forwards"> -->
         <!--           </a-animation> -->
