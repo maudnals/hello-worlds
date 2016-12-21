@@ -24,12 +24,14 @@ let renderer = function() {
     }
 
     function updateText() {
+
+        //text.setAttribute('id', 'planet-name-' + planets[p.id].id);
         if (utils().checkObserving()) {
-            document.querySelector('#' + state.currentPlanet.id + '-entity>.planet-name').setAttribute('visible', 'true');
+            document.querySelector('#planet-name-' + state.currentPlanet.id).setAttribute('visible', 'true');
         } else {
             let allPlanets = utils().getAllPlanets();
             allPlanets.forEach(p => {
-                let planetName = document.querySelector('#' + p.id + '-entity>.planet-name');
+                let planetName = document.querySelector('#planet-name-' + p.id);
                 if (planetName) {
                     planetName.setAttribute('visible', 'false');
                 }

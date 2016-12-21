@@ -51,12 +51,17 @@ let planetGenerator = function() {
             text.setAttribute('material', 'color: white');
             text.setAttribute('text', 'text: ' + planets[p.id].id);
             text.setAttribute('position', planets[p.id].textPosition);
-            text.setAttribute('visible', 'true');
+            text.setAttribute('visible', 'false');
+            text.setAttribute('id', 'planet-name-' + planets[p.id].id);
 
             text.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
 
-            let entity = document.querySelector('#' + planetId + '-entity');
-            entity.append(text);
+            //let entity = document.querySelector('#' + planetId + '-entity');
+            //entity.append(text);
+
+            let camera = document.querySelector('a-camera');
+            camera.append(text);
+
 
 
             // let camera = document.querySelector('a-camera');
