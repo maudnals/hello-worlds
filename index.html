@@ -8,8 +8,13 @@
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <!--     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script> -->
     <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
-    <script src="planetsData.js"></script>
-    <script src="cursorListener.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/planetsData.js"></script>
+    <script src="js/cursorListener.js"></script>
+    <script src="js/planetGenerator.js"></script>
+    <script src="js/app.js"></script>
 </head>
 
 <body>
@@ -42,47 +47,47 @@
         </a-entity>
         <!--Mercury-->
         <a-entity id="mercury-entity" class="planet-entity">
-            <a-sphere id="mercury" class="planet" cursor-listener>
+            <a-sphere id="mercury" class="planet-sphere" cursor-listener>
             </a-sphere>
-            <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
+<!--             <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
                 <a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>
-            </a-entity>
+            </a-entity> -->
         </a-entity>
         <!--Venus-->
         <a-entity id="venus-entity" class="planet-entity">
-            <a-sphere id="venus" class="planet" cursor-listener>
+            <a-sphere id="venus" class="planet-sphere" cursor-listener>
                 <!--             <a-animation attribute="rotation" dur="243000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation> -->
                 <!--             <a-animation begin="click" attribute="position" from="280 180 -280" to="14 10 -14" dur="2000" fill="both"></a-animation> -->
             </a-sphere>
         </a-entity>
         <!--Earth-->
         <a-entity id="earth-entity" class="planet-entity">
-            <a-sphere id="earth" class="planet" cursor-listener>
+            <a-sphere id="earth" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
         <!--Mars-->
         <a-entity id="mars-entity" class="planet-entity">
-            <a-sphere id="mars" class="planet" cursor-listener>
+            <a-sphere id="mars" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
         <!--Jupiter-->
         <a-entity id="jupiter-entity" class="planet-entity">
-            <a-sphere id="jupiter" class="planet" cursor-listener>
+            <a-sphere id="jupiter" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
         <!--Saturn-->
         <a-entity id="saturn-entity" class="planet-entity">
-            <a-sphere id="saturn" class="planet" cursor-listener>
+            <a-sphere id="saturn" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
         <!--Uranus-->
         <a-entity id="uranus-entity" class="planet-entity">
-            <a-sphere id="uranus" class="planet" cursor-listener>
+            <a-sphere id="uranus" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
         <!--Neptune-->
         <a-entity id="neptune-entity" class="planet-entity">
-            <a-sphere id="neptune" class="planet" cursor-listener>
+            <a-sphere id="neptune" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
         <!-- <a-sky color="black"></a-sky> -->
