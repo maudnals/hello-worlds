@@ -1,10 +1,11 @@
 // Main sources:
 //     Weird planets:
-//     http: //www.popularmechanics.com/space/deep-space/g1265/space-oddities-8-of-the-strangest-exoplanets/?
 //     Solar system:
 //     wikipedia
 
-
+    // https://exoplanets.nasa.gov/alien-worlds/galaxy-of-horrors/
+    // http://www.popularmechanics.com/space/deep-space/g1265/space-oddities-8-of-the-strangest-exoplanets/?slide=1
+    
 // discovery Date
 // distance to earth / age you'd be
 // planet type
@@ -123,7 +124,8 @@ let planets = {
         defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -70),
         radius: defaultRadius,
         // original 0.24766 but too small so *2 
-        texture: 'img/txtr-fire.jpg',
+        texture: 'img/txtr-fire.png',
+        // http://orig14.deviantart.net/e267/f/2014/311/a/d/background_fire_theme_by_lockeliefather-d85ka9h.png
         rotationPeriod: defaultRotationPeriod,
         textPosition: textPosition,
         distanceToEarth: 'around 378 light years away, situated in the Andromeda constellation',
@@ -133,7 +135,7 @@ let planets = {
             orbit: 'It’s orbit is complete every 30 hours.'
         }
     },
-    // https://exoplanets.nasa.gov/alien-worlds/galaxy-of-horrors/
+
     'planet-55-Cancri-e': {
         id: 'planet-55-Cancri-e',
         name: 'Diamond',
@@ -169,11 +171,35 @@ let planets = {
             star: 'Gliese 1214 b'
         }
     },
+
+    'TrES-2b': {
+        id: 'TrES-2b',
+        name: 'Black Hole Planet',
+        color: 'black',
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -100),
+        radius: defaultRadius,
+        // original 0.24766 but too small so *2 
+        texture: 'img/txtr-blackHole.jpg',
+        // http://jasonyesser.com/wp-content/uploads/2014/03/Black-Red-Grunge-Texture.jpg
+        rotationPeriod: defaultRotationPeriod,
+        textPosition: textPosition,
+
+        // http: //orig01.deviantart.net/0088/f/2013/005/a/3/red_and_black_sprayed_wppr_by_rentehman-d5qj9ks.jpg
+        distanceToEarth: '750 light-years',
+        specificity: "This Dark World is exactly that. The planet reflects only 1 percent of light that falls on it, making it even darker than coal or black acrylic paint, according to David Kipping, an astronomer at the Harvard-Smithsonian Center for Astrophysics and lead author on the paper revealing this weird world. There are a few theories as to why the planet devours light. It\'s possible that TrES-2b has no reflective clouds due to its high temperature, or that its atmosphere contains chemicals that absorb light. However, there is a third possibility that is the most intriguing: It\'s a mystery as to what\'s causing it to be so dark, Kipping told Space.com in 2011. There\'s a good chance it\'s a chemical we haven\'t even thought of yet.'",
+        geometry: '',
+        otherData: {
+            age: ''
+        }
+    },
 };
 
 
 
 let weirdos = {
+
+
+
 
     // Max 10
     // description: 'The weirdest exoplanets. Twenty years after scientists confirmed the first planets beyond our solar system, there are more than 900 confirmed exoplanets and thousands of additional candidates. Some of the worlds out there are just plain out-there.',
@@ -251,15 +277,7 @@ let weirdos = {
             age: '13 billion years old'
         }
     },
-    'blackHole': {
-        id: 'TrES - 2b',
-        distanceToEarth: '750 light-years',
-        specificity: "This Dark World is exactly that. The planet reflects only 1 percent of light that falls on it, making it even darker than coal or black acrylic paint, according to David Kipping, an astronomer at the Harvard-Smithsonian Center for Astrophysics and lead author on the paper revealing this weird world. There are a few theories as to why the planet devours light. It\'s possible that TrES-2b has no reflective clouds due to its high temperature, or that its atmosphere contains chemicals that absorb light. However, there is a third possibility that is the most intriguing: It\'s a mystery as to what\'s causing it to be so dark, Kipping told Space.com in 2011. There\'s a good chance it\'s a chemical we haven\'t even thought of yet.'",
-        geometry: '',
-        otherData: {
-            age: ''
-        }
-    },
+
     'doomed': {
         id: 'WASP - 18b',
         distanceToEarth: '325 light-years',
