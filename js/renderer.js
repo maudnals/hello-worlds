@@ -20,26 +20,41 @@ let renderer = (function() {
     function updatePlanets() {
         if (utils().checkObserving()) {
 
+            // Unify radius
             document.querySelector('#' + state.currentPlanet.id).setAttribute('radius', radiusFocus);
-            //unify radius
-
-            // let arr = state.currentPlanet.defaultPosition.split(" ");
-
-            // let x = parseFloat(arr[0]);
-            // let y = parseFloat(arr[1]);
-            // let z = parseFloat(arr[2]);
-
-            // console.log(x, y, z);
 
             let a = new THREE.Vector3(0, 20, -40);
             let yAxis = new THREE.Vector3(0, 1, 0);
             let angle = document.querySelector('a-camera').getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
             let b = a.applyAxisAngle(yAxis, angleRad);
-            let c = b.divideScalar(1.05);
+            let c = b.divideScalar(2);
+
+            let currentPosition = document.querySelector('#' + state.currentPlanet.id).getAttribute('position');
+
+            let sphere = document.querySelector('#' + state.currentPlanet.id);
+            let moveAnim = document.createElement('a-animation');
+            //moveAnim.setAttribute('id', 'mb-' + planets[p].id);
+            moveAnim.setAttribute('begin', 'moveBack');
+            moveAnim.setAttribute('attribute', 'position');
+            moveAnim.setAttribute('from', state.currentPlanet.defaultPosition);
+            moveAnim.setAttribute('to', vectorHelper.getPositionFromVector(c));
+            moveAnim.setAttribute('dur', '2000');
+            moveAnim.setAttribute('fill', 'both');
+            sphere.append(moveAnim);
 
 
-            document.querySelector('#' + state.currentPlanet.id).setAttribute('position', c);
+            // let mbAnimation = document.querySelector('#' + 'mb-' + state.currentPlanet.id);
+            // mbAnimation.setAttribute('from', state.currentPlanet.defaultPosition);
+            // mbAnimation.setAttribute('to', '0 10 -20');
+
+            // mbAnimation.setAttribute('to', vectorHelper.getPositionFromVector(c));
+
+            //console.log("FOCUS mbAnimation", mbAnimation);
+            // Emit animated event
+            document.querySelector('#' + state.currentPlanet.id).emit('moveBack');
+
+
 
             // Hide all other planets
             let otherPlanets = utils().getOtherPlanets();
@@ -58,12 +73,23 @@ let renderer = (function() {
 
             if (state.lastPlanet !== none) {
 
+                let currentPosition = document.querySelector('#' + state.lastPlanet.id).getAttribute('position');
+                let x = vectorHelper.getPositionFromVector(currentPosition);
+
+                let sphere = document.querySelector('#' + state.lastPlanet.id);
+                let moveAnim = document.createElement('a-animation');
+                moveAnim.setAttribute('begin', 'moveB');
+                moveAnim.setAttribute('attribute', 'position');
+                moveAnim.setAttribute('from', x);
+                moveAnim.setAttribute('to', state.lastPlanet.defaultPosition);
+                moveAnim.setAttribute('dur', '2000');
+                moveAnim.setAttribute('fill', 'both');
+                sphere.append(moveAnim);
+
+
+                // Emit animated event
+                document.querySelector('#' + state.lastPlanet.id).emit('moveB');
                 document.querySelector('#' + state.lastPlanet.id).setAttribute('radius', state.lastPlanet.radius);
-
-                // document.querySelector('#' + state.lastCurrentPlanet.id).emit('moveBack');
-
-
-                document.querySelector('#' + state.lastPlanet.id).setAttribute('position', state.lastPlanet.defaultPosition);
             }
 
         }

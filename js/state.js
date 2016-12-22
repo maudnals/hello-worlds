@@ -1,4 +1,4 @@
-const radiusFocus = 10;
+const radiusFocus = 8;
 
 let state = {
     currentPlanet: none,

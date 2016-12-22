@@ -28,7 +28,26 @@ let planetGenerator = (function() {
                 r.setAttribute('easing', 'linear');
                 r.setAttribute('fill', 'forwards');
 
+                // let mf = document.createElement('a-animation');
+                // mf.setAttribute('begin', 'click');
+                // mf.setAttribute('attribute', 'position');
+                // mf.setAttribute('from', planets[p].defaultPosition);
+                // mf.setAttribute('to', '0 10 -20');
+                // mf.setAttribute('dur', '2000');
+                // mf.setAttribute('fill', 'both');
+
+                // let moveAnim = document.createElement('a-animation');
+                // moveAnim.setAttribute('id', 'mb-' + planets[p].id);
+                // moveAnim.setAttribute('begin', 'moveBack');
+                // moveAnim.setAttribute('attribute', 'position');
+                // //moveAnim.setAttribute('from', planets[p].defaultPosition);
+                // //moveAnim.setAttribute('to', '0 10 -20');
+                // moveAnim.setAttribute('dur', '2000');
+                // moveAnim.setAttribute('fill', 'both');
+
                 sphere.append(r);
+                //sphere.append(mf);
+                //sphere.append(moveAnim);
 
                 console.log("planetSphere", sphere);
                 allPlanetsContainer.append(sphere);
@@ -67,21 +86,25 @@ let planetGenerator = (function() {
 
         let planetEntities = utils().getAllPlanets();
         planetEntities.forEach(function(p) {
+
             let planetId = p.getAttribute('id');
             console.log('planetId', planetId);
+
+
+
             // Set the sphere's essential attributes
             //p.setAttribute('position', planets[p.id].defaultPosition);
             //p.setAttribute('radius', planets[p.id].radius);
             //p.setAttribute('src', planets[p.id].texture);
 
             // Set rotation animation
-            let rotationAnimation = document.createElement('a-animation');
-            rotationAnimation.setAttribute('attribute', 'rotation');
-            rotationAnimation.setAttribute('dur', planets[p.id].rotationPeriod);
-            rotationAnimation.setAttribute('to', '0 360 0');
-            rotationAnimation.setAttribute('repeat', 'indefinite');
-            rotationAnimation.setAttribute('easing', 'linear');
-            rotationAnimation.setAttribute('fill', 'forwards');
+            // let rotationAnimation = document.createElement('a-animation');
+            // rotationAnimation.setAttribute('attribute', 'rotation');
+            // rotationAnimation.setAttribute('dur', planets[p.id].rotationPeriod);
+            // rotationAnimation.setAttribute('to', '0 360 0');
+            // rotationAnimation.setAttribute('repeat', 'indefinite');
+            // rotationAnimation.setAttribute('easing', 'linear');
+            // rotationAnimation.setAttribute('fill', 'forwards');
 
 
 
@@ -92,7 +115,7 @@ let planetGenerator = (function() {
             // p.innerHTML = '<a-animation attribute="rotation" dur="' 
             // + planets[p.id].rotationPeriod 
             // + '" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>';
-            let moveTowardsAnimation = document.createElement('a-animation');
+            //let moveTowardsAnimation = document.createElement('a-animation');
             // moveTowardsAnimation.setAttribute('begin', 'click');
             // moveTowardsAnimation.setAttribute('attribute', 'position');
             // moveTowardsAnimation.setAttribute('from', planets[p.id].defaultPosition);
@@ -100,17 +123,17 @@ let planetGenerator = (function() {
             // moveTowardsAnimation.setAttribute('dur', '2000');
             // moveTowardsAnimation.setAttribute('fill', 'both');
 
-            let moveBackwardsAnimation = document.createElement('a-animation');
-            moveBackwardsAnimation.setAttribute('begin', 'moveBack');
-            moveBackwardsAnimation.setAttribute('attribute', 'position');
-            moveBackwardsAnimation.setAttribute('from', '0 10 -20');
-            moveBackwardsAnimation.setAttribute('to', planets[p.id].defaultPosition);
-            moveBackwardsAnimation.setAttribute('dur', '2000');
-            moveBackwardsAnimation.setAttribute('fill', 'both');
+            // let moveBackwardsAnimation = document.createElement('a-animation');
+            // moveBackwardsAnimation.setAttribute('begin', 'moveBack');
+            // moveBackwardsAnimation.setAttribute('attribute', 'position');
+            // moveBackwardsAnimation.setAttribute('from', '');
+            // moveBackwardsAnimation.setAttribute('to', '');
+            // moveBackwardsAnimation.setAttribute('dur', '2000');
+            // moveBackwardsAnimation.setAttribute('fill', 'both');
 
-            p.append(rotationAnimation);
-            p.append(moveTowardsAnimation);
-            p.append(moveBackwardsAnimation);
+            //p.append(rotationAnimation);
+            //p.append(moveTowardsAnimation);
+            //p.append(moveBackwardsAnimation);
 
 
             // <a-animation begin="click" attribute="position" from="280 180 -280" to="14 10 -14" dur="2000" fill="both">

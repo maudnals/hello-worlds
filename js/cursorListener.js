@@ -1,5 +1,5 @@
 // Todo today:
-// Better init only based on data (not on dom classes)
+//OK Better init only based on data (not on dom classes)
 //OK Position generator
 // Click vs fuse - Display text on click
 // Fix move transition
@@ -53,7 +53,6 @@ let cursorListener = (function() {
 
                     if (that === document.querySelector('#leaveButton')) {
                         updateState(none, state.currentPlanet);
-                        // cleaner 'unfocus' state
                     }
 
                     if (planets[this.id]) {

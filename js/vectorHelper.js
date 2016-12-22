@@ -12,19 +12,25 @@ let vectorHelper = (function() {
         return new THREE.Vector3(x, y, z);
     }
 
+    function getPositionFromVector(vector) {
+        return vector.x + ' ' + vector.y + ' ' + vector.z ;
+    }
+
     function generateNeighborPosition(position, yAngle) {
         // + , zAngle
         //let angleRad = angle.y * 2 * Math.PI / 360;
         let yAxis = new THREE.Vector3(0, 1, 0);
         let angleRad = yAngle * 2 * Math.PI / 360;
         let positionVector = getVectorFromPosition(position);
-        let neighborPosition = positionVector.applyAxisAngle(yAxis, angleRad);
+        let neighborPositionVector = positionVector.applyAxisAngle(yAxis, angleRad);
+        let neighborPosition = getPositionFromVector(neighborPositionVector);
 
         return neighborPosition;
     }
 
     return {
-        generateNeighborPosition: generateNeighborPosition
+        generateNeighborPosition: generateNeighborPosition,
+        getPositionFromVector: getPositionFromVector
     }
 })();
 
