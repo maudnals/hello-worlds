@@ -1,8 +1,8 @@
 // Todo today:
 //OK Better init only based on data (not on dom classes)
 //OK Position generator
+//OK Fix move transition
 // Click vs fuse - Display text on click
-// Fix move transition
 // Enrich content
 // Better text display
 // cool button
@@ -28,7 +28,6 @@
 CURSOR LISTENER
 ------------------ */
 
-// when ready:
 let cursorListener = (function() {
 
     function updateState(current, last = none) {
@@ -36,29 +35,24 @@ let cursorListener = (function() {
         state.lastPlanet = last;
     }
 
+    // To be called hen DOM is ready
     function init() {
-        console.log('init');
 
         AFRAME.registerComponent('cursor-listener', {
+
             init: function() {
-
                 let that = this.el;
-
                 this.el.addEventListener('click', function() {
 
-                    //             // this.el is the entity (= the sphere)
-                    //             // this becomes this.el
-                    //             // click is like gaze
-                    // console.log(that + ' is stared at or clicked on.');
+                    // this.el is the entity on which cursor-listener is present as attribute (= the spheres)
+                    // Click is like gaze
 
                     if (that === document.querySelector('#leaveButton')) {
                         updateState(none, state.currentPlanet);
                     }
-
                     if (planets[this.id]) {
                         updateState(planets[this.id]);
                     }
-
                     renderer.updateView();
                 });
             }

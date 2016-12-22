@@ -34,72 +34,19 @@
             <!--          <a-plane color="darkslategrey" height="2" width="6" position="0 -10 -15"></a-plane> -->
             <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
         </a-camera>
-        <a-entity>
+<!--         <a-entity>
             <a-entity template="src: cubes.template" position="-4 0 -8"></a-entity>
             <a-entity template="src: cubes.template" position="0 4 -8"></a-entity>
             <a-entity template="src: cubes.template" position="4 0 -8"></a-entity>
-            <!-- <a-animation attribute="rotation" dur="2000" to="0 360 0" repeat="indefinite"></a-animation> -->
+            <a-animation attribute="rotation" dur="2000" to="0 360 0" repeat="indefinite"></a-animation>
         </a-entity>
-        <!--         <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
-            <a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>
-        </a-entity> -->
-        <!-- <a-entity light="type: spot; angle: 45; target: #jupiter;"></a-entity> -->
-        <!--         <a-sphere position="0 180 -200" radius="64.990" color="orange">
-              <a-animation attribute="material.color" from="blue" to="red" dur="2000"></a-animation>
-          </a-sphere> -->
         <a-entity>
             <a-entity template="src: planet.template" position="0 180 -280"></a-entity>
-        </a-entity>
+        </a-entity> -->
         <a-entity id="allPlanetsContainer"></a-entity>
-        <!--Mercury-->
-<!--         <a-entity id="mercury-entity" class="planet-entity">
-            <a-sphere id="mercury" class="planet-sphere" cursor-listener>
-            </a-sphere> -->
-            <!--             <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
-                <a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>
-            </a-entity> -->
-<!--         </a-entity> -->
-        <!--Venus-->
-<!--         <a-entity id="venus-entity" class="planet-entity">
-            <a-sphere id="venus" class="planet-sphere" cursor-listener>
-            </a-sphere>
-        </a-entity> -->
-        <!--Earth-->
-<!--         <a-entity id="earth-entity" class="planet-entity">
-            <a-sphere id="earth" class="planet-sphere" cursor-listener>
-            </a-sphere>
-        </a-entity> -->
-        <!--Mars-->
-<!--         <a-entity id="mars-entity" class="planet-entity">
-            <a-sphere id="mars" class="planet-sphere" cursor-listener>
-            </a-sphere>
-        </a-entity> -->
-        <!--Jupiter-->
-<!--         <a-entity id="jupiter-entity" class="planet-entity">
-            <a-sphere id="jupiter" class="planet-sphere" cursor-listener>
-            </a-sphere>
-        </a-entity> -->
-        <!--Saturn-->
-<!--         <a-entity id="saturn-entity" class="planet-entity">
-            <a-sphere id="saturn" class="planet-sphere" cursor-listener>
-            </a-sphere>
-        </a-entity> -->
-        <!--Uranus-->
-<!--         <a-entity id="uranus-entity" class="planet-entity">
-            <a-sphere id="uranus" class="planet-sphere" cursor-listener>
-            </a-sphere>
-        </a-entity> -->
-        <!--Neptune-->
-<!--         <a-entity id="neptune-entity" class="planet-entity">
-            <a-sphere id="neptune" class="planet-sphere" cursor-listener>
-            </a-sphere>
-        </a-entity> -->
         <a-entity material="color: mediumspringgreen" text="text: OK; font: Cartoon Marker;" position="0 1 -4" rotation="0 0 0" visible="false" id="leaveButton" cursor-listener>
             <!--             dur="2000" -->
         </a-entity>
-        <!-- <a-sky color="black"></a-sky> -->
-        <!-- <a-animation id="skyAnimation" attribute="color" begin="changeColor" from="whitesmoke" to="red" dur="2000" fill="forwards"> -->
-        <!--           </a-animation> -->
         <a-sky src="img/Mountains.jpg" color="whitesmoke">
             <a-animation attribute="color" begin="darkenSky" from="whitesmoke" to="darkslategray" fill="forwards">
                 <!--             dur="2000" -->

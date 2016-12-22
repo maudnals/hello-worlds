@@ -4,6 +4,10 @@ VECTOR HELPER
 
 let vectorHelper = (function() {
 
+	function degToRad(angle){
+		return angle * 2 * Math.PI / 360;
+	}
+
     function getVectorFromPosition(position) {
         let arr = position.split(" ");
         let x = parseFloat(arr[0]);
@@ -20,9 +24,8 @@ let vectorHelper = (function() {
         // + , zAngle
         //let angleRad = angle.y * 2 * Math.PI / 360;
         let yAxis = new THREE.Vector3(0, 1, 0);
-        let angleRad = yAngle * 2 * Math.PI / 360;
         let positionVector = getVectorFromPosition(position);
-        let neighborPositionVector = positionVector.applyAxisAngle(yAxis, angleRad);
+        let neighborPositionVector = positionVector.applyAxisAngle(yAxis, degToRad(yAngle));
         let neighborPosition = getPositionFromVector(neighborPositionVector);
 
         return neighborPosition;
