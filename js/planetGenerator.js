@@ -6,24 +6,19 @@ let planetGenerator = (function() {
 
     function init() {
 
-
-        let allPlanetsContainer = document.createElement('a-entity');
+        // Create container entity (mandatory)
+        let allPlanetsContainer = document.querySelector('#allPlanetsContainer');
 
         for (var p in planets) {
-            console.log(p);
-            if (planets.hasOwnProperty(p)) {
-                let planetSphere = document.createElement('a-sphere');
-                planetSphere.setAttribute('id', planets[p].id);
-                planetSphere.setAttribute('class', 'planet-sphere');
-                planetSphere.setAttribute('position', planets[p].defaultPosition);
-                planetSphere.setAttribute('radius', planets[p].radius);
-                planetSphere.setAttribute('src', planets[p].texture);
-                planetSphere.setAttribute('cursor-listener', "");
 
-                // <a-entity id="venus-entity" class="planet-entity">
-                //     <a-sphere id="venus" class="planet-sphere" cursor-listener>
-                //     </a-sphere>
-                // </a-entity>
+            if (planets.hasOwnProperty(p)) {
+                let sphere = document.createElement('a-sphere');
+                sphere.setAttribute('id', planets[p].id);
+                sphere.setAttribute('class', 'planet-sphere');
+                sphere.setAttribute('position', planets[p].defaultPosition);
+                sphere.setAttribute('radius', planets[p].radius);
+                sphere.setAttribute('src', planets[p].texture);
+                sphere.setAttribute('cursor-listener', "");
 
                 let r = document.createElement('a-animation');
                 r.setAttribute('attribute', 'rotation');
@@ -33,11 +28,10 @@ let planetGenerator = (function() {
                 r.setAttribute('easing', 'linear');
                 r.setAttribute('fill', 'forwards');
 
-                planetSphere.append(r);
+                sphere.append(r);
 
-                console.log("planetSphere", planetSphere);
-                allPlanetsContainer.append(planetSphere);
-
+                console.log("planetSphere", sphere);
+                allPlanetsContainer.append(sphere);
             }
         }
 
@@ -71,16 +65,15 @@ let planetGenerator = (function() {
 
 
 
-
-
         let planetEntities = utils().getAllPlanets();
         planetEntities.forEach(function(p) {
             let planetId = p.getAttribute('id');
             console.log('planetId', planetId);
             // Set the sphere's essential attributes
-            p.setAttribute('position', planets[p.id].defaultPosition);
-            p.setAttribute('radius', planets[p.id].radius);
-            p.setAttribute('src', planets[p.id].texture);
+            //p.setAttribute('position', planets[p.id].defaultPosition);
+            //p.setAttribute('radius', planets[p.id].radius);
+            //p.setAttribute('src', planets[p.id].texture);
+
             // Set rotation animation
             let rotationAnimation = document.createElement('a-animation');
             rotationAnimation.setAttribute('attribute', 'rotation');
@@ -106,8 +99,6 @@ let planetGenerator = (function() {
             // moveTowardsAnimation.setAttribute('to', '0 10 -20');
             // moveTowardsAnimation.setAttribute('dur', '2000');
             // moveTowardsAnimation.setAttribute('fill', 'both');
-
-
 
             let moveBackwardsAnimation = document.createElement('a-animation');
             moveBackwardsAnimation.setAttribute('begin', 'moveBack');
@@ -143,29 +134,6 @@ let planetGenerator = (function() {
 
             let camera = document.querySelector('a-camera');
             camera.append(text);
-
-            // let leaveButton = document.createElement('a-entity');
-            // leaveButton.setAttribute('material', 'color: green');
-            // leaveButton.setAttribute('text', 'text: ' + 'OK');
-            // leaveButton.setAttribute('position', '20 1996 -10');
-            // leaveButton.setAttribute('rotation', '0 297 0');
-            // leaveButton.setAttribute('visible', 'false');
-            // leaveButton.setAttribute('id', 'leaveButton');
-
-            //leaveButton.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
-
-            // let entity = document.querySelector('#' + planetId + '-entity');
-            // entity.append(leaveButton);
-
-            // console.log(entity);
-            // console.log('leaveButton appended to ' + entity);
-
-            // let camera = document.querySelector('a-camera');
-            // came.append(text);
-            //mercury-entity
-            //     <a-entity class="planet-name" material="color: white" text="text: Mercury" position="-1 16 -28" visible="false">
-            //     <a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>
-            // </a-entity>
 
         });
         // Append animation
