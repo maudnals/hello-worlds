@@ -22,18 +22,15 @@ CURSOR LISTENER
 ------------------ */
 
 // when ready:
-
-
 // let cursorListener = function() {}
 AFRAME.registerComponent('cursor-listener', {
 
     init: function() {
-        console.log("test", this);
 
-        this.el.addEventListener('mouseleave', function() {
-            // state.currentPlanet = 'none';
-            // renderer().updateView();
-        });
+        // this.el.addEventListener('mouseleave', function() {
+        //     // state.currentPlanet = 'none';
+        //     // renderer().updateView();
+        // });
 
         // just on hover: showPlanetName
 
@@ -43,10 +40,6 @@ AFRAME.registerComponent('cursor-listener', {
             // this.el is the entity (= the sphere)
             // this becomes this.el
             // click is like gaze
-
-            console.log('click', that);
-            //console.log(that);
-            //console.log(document.querySelector('#leaveButton'));
             
             if (that === document.querySelector('#leaveButton')){
                 state.lastCurrentPlanet = state.currentPlanet;

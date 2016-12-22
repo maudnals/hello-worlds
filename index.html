@@ -20,9 +20,6 @@
 
 <body>
     <a-scene>
-<!--         <a-assets>
-            <a-mixin id="font" text="font: myfont"></a-mixin>
-        </a-assets> -->
         <a-camera>
             <!--         <a-box src="#boxTexture" position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
             <a-cursor color="palegreen" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.005; radiusInner: 0.004;">
@@ -62,8 +59,6 @@
         <!--Venus-->
         <a-entity id="venus-entity" class="planet-entity">
             <a-sphere id="venus" class="planet-sphere" cursor-listener>
-                <!--             <a-animation attribute="rotation" dur="243000" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation> -->
-                <!--             <a-animation begin="click" attribute="position" from="280 180 -280" to="14 10 -14" dur="2000" fill="both"></a-animation> -->
             </a-sphere>
         </a-entity>
         <!--Earth-->
@@ -96,7 +91,7 @@
             <a-sphere id="neptune" class="planet-sphere" cursor-listener>
             </a-sphere>
         </a-entity>
-        <a-entity material="color: mediumspringgreen" text="text: OK; font: Cartoon Marker;" position="0 1 -4" rotation="0 0 0" visible="true" id="leaveButton" cursor-listener>
+        <a-entity material="color: mediumspringgreen" text="text: OK; font: Cartoon Marker;" position="0 1 -4" rotation="0 0 0" visible="false" id="leaveButton" cursor-listener>
             <!--             dur="2000" -->
         </a-entity>
         <!-- <a-sky color="black"></a-sky> -->

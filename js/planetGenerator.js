@@ -22,17 +22,29 @@ let planetGenerator = function() {
             rotationAnimation.setAttribute('easing', 'linear');
             rotationAnimation.setAttribute('fill', 'forwards');
 
+
+// camera should rotate along y only
+
+// 360 deg = 2Pi radians
+// so 1 deg = 2Pi/360 radians
+//             .applyAxisAngle ( axis, angle )
+// axis - A normalized Vector3.
+// angle - An angle in radians.
+
+            // where should text be? 
+            // place right in front of camera
+            // rotate coordinates
+
             // p.innerHTML = '<a-animation attribute="rotation" dur="' 
             // + planets[p.id].rotationPeriod 
             // + '" to="0 360 0" repeat="indefinite" easing="linear" fill="forwards"></a-animation>';
             let moveTowardsAnimation = document.createElement('a-animation');
-            moveTowardsAnimation.setAttribute('begin', 'click');
-            moveTowardsAnimation.setAttribute('attribute', 'position');
-            moveTowardsAnimation.setAttribute('from', planets[p.id].defaultPosition);
-            // moveTowardsAnimation.setAttribute('to', '20 2010 -10');
-            moveTowardsAnimation.setAttribute('to', '0 10 -20');
-            moveTowardsAnimation.setAttribute('dur', '2000');
-            moveTowardsAnimation.setAttribute('fill', 'both');
+            // moveTowardsAnimation.setAttribute('begin', 'click');
+            // moveTowardsAnimation.setAttribute('attribute', 'position');
+            // moveTowardsAnimation.setAttribute('from', planets[p.id].defaultPosition);
+            // moveTowardsAnimation.setAttribute('to', '0 10 -20');
+            // moveTowardsAnimation.setAttribute('dur', '2000');
+            // moveTowardsAnimation.setAttribute('fill', 'both');
 
 
 

@@ -6,7 +6,7 @@ let planets = {
         id: 'mercury',
         color: 'slategrey',
         defaultPosition: '-180 180 -400',
-        radius: '2.440',
+        radius: '0.2440',
         texture: 'img/2k_mercury.jpg',
         rotationPeriod: '58000',
         textPosition: textPosition
@@ -15,7 +15,7 @@ let planets = {
         id: 'venus',
         color: 'darkorange',
         defaultPosition: '-150 180 -400',
-        radius: '6.052',
+        radius: '0.6052',
         texture: 'img/2k_venus_surface.jpg',
         rotationPeriod: '243000',
         textPosition: textPosition
@@ -64,7 +64,7 @@ let planets = {
         id: 'uranus',
         color: 'powderblue',
         defaultPosition: '270 180 -400',
-        radius: '25.559',
+        radius: '2.5559',
         texture: 'img/2k_uranus.jpg',
         rotationPeriod: '7000',
         textPosition: textPosition
@@ -73,7 +73,7 @@ let planets = {
         id: 'neptune',
         color: 'royalblue',
         defaultPosition: '340 180 -400',
-        radius: '24.766',
+        radius: '2.4766',
         texture: 'img/2k_neptune.jpg',
         rotationPeriod: '6700',
         textPosition: textPosition

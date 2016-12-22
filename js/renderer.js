@@ -6,13 +6,36 @@ let renderer = function() {
 
     function updatePlanets() {
         if (utils().checkObserving()) {
+            
+            document.querySelector('#' + state.currentPlanet.id).setAttribute('radius', radiusFocus);
+            //unify radius
+
+
+            let arr = state.currentPlanet.defaultPosition.split(" ");
+            
+            let x = parseFloat(arr[0]);
+            let y = parseFloat(arr[1]);
+            let z = parseFloat(arr[2]);
+
+            console.log(x, y, z);
+
+            let a = new THREE.Vector3(-0.5, 20, -40);
+            let yAxis = new THREE.Vector3(0, 1, 0);
+            let angle = document.querySelector('a-camera').getAttribute('rotation');
+            let angleRad = angle.y * 2 * Math.PI / 360;
+            let b = a.applyAxisAngle(yAxis, angleRad);
+            let c = b.divideScalar(1.05);
+
+
+            document.querySelector('#' + state.currentPlanet.id).setAttribute('position', c);
+
             // Hide all other planets
             let otherPlanets = utils().getOtherPlanets();
             otherPlanets.forEach(p => {
                 p.setAttribute('visible', 'false');
                 //p.emit('hidePlanet');
             });
-            // document.querySelector('#' + state.currentPlanet.id).setAttribute('radius', radiusFocus);
+            
         } else {
             // Make all planets visible
             let allPlanets = utils().getAllPlanets();
@@ -22,8 +45,14 @@ let renderer = function() {
             });
 
             if (state.lastCurrentPlanet !== 'none') {
-                console.log('moveBack');
-                document.querySelector('#' + state.lastCurrentPlanet.id).emit('moveBack');
+                console.log(state.lastCurrentPlanet);
+
+                document.querySelector('#' + state.lastCurrentPlanet.id).setAttribute('radius', state.lastCurrentPlanet.radius);
+
+                // document.querySelector('#' + state.lastCurrentPlanet.id).emit('moveBack');
+
+
+                document.querySelector('#' + state.lastCurrentPlanet.id).setAttribute('position', state.lastCurrentPlanet.defaultPosition);
             }
 
         }
