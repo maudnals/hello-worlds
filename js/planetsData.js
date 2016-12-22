@@ -1,12 +1,14 @@
 // const textPosition = '-1 -3 -15';
 const textPosition = '3 1 -6';
+const frontPlanetPosition = '-0.5 20 -40';
 
 let planets = {
     'mercury': {
         id: 'mercury',
         color: 'slategrey',
-        defaultPosition: '-180 180 -400',
-        radius: '0.2440',
+        defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, 40),
+        radius: '0.4880',
+        // original 0.2440 but too small so *2 
         texture: 'img/2k_mercury.jpg',
         rotationPeriod: '58000',
         textPosition: textPosition
@@ -14,8 +16,9 @@ let planets = {
     'venus': {
         id: 'venus',
         color: 'darkorange',
-        defaultPosition: '-150 180 -400',
-        radius: '0.6052',
+        defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, 30),
+        radius: '1.2104',
+        // original 0.6052 but too small so *2 
         texture: 'img/2k_venus_surface.jpg',
         rotationPeriod: '243000',
         textPosition: textPosition
@@ -23,9 +26,9 @@ let planets = {
     'earth': {
         id: 'earth',
         color: '#0054FF',
-        defaultPosition: '25 2010 -35',
-        radius: '1.0',
-        // originial 6.378 = 0.6378 but too small 
+        defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, 20),
+        radius: '1.2756',
+        // original 6.378 = 0.6378 but too small so *2 
         texture: 'img/2k_earth_daymap.jpg',
         rotationPeriod: '10000',
         textPosition: textPosition
@@ -34,8 +37,8 @@ let planets = {
         id: 'mars',
         color: 'orangered',
         defaultPosition: '30 2010 -30',
-        radius: '0.8',
-        // originial 3.397 = 0.3397 but too small 
+        radius: '0.6794',
+        // original 3.397 = 0.3397 but too small so *2
         texture: 'img/2k_mars.jpg',
         rotationPeriod: '10200',
         textPosition: textPosition
@@ -43,7 +46,7 @@ let planets = {
     'jupiter': {
         id: 'jupiter',
         color: 'burlywood',
-        defaultPosition: '-0.5 20 -40',
+        defaultPosition: frontPlanetPosition,
         radius: '7.1492',
         texture: 'img/Txtr-Jupiter.jpg',
         rotationPeriod: '4100',
@@ -52,7 +55,7 @@ let planets = {
     'saturn': {
         id: 'saturn',
         color: 'wheat',
-        defaultPosition: vectorHelper().generateNeighborPosition('-0.5 20 -40', -30),
+        defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, -25),
         radius: '6.0368',
         texture: 'img/2k_saturn.jpg',
         rotationPeriod: '4400',
@@ -62,8 +65,9 @@ let planets = {
     'uranus': {
         id: 'uranus',
         color: 'powderblue',
-        defaultPosition: '270 180 -400',
-        radius: '2.5559',
+        defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, -40),
+        radius: '0.52',
+        // original 0.25559but too small so *2 
         texture: 'img/2k_uranus.jpg',
         rotationPeriod: '7000',
         textPosition: textPosition
@@ -71,8 +75,9 @@ let planets = {
     'neptune': {
         id: 'neptune',
         color: 'royalblue',
-        defaultPosition: '340 180 -400',
-        radius: '2.4766',
+        defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, -45),
+        radius: '0.50',
+        // original 0.24766 but too small so *2 
         texture: 'img/2k_neptune.jpg',
         rotationPeriod: '6700',
         textPosition: textPosition
