@@ -6,6 +6,8 @@
 // Layout: organize planets by cluster
 // Fix move transition
 // Enrich content
+// Templating
+
 
 // function updateState() {
 // }
@@ -31,7 +33,6 @@ AFRAME.registerComponent('cursor-listener', {
         //     // state.currentPlanet = 'none';
         //     // renderer().updateView();
         // });
-
         // just on hover: showPlanetName
 
         let that = this.el;

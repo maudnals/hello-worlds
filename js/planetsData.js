@@ -44,7 +44,6 @@ let planets = {
         id: 'jupiter',
         color: 'burlywood',
         defaultPosition: '-0.5 20 -40',
-        // defaultPosition: '40 2010 -20',
         radius: '7.1492',
         texture: 'img/Txtr-Jupiter.jpg',
         rotationPeriod: '4100',
@@ -53,7 +52,7 @@ let planets = {
     'saturn': {
         id: 'saturn',
         color: 'wheat',
-        defaultPosition: '60 2010 -10',
+        defaultPosition: vectorHelper().generateNeighborPosition('-0.5 20 -40', -30),
         radius: '6.0368',
         texture: 'img/2k_saturn.jpg',
         rotationPeriod: '4400',
