@@ -123,7 +123,7 @@ let renderer = (function() {
     return {
         init: init,
         updateView: updateView
-    };
+    }
 
 
 // function r() {

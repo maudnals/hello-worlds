@@ -28,7 +28,7 @@ let planets = {
         color: '#0054FF',
         defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, 20),
         radius: '1.2756',
-        // original 6.378 = 0.6378 but too small so *2 
+        // original 0.6378 but too small so *2 
         texture: 'img/2k_earth_daymap.jpg',
         rotationPeriod: '10000',
         textPosition: textPosition
@@ -38,7 +38,7 @@ let planets = {
         color: 'orangered',
         defaultPosition: '30 2010 -30',
         radius: '0.6794',
-        // original 3.397 = 0.3397 but too small so *2
+        // original 0.3397 but too small so *2
         texture: 'img/2k_mars.jpg',
         rotationPeriod: '10200',
         textPosition: textPosition
@@ -67,7 +67,7 @@ let planets = {
         color: 'powderblue',
         defaultPosition: vectorHelper().generateNeighborPosition(frontPlanetPosition, -40),
         radius: '0.52',
-        // original 0.25559but too small so *2 
+        // original 0.25559 but too small so *2 
         texture: 'img/2k_uranus.jpg',
         rotationPeriod: '7000',
         textPosition: textPosition

@@ -19,41 +19,81 @@
 // sky.setAttribute('color', planets[this.id].color);
 
 
+//     init: function() {
+
+//         // this.el.addEventListener('mouseleave', function() {
+//         //     // state.currentPlanet = 'none';
+//         //     // renderer().updateView();
+//         // });
+//         // just on hover: showPlanetName
+
+//         let that = this.el;
+
+//         this.el.addEventListener('click', function() {
+//             // this.el is the entity (= the sphere)
+//             // this becomes this.el
+//             // click is like gaze
+
+//             if (that === document.querySelector('#leaveButton')) {
+//                 state.lastCurrentPlanet = state.currentPlanet;
+//                 state.currentPlanet = 'none';
+//             }
+
+//             //console.log(this.id + ' is stared at or clicked on.');
+
+//             if (planets[this.id]) {
+//                 state.currentPlanet = planets[this.id];
+//             }
+
+//             renderer.updateView();
+//         });
+//     }̱
+
+
 /* ------------------
 CURSOR LISTENER
 ------------------ */
 
 // when ready:
-// let cursorListener = function() {}
-AFRAME.registerComponent('cursor-listener', {
+let cursorListener = (function() {
 
-    init: function() {
+    // function updateState() {
+        
+    // }
 
-        // this.el.addEventListener('mouseleave', function() {
-        //     // state.currentPlanet = 'none';
-        //     // renderer().updateView();
-        // });
-        // just on hover: showPlanetName
+    function init() {
+        console.log('init');
 
-        let that = this.el;
+        AFRAME.registerComponent('cursor-listener', {
+            init: function() {
 
-        this.el.addEventListener('click', function() {
-            // this.el is the entity (= the sphere)
-            // this becomes this.el
-            // click is like gaze
-            
-            if (that === document.querySelector('#leaveButton')){
-                state.lastCurrentPlanet = state.currentPlanet;
-                state.currentPlanet = 'none';
+                let that = this.el;
+
+                this.el.addEventListener('click', function() {
+
+                    console.log('click that', that);
+                    //             // this.el is the entity (= the sphere)
+                    //             // this becomes this.el
+                    //             // click is like gaze
+                    //console.log(that + ' is stared at or clicked on.');
+
+                    if (that === document.querySelector('#leaveButton')) {
+                        state.lastCurrentPlanet = state.currentPlanet;
+                        state.currentPlanet = 'none';
+                    }
+
+                    if (planets[this.id]) {
+                        state.currentPlanet = planets[this.id];
+                    }
+
+                    renderer.updateView();
+                });
             }
-
-            //console.log(this.id + ' is stared at or clicked on.');
-
-            if (planets[this.id]) {
-                state.currentPlanet = planets[this.id];
-            }
-
-            renderer.updateView();
         });
     }
-});
+
+    return {
+        init: init
+    }
+
+})();
