@@ -5,7 +5,7 @@
 
     // https://exoplanets.nasa.gov/alien-worlds/galaxy-of-horrors/
     // http://www.popularmechanics.com/space/deep-space/g1265/space-oddities-8-of-the-strangest-exoplanets/?slide=1
-    
+
 // discovery Date
 // distance to earth / age you'd be
 // planet type
@@ -143,7 +143,7 @@ let planets = {
         defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -80),
         radius: defaultRadius,
         // original 0.24766 but too small so *2 
-        texture: 'img/txtr-diamond.jpg',
+        texture: 'img/txtr-diamond-4.jpg',
         rotationPeriod: defaultRotationPeriod,
         textPosition: textPosition,
         distanceToEarth: '40 light-years',
