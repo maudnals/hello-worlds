@@ -9,7 +9,8 @@
 // distance to earth / age you'd be
 // planet type
 
-
+const defaultRotationPeriod = '8000';
+const defaultRadius = '1.2';
 
 let planets = {
     // SOLAR SYSTEM
@@ -90,37 +91,104 @@ let planets = {
         texture: 'img/2k_neptune.jpg',
         rotationPeriod: '6700',
         textPosition: textPosition
-    }
-    // ,
-    // 'pink': {
-    //     id: 'GJ-504b',
-    //     //color: 'royalblue',
-    //     defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -80),
-    //     radius: '4',
-    //     // original 0.24766 but too small so *2 
-    //     texture: 'img/txtr-pink.jpg',
-    //     rotationPeriod: '6700',
-    //     textPosition: textPosition
-    // }
-};
+    },
 
+    // WEIRDOS
+    // + add forever alone
 
+    'GJ-504b': {
+        id: 'GJ-504b',
+        name: 'Pink Planet',
+        color: 'deeppink',
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -60),
+        radius: defaultRadius,
+        // original 0.24766 but too small so *2 
+        texture: 'img/txtr-pink.jpg',
+        rotationPeriod: defaultRotationPeriod,
+        textPosition: textPosition,
+        distanceToEarth: '57 light-years',
+        distanceToEarthAlias: 'short',
+        specificity: 'The only pink planet ever discovered. Extremely far away from the star it orbits, which is challenging ideas on how giant planets form.  At first glance, the planet appears covered in a dark shade of pink. The planet\'s still glowing from the heat of its formation, thus causing the uncommon planetary hue, according to NASA. But beyond its peculiar magenta coloring, this particular world has scientists reconsidering how planets and solar systems form. Although the  is about the same size as Jupiter, it\'s much farther from its parent star than many astronomers believed such a huge planet could form—debris was believed to be too sparse to form such large celestial bodies. At 43.5 AU (1 AU, or astronomical unit, is the distance from the Earth to the sun), GJ 504b is farther from its star than even Neptune is from the sun. Yet there it is in all its pink glory.',
+        geometry: 'It has several times the mass of Jupiter, yet it’s about the same size.',
+        otherData: {
+            star: '59 Virginis, a yellow dwarf star',
+            age: 'Old (around 160 million years old)'
+        }
+    },
 
-let weirdos = {
-    // Max 10
-    // description: 'The weirdest exoplanets. Twenty years after scientists confirmed the first planets beyond our solar system, there are more than 900 confirmed exoplanets and thousands of additional candidates. Some of the worlds out there are just plain out-there.',
-    // 'foreverAlone': {
-
-    // },
-    'diamond': {
-        id: '55 Cancri e',
+    'WASP-33b': {
+        id: 'WASP-33b',
+        name: 'Hell',
+        color: 'red',
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -70),
+        radius: defaultRadius,
+        // original 0.24766 but too small so *2 
+        texture: 'img/txtr-fire.jpg',
+        rotationPeriod: defaultRotationPeriod,
+        textPosition: textPosition,
+        distanceToEarth: 'around 378 light years away, situated in the Andromeda constellation',
+        specificity: 'Surface temperature is 3,200 degrees Celsius. It’s the hottest planet in the known universe. The planet flies very close to it’s star, which also happens to be the hottest known star in the universe.',
+        geometry: 'It’s a huge planet, 4 times the size of Jupiter.',
+        otherData: {
+            orbit: 'It’s orbit is complete every 30 hours.'
+        }
+    },
+    // https://exoplanets.nasa.gov/alien-worlds/galaxy-of-horrors/
+    'planet-55-Cancri-e': {
+        id: 'planet-55-Cancri-e',
+        name: 'Diamond',
+        color: 'white',
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -80),
+        radius: defaultRadius,
+        // original 0.24766 but too small so *2 
+        texture: 'img/txtr-diamond.jpg',
+        rotationPeriod: defaultRotationPeriod,
+        textPosition: textPosition,
         distanceToEarth: '40 light-years',
-        specificity: 'Want to make a quick $26.9 nonillion? ? That\'s $26.9 followed 29 zeros, and that\'s how much the diamonds on this planets would be worth, if only you could travel 40 light-years to retrieve them. One-third of this planet\'s surface is likely to be made of diamonds due to high temperatures, interior pressures, and carbon-based composition. Scientists say this planet offers the first glimpse of a world with an extremely different chemistry from our own. The Diamond Planet is twice the size of Earth and eight times as dense. However, mining the planet is out of the question. Despite the 40-light-year distance, surface temperatures reach close to 3900 degrees Fahrenheit. However, there are a few other planets with a similar bling composition, such as WASP-12b and the next planet on our list.',
+        specificity: "Want to make a quick $26.9 nonillion? ? That's $26.9 followed 29 zeros, and that's how much the diamonds on this planets would be worth, if only you could travel 40 light-years to retrieve them. One-third of this planet's surface is likely to be made of diamonds due to high temperatures, interior pressures, and carbon-based composition. Scientists say this planet offers the first glimpse of a world with an extremely different chemistry from our own. The Diamond Planet is twice the size of Earth and eight times as dense. However, mining the planet is out of the question. Despite the 40-light-year distance, surface temperatures reach close to 3900 degrees Fahrenheit. However, there are a few other planets with a similar bling composition, such as WASP-12b and the next planet on our list. Strange things transpire in the twilight zone, and stranger still is the place where the sun never rises nor sets, but remains trapped at dusk. The planet Janssen (scientific name 55 Cancri e) is tidally locked, a two-faced super-Earth with the dayside of the planet molten from the heat of its star Copernicus and its nightside plunged permanently into darkness. You might think you’d survive in the twilight or “terminator” zone, where the day and night sides meet. But Janssen’s year is only 18 hours long. That means the backside of the planet is just cool enough to harden the dayside’s boiling hellish world of possible lava flows. Don’t get on this planet’s bad side–either of them–or you’ll be toast.",
         geometry: '',
         otherData: {
             orbit: ''
         }
     },
+
+    'GJ-1214-b': {
+        id: 'GJ-1214-b',
+        name: 'Waterworld',
+        color: 'lightblue',
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -90),
+        radius: defaultRadius,
+        // original 0.24766 but too small so *2 
+        texture: 'img/txtr-waterworld.png',
+        rotationPeriod: defaultRotationPeriod,
+        textPosition: textPosition,
+        distanceToEarth: '42 light years away from us',
+        specificity: 'Discovered in December 2009, this planet has the best possibility of being an ocean planet over any exoplanet yet discovered. Ocean planets are, of course, completely covered by one giant ocean, with depths far deeper than the oceans on Earth. These depths could cause a core to form, composed of different forms of ice. The planet most likely hosts water in a medley of phases, including as steam, liquid, and plasma.',
+        geometry: '',
+        otherData: {
+            star: 'Gliese 1214 b'
+        }
+    },
+};
+
+
+
+let weirdos = {
+
+    // Max 10
+    // description: 'The weirdest exoplanets. Twenty years after scientists confirmed the first planets beyond our solar system, there are more than 900 confirmed exoplanets and thousands of additional candidates. Some of the worlds out there are just plain out-there.',
+    // 'foreverAlone': {
+
+    // },
+    // 'diamond': {
+    //     id: '55 Cancri e',
+    //     distanceToEarth: '40 light-years',
+    //     specificity: 'Want to make a quick $26.9 nonillion? ? That\'s $26.9 followed 29 zeros, and that\'s how much the diamonds on this planets would be worth, if only you could travel 40 light-years to retrieve them. One-third of this planet\'s surface is likely to be made of diamonds due to high temperatures, interior pressures, and carbon-based composition. Scientists say this planet offers the first glimpse of a world with an extremely different chemistry from our own. The Diamond Planet is twice the size of Earth and eight times as dense. However, mining the planet is out of the question. Despite the 40-light-year distance, surface temperatures reach close to 3900 degrees Fahrenheit. However, there are a few other planets with a similar bling composition, such as WASP-12b and the next planet on our list.',
+    //     geometry: '',
+    //     otherData: {
+    //         orbit: ''
+    //     }
+    // },
     'sunHugger': {
         id: 'PSR J1719-14 b',
         distanceToEarth: '3900 light-years',
@@ -139,25 +207,25 @@ let weirdos = {
             orbit: ''
         }
     },
-    'hell': {
-        id: 'WASP-33b',
-        distanceToEarth: 'around 378 light years away, situated in the Andromeda constellation',
-        specificity: 'Surface temperature is 3,200 degrees Celsius. It’s the hottest planet in the known universe. The planet flies very close to it’s star, which also happens to be the hottest known star in the universe.',
-        geometry: 'It’s a huge planet, 4 times the size of Jupiter.',
-        otherData: {
-            orbit: 'It’s orbit is complete every 30 hours.'
-        }
-    },
-    'pinkPlanet': {
-        id: 'GJ 504b',
-        distanceToEarth: 'Short (57 light-years)',
-        specificity: 'The only pink planet ever discovered. Extremely far away from the star it orbits, which is challenging ideas on how giant planets form.  At first glance, the planet appears covered in a dark shade of pink. The planet\'s still glowing from the heat of its formation, thus causing the uncommon planetary hue, according to NASA. But beyond its peculiar magenta coloring, this particular world has scientists reconsidering how planets and solar systems form. Although the  is about the same size as Jupiter, it\'s much farther from its parent star than many astronomers believed such a huge planet could form—debris was believed to be too sparse to form such large celestial bodies. At 43.5 AU (1 AU, or astronomical unit, is the distance from the Earth to the sun), GJ 504b is farther from its star than even Neptune is from the sun. Yet there it is in all its pink glory.',
-        geometry: 'It has several times the mass of Jupiter, yet it’s about the same size.',
-        otherData: {
-            star: '59 Virginis, a yellow dwarf star',
-            age: 'Old (around 160 million years old)'
-        }
-    },
+    // 'hell': {
+    //     id: 'WASP-33b',
+    //     distanceToEarth: 'around 378 light years away, situated in the Andromeda constellation',
+    //     specificity: 'Surface temperature is 3,200 degrees Celsius. It’s the hottest planet in the known universe. The planet flies very close to it’s star, which also happens to be the hottest known star in the universe.',
+    //     geometry: 'It’s a huge planet, 4 times the size of Jupiter.',
+    //     otherData: {
+    //         orbit: 'It’s orbit is complete every 30 hours.'
+    //     }
+    // },
+    // 'pinkPlanet': {
+    //     id: 'GJ 504b',
+    //     distanceToEarth: 'Short (57 light-years)',
+    //     specificity: 'The only pink planet ever discovered. Extremely far away from the star it orbits, which is challenging ideas on how giant planets form.  At first glance, the planet appears covered in a dark shade of pink. The planet\'s still glowing from the heat of its formation, thus causing the uncommon planetary hue, according to NASA. But beyond its peculiar magenta coloring, this particular world has scientists reconsidering how planets and solar systems form. Although the  is about the same size as Jupiter, it\'s much farther from its parent star than many astronomers believed such a huge planet could form—debris was believed to be too sparse to form such large celestial bodies. At 43.5 AU (1 AU, or astronomical unit, is the distance from the Earth to the sun), GJ 504b is farther from its star than even Neptune is from the sun. Yet there it is in all its pink glory.',
+    //     geometry: 'It has several times the mass of Jupiter, yet it’s about the same size.',
+    //     otherData: {
+    //         star: '59 Virginis, a yellow dwarf star',
+    //         age: 'Old (around 160 million years old)'
+    //     }
+    // },
     'giant': {
         id: 'Hat-P-2b',
         distanceToEarth: 'Short (57 light years)',
@@ -165,15 +233,15 @@ let weirdos = {
         geometry: 'it weighs the same as 2,500 Earths',
         otherData: {}
     },
-    'waterworld': {
-        id: 'GJ 1214 b',
-        distanceToEarth: '42 light years away from us',
-        specificity: 'Discovered in December 2009, this planet has the best possibility of being an ocean planet over any exoplanet yet discovered. Ocean planets are, of course, completely covered by one giant ocean, with depths far deeper than the oceans on Earth. These depths could cause a core to form, composed of different forms of ice. The planet most likely hosts water in a medley of phases, including as steam, liquid, and plasma.',
-        geometry: '',
-        otherData: {
-            star: 'Gliese 1214 b'
-        }
-    },
+    // 'waterworld': {
+    //     id: 'GJ 1214 b',
+    //     distanceToEarth: '42 light years away from us',
+    //     specificity: 'Discovered in December 2009, this planet has the best possibility of being an ocean planet over any exoplanet yet discovered. Ocean planets are, of course, completely covered by one giant ocean, with depths far deeper than the oceans on Earth. These depths could cause a core to form, composed of different forms of ice. The planet most likely hosts water in a medley of phases, including as steam, liquid, and plasma.',
+    //     geometry: '',
+    //     otherData: {
+    //         star: 'Gliese 1214 b'
+    //     }
+    // },
     'doubleStarGrandPa': {
         id: 'PSR B1620-26 b',
         distanceToEarth: '',

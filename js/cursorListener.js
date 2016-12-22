@@ -13,17 +13,6 @@
 // Smooth transition
 
 
-
-// function updateState() {
-// }
-// Cool animation that doesn't work:
-// let skyAnimation = document.querySelector('#skyAnimation');
-// skyAnimation.setAttribute('from', 'whitesmoke');
-// skyAnimation.setAttribute('to', planets[this.id].color);
-// console.log("skyAnimation", skyAnimation);
-// sky.setAttribute('color', planets[this.id].color);
-
-
 /* ------------------
 CURSOR LISTENER
 ------------------ */

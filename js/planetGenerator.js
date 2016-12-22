@@ -52,7 +52,7 @@ let planetGenerator = (function() {
             }
         }
 
-        let planetEntities = utils().getAllPlanets();
+        let planetEntities = utils.getAllPlanets();
         planetEntities.forEach(function(p) {
 
             let planetId = p.getAttribute('id');
@@ -65,12 +65,12 @@ let planetGenerator = (function() {
             // Set rotation animation
 
             let text = document.createElement('a-entity');
-            text.setAttribute('class', 'planet-name');
-            text.setAttribute('material', 'color: white');
-            text.setAttribute('text', 'text: ' + planets[p.id].id);
-            text.setAttribute('position', planets[p.id].textPosition);
-            text.setAttribute('visible', 'false');
-            text.setAttribute('id', 'planet-name-' + planets[p.id].id);
+            // text.setAttribute('class', 'planet-name');
+            // text.setAttribute('material', 'color: white');
+            // text.setAttribute('text', 'text: ' + planets[p.id].id);
+            // text.setAttribute('position', planets[p.id].textPosition);
+            // text.setAttribute('visible', 'false');
+            // text.setAttribute('id', 'planet-name-' + planets[p.id].id);
 
             //text.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
 

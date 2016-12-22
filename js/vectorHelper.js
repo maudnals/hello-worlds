@@ -4,9 +4,10 @@ VECTOR HELPER
 
 let vectorHelper = (function() {
 
-	function degToRad(angle){
-		return angle * 2 * Math.PI / 360;
-	}
+    function degToRad(angle) {
+        // 360 deg = 2Pi radians
+        return angle * 2 * Math.PI / 360;
+    }
 
     function getVectorFromPosition(position) {
         let arr = position.split(" ");
@@ -17,7 +18,7 @@ let vectorHelper = (function() {
     }
 
     function getPositionFromVector(vector) {
-        return vector.x + ' ' + vector.y + ' ' + vector.z ;
+        return vector.x + ' ' + vector.y + ' ' + vector.z;
     }
 
     function generateNeighborPosition(position, yAngle) {
@@ -41,8 +42,3 @@ let vectorHelper = (function() {
 
 // camera should rotate along y only
 
-// 360 deg = 2Pi radians
-// so 1 deg = 2Pi/360 radians
-//             .applyAxisAngle ( axis, angle )
-// axis - A normalized Vector3.
-// angle - An angle in radians.

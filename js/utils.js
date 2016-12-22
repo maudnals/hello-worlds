@@ -2,7 +2,14 @@
 UTILS
 ------------------ */
 
-let utils = function() {
+let utils = (function() {
+
+    let leaveButton;
+
+    function init() {
+        leaveButton = document.querySelector('#leaveButton');
+    }
+
     function getAllPlanets() {
         return document.querySelectorAll('.planet-sphere');
     }
@@ -18,8 +25,10 @@ let utils = function() {
     }
 
     return {
+        init: init,
     	getAllPlanets: getAllPlanets,
     	getOtherPlanets: getOtherPlanets,
-    	checkObserving: checkObserving
+    	checkObserving: checkObserving,
+        leaveButton: leaveButton
     }
-}
+})();

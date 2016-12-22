@@ -18,7 +18,7 @@ let renderer = (function() {
     }
 
     function updatePlanets() {
-        if (utils().checkObserving()) {
+        if (utils.checkObserving()) {
 
             // Unify radius
             document.querySelector('#' + state.currentPlanet.id).setAttribute('radius', radiusFocus);
@@ -57,7 +57,7 @@ let renderer = (function() {
 
 
             // Hide all other planets
-            let otherPlanets = utils().getOtherPlanets();
+            let otherPlanets = utils.getOtherPlanets();
             otherPlanets.forEach(p => {
                 p.setAttribute('visible', 'false');
                 //p.emit('hidePlanet');
@@ -65,7 +65,7 @@ let renderer = (function() {
 
         } else {
             // Make all planets visible
-            let allPlanets = utils().getAllPlanets();
+            let allPlanets = utils.getAllPlanets();
             allPlanets.forEach(p => {
                 p.setAttribute('visible', 'true');
                 //p.emit('showPlanet');
@@ -118,11 +118,11 @@ let renderer = (function() {
     }
 
     function updateText() {
-        if (utils().checkObserving()) {
+        if (utils.checkObserving()) {
             showPlanetName(state.currentPlanet.id);
             showLeaveButton();
         } else {
-            let allPlanets = utils().getAllPlanets();
+            let allPlanets = utils.getAllPlanets();
             allPlanets.forEach(p => {
                 hidePlanetName(p.id);
             });
@@ -131,7 +131,7 @@ let renderer = (function() {
     }
 
     function updateSky() {
-        if (utils().checkObserving()) {
+        if (utils.checkObserving()) {
             sky.emit('darkenSky');
         } else {
             sky.emit('resetSky');
