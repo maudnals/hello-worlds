@@ -8,6 +8,11 @@
 // cool button
 // Refactor
 // Templating
+// put next to earth for comparison
+// UX angle calculation
+// Smooth transition
+
+
 
 // function updateState() {
 // }
@@ -17,37 +22,6 @@
 // skyAnimation.setAttribute('to', planets[this.id].color);
 // console.log("skyAnimation", skyAnimation);
 // sky.setAttribute('color', planets[this.id].color);
-
-
-//     init: function() {
-
-//         // this.el.addEventListener('mouseleave', function() {
-//         //     // state.currentPlanet = 'none';
-//         //     // renderer().updateView();
-//         // });
-//         // just on hover: showPlanetName
-
-//         let that = this.el;
-
-//         this.el.addEventListener('click', function() {
-//             // this.el is the entity (= the sphere)
-//             // this becomes this.el
-//             // click is like gaze
-
-//             if (that === document.querySelector('#leaveButton')) {
-//                 state.lastCurrentPlanet = state.currentPlanet;
-//                 state.currentPlanet = 'none';
-//             }
-
-//             //console.log(this.id + ' is stared at or clicked on.');
-
-//             if (planets[this.id]) {
-//                 state.currentPlanet = planets[this.id];
-//             }
-
-//             renderer.updateView();
-//         });
-//     }̱
 
 
 /* ------------------
@@ -72,24 +46,18 @@ let cursorListener = (function() {
 
                 this.el.addEventListener('click', function() {
 
-                    console.log('click that', that);
                     //             // this.el is the entity (= the sphere)
                     //             // this becomes this.el
                     //             // click is like gaze
                     // console.log(that + ' is stared at or clicked on.');
 
                     if (that === document.querySelector('#leaveButton')) {
-                        // state.lastCurrentPlanet = state.currentPlanet;
-                        // state.currentPlanet = 'none';
                         updateState(none, state.currentPlanet);
-                        // make none a const
-                        // rename last`current to last
                         // cleaner 'unfocus' state
                     }
 
                     if (planets[this.id]) {
                         updateState(planets[this.id]);
-                        // state.currentPlanet = planets[this.id];
                     }
 
                     renderer.updateView();

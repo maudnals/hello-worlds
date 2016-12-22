@@ -13,17 +13,27 @@ let vectorHelper = (function() {
     }
 
     function generateNeighborPosition(position, yAngle) {
-    	// + , zAngle
-    	//let angleRad = angle.y * 2 * Math.PI / 360;
-    	let yAxis = new THREE.Vector3(0, 1, 0);
-    	let angleRad = yAngle * 2 * Math.PI / 360;
-    	let positionVector = getVectorFromPosition(position);
-    	let neighborPosition = positionVector.applyAxisAngle(yAxis, angleRad);
+        // + , zAngle
+        //let angleRad = angle.y * 2 * Math.PI / 360;
+        let yAxis = new THREE.Vector3(0, 1, 0);
+        let angleRad = yAngle * 2 * Math.PI / 360;
+        let positionVector = getVectorFromPosition(position);
+        let neighborPosition = positionVector.applyAxisAngle(yAxis, angleRad);
 
-    	return neighborPosition;
+        return neighborPosition;
     }
 
     return {
-    	generateNeighborPosition: generateNeighborPosition
+        generateNeighborPosition: generateNeighborPosition
     }
 })();
+
+
+
+// camera should rotate along y only
+
+// 360 deg = 2Pi radians
+// so 1 deg = 2Pi/360 radians
+//             .applyAxisAngle ( axis, angle )
+// axis - A normalized Vector3.
+// angle - An angle in radians.
