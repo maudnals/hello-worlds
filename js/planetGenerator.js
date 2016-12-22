@@ -4,7 +4,75 @@ PLANET GENERATOR
 
 let planetGenerator = (function() {
 
-    function init(){
+    function init() {
+
+
+        let allPlanetsContainer = document.createElement('a-entity');
+
+        for (var p in planets) {
+            console.log(p);
+            if (planets.hasOwnProperty(p)) {
+                let planetSphere = document.createElement('a-sphere');
+                planetSphere.setAttribute('id', planets[p].id);
+                planetSphere.setAttribute('class', 'planet-sphere');
+                planetSphere.setAttribute('position', planets[p].defaultPosition);
+                planetSphere.setAttribute('radius', planets[p].radius);
+                planetSphere.setAttribute('src', planets[p].texture);
+                planetSphere.setAttribute('cursor-listener', "");
+
+                // <a-entity id="venus-entity" class="planet-entity">
+                //     <a-sphere id="venus" class="planet-sphere" cursor-listener>
+                //     </a-sphere>
+                // </a-entity>
+
+                let r = document.createElement('a-animation');
+                r.setAttribute('attribute', 'rotation');
+                r.setAttribute('dur', planets[p].rotationPeriod);
+                r.setAttribute('to', '0 360 0');
+                r.setAttribute('repeat', 'indefinite');
+                r.setAttribute('easing', 'linear');
+                r.setAttribute('fill', 'forwards');
+
+                planetSphere.append(r);
+
+                console.log("planetSphere", planetSphere);
+                allPlanetsContainer.append(planetSphere);
+
+            }
+        }
+
+        console.log("allPlanetsContainer", allPlanetsContainer);
+        // planets.forEach(function(p) {
+
+        //     let planetSphere = document.createElement('a-entity');
+        //     planetSphere.setAttribute('id', p.id);
+        //     planetSphere.setAttribute('id', 'planet-sphere');
+        //     planetSphere.setAttribute('position', p.defaultPosition);
+        //     planetSphere.setAttribute('radius', p.radius);
+        //     planetSphere.setAttribute('src', p.texture);
+        //     planetSphere.setAttribute('cursor-listener');
+
+        //     // <a-entity id="venus-entity" class="planet-entity">
+        //     //     <a-sphere id="venus" class="planet-sphere" cursor-listener>
+        //     //     </a-sphere>
+        //     // </a-entity>
+
+        //     let r = document.createElement('a-animation');
+        //     r.setAttribute('attribute', 'rotation');
+        //     r.setAttribute('dur', p.rotationPeriod);
+        //     r.setAttribute('to', '0 360 0');
+        //     r.setAttribute('repeat', 'indefinite');
+        //     r.setAttribute('easing', 'linear');
+        //     r.setAttribute('fill', 'forwards');
+
+        //     p.append(r);
+        //     allPlanets.append(p);
+        // });
+
+
+
+
+
         let planetEntities = utils().getAllPlanets();
         planetEntities.forEach(function(p) {
             let planetId = p.getAttribute('id');
@@ -23,13 +91,6 @@ let planetGenerator = (function() {
             rotationAnimation.setAttribute('fill', 'forwards');
 
 
-// camera should rotate along y only
-
-// 360 deg = 2Pi radians
-// so 1 deg = 2Pi/360 radians
-//             .applyAxisAngle ( axis, angle )
-// axis - A normalized Vector3.
-// angle - An angle in radians.
 
             // where should text be? 
             // place right in front of camera
@@ -55,9 +116,6 @@ let planetGenerator = (function() {
             moveBackwardsAnimation.setAttribute('to', planets[p.id].defaultPosition);
             moveBackwardsAnimation.setAttribute('dur', '2000');
             moveBackwardsAnimation.setAttribute('fill', 'both');
-
-            //let camera = document.get..
-            //let rotation = camera.getAttribute('rotation');
 
             p.append(rotationAnimation);
             p.append(moveTowardsAnimation);
@@ -86,9 +144,7 @@ let planetGenerator = (function() {
             let camera = document.querySelector('a-camera');
             camera.append(text);
 
-
-
-            let leaveButton = document.createElement('a-entity');
+            // let leaveButton = document.createElement('a-entity');
             // leaveButton.setAttribute('material', 'color: green');
             // leaveButton.setAttribute('text', 'text: ' + 'OK');
             // leaveButton.setAttribute('position', '20 1996 -10');
@@ -97,15 +153,12 @@ let planetGenerator = (function() {
             // leaveButton.setAttribute('id', 'leaveButton');
 
             //leaveButton.innerHTML = '<a-animation attribute="visible" begin="showPlanetName" to="true"></a-animation>';
-            
+
             // let entity = document.querySelector('#' + planetId + '-entity');
             // entity.append(leaveButton);
 
-
-
             // console.log(entity);
             // console.log('leaveButton appended to ' + entity);
-
 
             // let camera = document.querySelector('a-camera');
             // came.append(text);
