@@ -1,4 +1,3 @@
-let sky;
 const radiusFocus = 10;
 
 let state = {

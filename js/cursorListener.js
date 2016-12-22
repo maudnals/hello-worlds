@@ -1,13 +1,13 @@
 // Todo today:
-// Refactor
 // Better init only based on data (not on dom classes)
-// Position generator
+//OK Position generator
 // Click vs fuse - Display text on click
-// Layout: organize planets by cluster
 // Fix move transition
 // Enrich content
-// Templating
+// Better text display
 
+// Refactor
+// Templating
 
 // function updateState() {
 // }
@@ -45,7 +45,6 @@ AFRAME.registerComponent('cursor-listener', {
             if (that === document.querySelector('#leaveButton')){
                 state.lastCurrentPlanet = state.currentPlanet;
                 state.currentPlanet = 'none';
-                renderer().updateView();
             }
 
             //console.log(this.id + ' is stared at or clicked on.');
@@ -54,7 +53,7 @@ AFRAME.registerComponent('cursor-listener', {
                 state.currentPlanet = planets[this.id];
             }
 
-            renderer().updateView();
+            renderer.updateView();
         });
     }
 });

@@ -2,16 +2,29 @@
 RENDERER
 ------------------ */
 
-let renderer = function() {
+
+let renderer = (function() {
+
+    let sky;
+    let leaveButton;
+
+    function init() {
+        leaveButton = document.querySelector('#leaveButton');
+        //this.sky = document.querySelector("a-sky");
+        sky = document.querySelector("a-sky");
+        // this.skky = document.querySelector("a-sky");
+        // this.tss = document.querySelector("a-sky");
+        //console.log('sky', this.sky);
+    }
 
     function updatePlanets() {
         if (utils().checkObserving()) {
-            
+
             document.querySelector('#' + state.currentPlanet.id).setAttribute('radius', radiusFocus);
             //unify radius
 
             // let arr = state.currentPlanet.defaultPosition.split(" ");
-            
+
             // let x = parseFloat(arr[0]);
             // let y = parseFloat(arr[1]);
             // let z = parseFloat(arr[2]);
@@ -34,7 +47,7 @@ let renderer = function() {
                 p.setAttribute('visible', 'false');
                 //p.emit('hidePlanet');
             });
-            
+
         } else {
             // Make all planets visible
             let allPlanets = utils().getAllPlanets();
@@ -57,21 +70,38 @@ let renderer = function() {
         }
     }
 
-    function updateText() {
+    function showLeaveButton() {
+        leaveButton.setAttribute('visible', 'true');
+    }
 
-        //text.setAttribute('id', 'planet-name-' + planets[p.id].id);
+    function hideLeaveButton() {
+        leaveButton.setAttribute('visible', 'false');
+    }
+
+    function showPlanetName(planetId) {
+        let planetName = document.querySelector('#planet-name-' + planetId);
+        if (planetName) {
+            planetName.setAttribute('visible', 'true');
+        }
+    }
+
+    function hidePlanetName(planetId) {
+        let planetName = document.querySelector('#planet-name-' + planetId);
+        if (planetName) {
+            planetName.setAttribute('visible', 'false');
+        }
+    }
+
+    function updateText() {
         if (utils().checkObserving()) {
-            document.querySelector('#leaveButton').setAttribute('visible', 'true');
-            document.querySelector('#planet-name-' + state.currentPlanet.id).setAttribute('visible', 'true');
+            showPlanetName(state.currentPlanet.id);
+            showLeaveButton();
         } else {
-            document.querySelector('#leaveButton').setAttribute('visible', 'false');
             let allPlanets = utils().getAllPlanets();
             allPlanets.forEach(p => {
-                let planetName = document.querySelector('#planet-name-' + p.id);
-                if (planetName) {
-                    planetName.setAttribute('visible', 'false');
-                }
+                hidePlanetName(p.id);
             });
+            hideLeaveButton();
         }
     }
 
@@ -85,13 +115,24 @@ let renderer = function() {
 
     function updateView() {
         console.log('update view');
+        updateText();
         updateSky();
         updatePlanets();
-        updateText();
     }
 
     return {
+        init: init,
         updateView: updateView
-    }
+    };
 
-};
+
+// function r() {
+    //     let sky;
+    //     function initi() {sky = 2;}
+    //     initi(); 
+    //     console.log("jj " + counter);   
+    //     //return counter; 
+    // }
+
+
+})();
