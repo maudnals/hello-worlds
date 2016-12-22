@@ -56,15 +56,14 @@ let renderer = (function() {
                 //p.emit('showPlanet');
             });
 
-            if (state.lastCurrentPlanet !== 'none') {
-                console.log(state.lastCurrentPlanet);
+            if (state.lastPlanet !== none) {
 
-                document.querySelector('#' + state.lastCurrentPlanet.id).setAttribute('radius', state.lastCurrentPlanet.radius);
+                document.querySelector('#' + state.lastPlanet.id).setAttribute('radius', state.lastPlanet.radius);
 
                 // document.querySelector('#' + state.lastCurrentPlanet.id).emit('moveBack');
 
 
-                document.querySelector('#' + state.lastCurrentPlanet.id).setAttribute('position', state.lastCurrentPlanet.defaultPosition);
+                document.querySelector('#' + state.lastPlanet.id).setAttribute('position', state.lastPlanet.defaultPosition);
             }
 
         }
@@ -124,15 +123,5 @@ let renderer = (function() {
         init: init,
         updateView: updateView
     }
-
-
-// function r() {
-    //     let sky;
-    //     function initi() {sky = 2;}
-    //     initi(); 
-    //     console.log("jj " + counter);   
-    //     //return counter; 
-    // }
-
 
 })();

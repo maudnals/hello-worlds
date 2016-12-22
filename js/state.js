@@ -1,6 +1,6 @@
 const radiusFocus = 10;
 
 let state = {
-    currentPlanet: 'none',
-    lastCurrentPlanet: 'none'
+    currentPlanet: none,
+    lastPlanet: none
 };

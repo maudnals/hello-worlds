@@ -5,7 +5,7 @@
 // Fix move transition
 // Enrich content
 // Better text display
-
+// cool button
 // Refactor
 // Templating
 
@@ -57,9 +57,10 @@ CURSOR LISTENER
 // when ready:
 let cursorListener = (function() {
 
-    // function updateState() {
-        
-    // }
+    function updateState(current, last = none) {
+        state.currentPlanet = current;
+        state.lastPlanet = last;
+    }
 
     function init() {
         console.log('init');
@@ -75,15 +76,20 @@ let cursorListener = (function() {
                     //             // this.el is the entity (= the sphere)
                     //             // this becomes this.el
                     //             // click is like gaze
-                    //console.log(that + ' is stared at or clicked on.');
+                    // console.log(that + ' is stared at or clicked on.');
 
                     if (that === document.querySelector('#leaveButton')) {
-                        state.lastCurrentPlanet = state.currentPlanet;
-                        state.currentPlanet = 'none';
+                        // state.lastCurrentPlanet = state.currentPlanet;
+                        // state.currentPlanet = 'none';
+                        updateState(none, state.currentPlanet);
+                        // make none a const
+                        // rename last`current to last
+                        // cleaner 'unfocus' state
                     }
 
                     if (planets[this.id]) {
-                        state.currentPlanet = planets[this.id];
+                        updateState(planets[this.id]);
+                        // state.currentPlanet = planets[this.id];
                     }
 
                     renderer.updateView();

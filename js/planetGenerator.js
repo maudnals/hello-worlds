@@ -2,7 +2,7 @@
 PLANET GENERATOR
 ------------------ */
 
-let planetGenerator = function() {
+let planetGenerator = (function() {
 
     function init(){
         let planetEntities = utils().getAllPlanets();
@@ -122,4 +122,4 @@ let planetGenerator = function() {
     return {
         init: init
     }
-}
+})();
