@@ -1,16 +1,19 @@
 // Todo today:
+
 //OK Better init only based on data (not on dom classes)
 //OK Position generator
 //OK Fix move transition
+//OK Better text display
+//OK Smooth transition
+//OK Enrich content
+
 // Click vs fuse - Display text on click
-// Enrich content
-// Better text display
 // cool button
 // Refactor
 // Templating
+//rotate planet (see example earth)
 // put next to earth for comparison
 // UX angle calculation
-// Smooth transition
 
 
 /* ------------------
