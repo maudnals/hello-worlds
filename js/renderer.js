@@ -34,7 +34,9 @@ let renderer = (function() {
             let bPrim = aPrim.applyAxisAngle(yAxis, angleRad);
 
             let c = new THREE.Vector3(b.x / 2, b.y / 2 + 5, b.z / 2);
-            let d = new THREE.Vector3(bPrim.x / 4 , bPrim.y / 4 - 3, bPrim.z / 4);
+            let d = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4 - 5, bPrim.z / 4);
+
+            let e = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4 - 3, bPrim.z / 4);
 
             let currentPosition = document.querySelector('#' + state.currentPlanet.id).getAttribute('position');
 
@@ -50,6 +52,14 @@ let renderer = (function() {
             sphere.append(moveAnim);
 
 
+            let planetName = document.querySelector('#planetName');
+
+            let textAttribute = text="text: " + state.currentPlanet.id.toUpperCase() + "; font: Cartoon Marker;"
+            planetName.setAttribute('text', textAttribute);
+
+            planetName.setAttribute('position', vectorHelper.getPositionFromVector(e));
+            planetName.setAttribute('rotation', camera.getAttribute('rotation'));
+            planetName.setAttribute('visible', 'true');
 
             leaveButton.setAttribute('position', vectorHelper.getPositionFromVector(d));
             leaveButton.setAttribute('rotation', camera.getAttribute('rotation'));
@@ -114,28 +124,29 @@ let renderer = (function() {
         leaveButton.setAttribute('visible', 'false');
     }
 
-    function showPlanetName(planetId) {
-        let planetName = document.querySelector('#planet-name-' + planetId);
-        if (planetName) {
-            planetName.setAttribute('visible', 'true');
-        }
-    }
+    // function showPlanetName() {
+    //     let planetName = document.querySelector('#' + planetName);
+    //     if (planetName) {
+    //         planetName.setAttribute('visible', 'true');
+    //     }
+    // }
 
-    function hidePlanetName(planetId) {
-        let planetName = document.querySelector('#planet-name-' + planetId);
-        if (planetName) {
-            planetName.setAttribute('visible', 'false');
-        }
-    }
+    // function hidePlanetName(planetId) {
+    //     let planetName = document.querySelector('#planet-name-' + planetId);
+    //     if (planetName) {
+    //         planetName.setAttribute('visible', 'false');
+    //     }
+    // }
 
     function updateText() {
         if (utils.checkObserving()) {
-            showPlanetName(state.currentPlanet.id);
+            //showPlanetName(state.currentPlanet.id);
+            //planetName
             showLeaveButton();
         } else {
             let allPlanets = utils.getAllPlanets();
             allPlanets.forEach(p => {
-                hidePlanetName(p.id);
+                // hidePlanetName(p.id);
             });
             hideLeaveButton();
         }

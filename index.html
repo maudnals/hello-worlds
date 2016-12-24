@@ -31,10 +31,11 @@
                 <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="color" fill="forwards" from="red" to="palegreen" dur="280"></a-animation>
                 <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="4 4 4" to="1 1 1" dur="280"></a-animation>
             </a-cursor>
-            <!--          <a-plane color="darkslategrey" height="2" width="6" position="0 -10 -15"></a-plane> -->
+            <!--             <a-plane color="darkslategrey" height="2" width="6" position="0 -10 -15">
+            </a-plane> -->
             <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
         </a-camera>
-<!--         <a-entity>
+        <!--         <a-entity>
             <a-entity template="src: cubes.template" position="-4 0 -8"></a-entity>
             <a-entity template="src: cubes.template" position="0 4 -8"></a-entity>
             <a-entity template="src: cubes.template" position="4 0 -8"></a-entity>
@@ -44,6 +45,7 @@
             <a-entity template="src: planet.template" position="0 180 -280"></a-entity>
         </a-entity> -->
         <a-entity id="allPlanetsContainer"></a-entity>
+        <a-entity material="color: white" text="text: PLANET;" position="0 1 -7" rotation="0 0 0" visible="false" id="planetName"></a-entity>
         <a-entity material="color: mediumspringgreen" text="text: OK; font: Cartoon Marker;" position="0 1 -4" rotation="0 0 0" visible="false" id="leaveButton" cursor-listener>
             <!--             dur="2000" -->
         </a-entity>
