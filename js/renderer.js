@@ -53,10 +53,8 @@ let renderer = (function() {
 
 
             let planetName = document.querySelector('#planetName');
-
-            let textAttribute = text="text: " + state.currentPlanet.id.toUpperCase() + "; font: Cartoon Marker;"
+            let textAttribute = text = "text: " + state.currentPlanet.id.toUpperCase() + "; font: Cartoon Marker;"
             planetName.setAttribute('text', textAttribute);
-
             planetName.setAttribute('position', vectorHelper.getPositionFromVector(e));
             planetName.setAttribute('rotation', camera.getAttribute('rotation'));
             planetName.setAttribute('visible', 'true');
@@ -106,6 +104,10 @@ let renderer = (function() {
                 moveAnim.setAttribute('dur', '2000');
                 moveAnim.setAttribute('fill', 'both');
                 sphere.append(moveAnim);
+
+
+                let planetName = document.querySelector('#planetName');
+                planetName.setAttribute('visible', 'false');
 
 
                 // Emit animated event
