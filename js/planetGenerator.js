@@ -32,16 +32,19 @@ let planetGenerator = (function() {
 
         if (sphere) {
 
-        sphere.setAttribute('position', p.position);
-        let radius = planets[p].radius;
-        sphere.setAttribute('geometry', 'primitive: sphere; radius: ' + radius +';');
-        // Using geometry attr because setting radius attr directly doesn't work
-        // i.e. "sphere.setAttribute('radius', p.radius);" doesn't work
+            sphere.setAttribute('position', p.position);
+            let radius = planets[p].radius;
+            sphere.setAttribute('geometry', 'primitive: sphere; radius: ' + radius +';');
+            // Using geometry attr because setting radius attr directly doesn't work
+            // i.e. "sphere.setAttribute('radius', p.radius);" doesn't work
 
-        sphere.setAttribute('class', "planet-sphere");
-        // Useful to hide/show planets
+            sphere.setAttribute('material', 'src: url(' + planets[p].texture +')');
+            // Using material attr because setting src attr directly doesn't work
+            // i.e. "sphere.setAttribute('src', p.texture);" doesn't work
 
-        // sphere.setAttribute('src', p.texture); NO
+            sphere.setAttribute('class', 'planet-sphere');
+            // Useful to hide/show planets
+            
             let rotAnim = createRotationForPlanet(planets[p]);
             sphere.append(rotAnim);
         }

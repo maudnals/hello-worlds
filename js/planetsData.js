@@ -197,10 +197,6 @@ let planets = {
 
 
 let weirdos = {
-
-
-
-
     // Max 10
     // description: 'The weirdest exoplanets. Twenty years after scientists confirmed the first planets beyond our solar system, there are more than 900 confirmed exoplanets and thousands of additional candidates. Some of the worlds out there are just plain out-there.',
     // 'foreverAlone': {
@@ -281,7 +277,7 @@ let weirdos = {
     'doomed': {
         id: 'WASP - 18b',
         distanceToEarth: '325 light-years',
-        specificity: "One million years—that\'s how long this planet has until it inevitably collides with its star. This world faces oblivion due to the slow degradation of its orbit, meaning it's gradually being pulled into its own sun.Even the planet's existence is a mystery, as scientists think that it should have disintegrated by now. One theory is that the planet's orbit has been degenerating for some time and is coming close to the end of its death spiral. A similar instance of this space phenomenon can be seen with Mars's moon Phobos, which approaches the Martian surface 1.8 meters every 100 years. It will meet its demise and eventually break up into a planetary ring in 30 to 50 million years.",
+        specificity: "One million years. That\'s how long this planet has until it inevitably collides with its star. This world faces oblivion due to the slow degradation of its orbit, meaning it's gradually being pulled into its own sun.Even the planet's existence is a mystery, as scientists think that it should have disintegrated by now. One theory is that the planet's orbit has been degenerating for some time and is coming close to the end of its death spiral. A similar instance of this space phenomenon can be seen with Mars's moon Phobos, which approaches the Martian surface 1.8 meters every 100 years. It will meet its demise and eventually break up into a planetary ring in 30 to 50 million years.",
         geometry: '',
         otherData: {
             age: ''
