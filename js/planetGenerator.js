@@ -33,6 +33,8 @@ let planetGenerator = (function() {
         if (sphere) {
 
         sphere.setAttribute('position', p.position);
+        sphere.setAttribute('src', p.texture);
+        // sphere.setAttribute('radius', p.radius); NO
 
 
 
