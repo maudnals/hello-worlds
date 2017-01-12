@@ -27,9 +27,12 @@ let planetGenerator = (function() {
     }
 
     function generateRotatingPlanet(p) {
-        let sphere = createSphereFromPlanet(planets[p]);
-        let rotAnim = createRotationForPlanet(planets[p]);
-        sphere.append(rotAnim);
+        //let sphere = createSphereFromPlanet(planets[p]);
+        let sphere = document.getElementById(p);
+        if (sphere) {
+            let rotAnim = createRotationForPlanet(planets[p]);
+            sphere.append(rotAnim);
+        }
         return sphere;
     }
 
@@ -47,8 +50,10 @@ let planetGenerator = (function() {
 
             if (planets.hasOwnProperty(p)) {
                 let sphere = generateRotatingPlanet(p);
-                moveElement(sphere, planets[p].defaultPosition);
-                allPlanetsContainer.append(sphere);
+                if (sphere) {
+                    moveElement(sphere, planets[p].defaultPosition);
+                }
+                //allPlanetsContainer.append(sphere);
             }
         }
 

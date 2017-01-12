@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <a-scene>
+    <a-scene id="myScene">
         <a-camera>
             <!--         <a-box src="#boxTexture"f position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
             <a-cursor color="palegreen" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.005; radiusInner: 0.004;">
@@ -44,7 +44,11 @@
         <a-entity>
             <a-entity template="src: planet.template" position="0 180 -280"></a-entity>
         </a-entity> -->
-        <a-entity id="allPlanetsContainer"></a-entity>
+        <a-entity id="allPlanetsContainer">
+        <a-sphere id="jupiter" class="planet-sphere" radius="7.1492" src="img/Txtr-Jupiter.jpg" cursor-listener position="0 20 -40"></a-sphere>
+        <a-sphere id="saturn" class="planet-sphere" radius="3" src="img/2k_saturn.jpg" cursor-listener position="17 20 -36"></a-sphere>
+            
+        </a-entity>
         <a-entity material="color: white" text="text: PLANET;" position="0 1 -7" rotation="0 0 0" visible="false" id="planetName"></a-entity>
         <a-entity material="color: mediumspringgreen" text="text: OK; font: Cartoon Marker; size: .3;" position="0 1 -4" rotation="0 0 0" visible="false" id="leaveButton" cursor-listener>
             <!--             dur="2000" -->
