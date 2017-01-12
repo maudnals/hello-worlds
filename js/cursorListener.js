@@ -53,10 +53,10 @@ let cursorListener = (function() {
                         if ('speechSynthesis' in window) {
                             let name = planets[this.id].name;
                             let specificity = planets[this.id].specificity;
-                            let text = name + specificity;
+                            let text = name + ". " + specificity;
                             let msg = new SpeechSynthesisUtterance();
 
-                            let voices = window.speechSynthesis.getVoices();
+                            // let voices = window.speechSynthesis.getVoices();
                             msg.voice = voices[66];
                             // msg.voice = voices["Google UK English Female"];
 
