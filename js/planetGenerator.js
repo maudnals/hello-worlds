@@ -29,7 +29,13 @@ let planetGenerator = (function() {
     function generateRotatingPlanet(p) {
         //let sphere = createSphereFromPlanet(planets[p]);
         let sphere = document.getElementById(p);
+
         if (sphere) {
+
+        sphere.setAttribute('position', p.position);
+
+
+
             let rotAnim = createRotationForPlanet(planets[p]);
             sphere.append(rotAnim);
         }
