@@ -41,6 +41,10 @@ let cursorListener = (function() {
 
                     if (that === document.querySelector('#leaveButton')) {
                         updateState(none, state.currentPlanet);
+
+                        if ('speechSynthesis' in window) {
+                            speechSynthesis.cancel();
+                        }
                     }
                     if (planets[this.id]) {
                         updateState(planets[this.id]);
@@ -51,10 +55,10 @@ let cursorListener = (function() {
                             let specificity = planets[this.id].specificity;
                             let text = name + specificity;
                             let msg = new SpeechSynthesisUtterance();
-                            //var voices = window.speechSynthesis.getVoices();
 
+                            let voices = window.speechSynthesis.getVoices();
+                            msg.voice = voices["Google UK English Female"];
 
-                            msg.voice = "Google UK English Female";
                             msg.rate = 0.9;
                             //https://codepen.io/SteveJRobertson/pen/emGWaR
 
