@@ -57,7 +57,8 @@ let cursorListener = (function() {
                             let msg = new SpeechSynthesisUtterance();
 
                             let voices = window.speechSynthesis.getVoices();
-                            msg.voice = voices["Google UK English Female"];
+                            msg.voice = voices[66];
+                            // msg.voice = voices["Google UK English Female"];
 
                             msg.rate = 0.9;
                             //https://codepen.io/SteveJRobertson/pen/emGWaR
