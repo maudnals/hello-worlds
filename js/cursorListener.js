@@ -44,6 +44,24 @@ let cursorListener = (function() {
                     }
                     if (planets[this.id]) {
                         updateState(planets[this.id]);
+
+
+                        if ('speechSynthesis' in window) {
+                            let name = planets[this.id].name;
+                            let specificity = planets[this.id].specificity;
+                            let text = name + specificity;
+                            let msg = new SpeechSynthesisUtterance();
+                            //var voices = window.speechSynthesis.getVoices();
+
+
+                            msg.voice = "Google UK English Female";
+                            msg.rate = 0.9;
+                            //https://codepen.io/SteveJRobertson/pen/emGWaR
+
+                            //msg.pitch = $('#pitch').val();
+                            msg.text = text;
+                            speechSynthesis.speak(msg);
+                        }
                     }
                     renderer.updateView();
                 });
