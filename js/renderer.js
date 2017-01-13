@@ -42,10 +42,10 @@ let renderer = (function() {
         });
     }
 
-    function hidePlanetName() {
-        let planetName = document.querySelector('#planetName');
-        planetName.setAttribute('visible', 'false');
-    }
+    // function hidePlanetName() {
+    //     let planetName = document.querySelector('#planetName');
+    //     planetName.setAttribute('visible', 'false');
+    // }
 
     function updatePlanets() {
         if (utils.checkObserving()) {
@@ -77,14 +77,6 @@ let renderer = (function() {
             let moveTowardsUserAnim = createMoveAnim(state.currentPlanet.defaultPosition, vectorHelper.getPositionFromVector(c), 'moveTowardsUser');
             sphere.append(moveTowardsUserAnim);
 
-
-            let planetName = document.querySelector('#planetName');
-            let textAttribute = text = "text: " + state.currentPlanet.id.toUpperCase() + "; font: Cartoon Marker;"
-            planetName.setAttribute('text', textAttribute);
-            planetName.setAttribute('position', vectorHelper.getPositionFromVector(e));
-            planetName.setAttribute('rotation', camera.getAttribute('rotation'));
-            planetName.setAttribute('visible', 'true');
-
             leaveButton.setAttribute('position', vectorHelper.getPositionFromVector(d));
             leaveButton.setAttribute('rotation', camera.getAttribute('rotation'));
 
@@ -92,15 +84,12 @@ let renderer = (function() {
 
 
 
-            // Hide all other planets
-            let otherPlanets = utils.getOtherPlanets();
-            hidePlanets(otherPlanets);
+            hidePlanets(utils.getOtherPlanets());
 
         } else {
             showPlanets(utils.getAllPlanets());
 
             if (state.lastPlanet !== none) {
-                hidePlanetName();
                 moveToInitPos(state.lastPlanet);
                 updatePlanetRadius(state.lastPlanet);
             }
@@ -144,7 +133,48 @@ let renderer = (function() {
     //     }
     // }
 
-    function updateText() {
+
+    function updatePlanetName() {
+
+
+
+
+
+        let a = new THREE.Vector3(0, 20, -40);
+        let initNamePosition = new THREE.Vector3(-6, 10, -40);
+        let initOKPosition = new THREE.Vector3(-1, 4, -40);
+        let yAxis = new THREE.Vector3(0, 1, 0);
+        let angle = document.querySelector('a-camera').getAttribute('rotation');
+        let angleRad = angle.y * 2 * Math.PI / 360;
+        let b = a.applyAxisAngle(yAxis, angleRad);
+        let bPrim = initNamePosition.applyAxisAngle(yAxis, angleRad);
+        let initOKPositionPrim = initOKPosition.applyAxisAngle(yAxis, angleRad);
+
+        let c = new THREE.Vector3(b.x / 2, b.y / 2 + 5, b.z / 2);
+
+        let d = new THREE.Vector3(initOKPositionPrim.x / 4, initOKPositionPrim.y / 4, initOKPositionPrim.z / 4);
+
+        let e = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4, bPrim.z / 4);
+
+
+        if (utils.checkObserving()) {
+
+            let planetName = document.querySelector('#planetName');
+            let textAttribute = text = "text: " + state.currentPlanet.id.toUpperCase() + "; font: Cartoon Marker;"
+            planetName.setAttribute('text', textAttribute);
+            planetName.setAttribute('position', vectorHelper.getPositionFromVector(e));
+            planetName.setAttribute('rotation', camera.getAttribute('rotation'));
+            planetName.setAttribute('visible', 'true');
+
+        } else {
+            if (state.lastPlanet !== none) {
+                let planetName = document.querySelector('#planetName');
+                planetName.setAttribute('visible', 'false');
+            }
+        }
+    }
+
+    function updateLeaveButton() {
         if (utils.checkObserving()) {
             showLeaveButton();
         } else {
@@ -164,7 +194,8 @@ let renderer = (function() {
         console.log('update view');
         updateSky();
         updatePlanets();
-        updateText();
+        updatePlanetName();
+        updateLeaveButton();
     }
 
     return {
