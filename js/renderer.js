@@ -64,7 +64,7 @@ let renderer = (function() {
 
             let focusPos_init = new THREE.Vector3(0, 20, -40);
             let leaveButtonPos_init = new THREE.Vector3(-3, -2, -40);
-            let leaveButtonPlanePos_init = new THREE.Vector3(-0, -2, -42);
+            let leaveButtonPlanePos_init = new THREE.Vector3(-0, -1.7, -42);
             let yAxis = new THREE.Vector3(0, 1, 0);
             let angle = camera.getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
@@ -141,7 +141,7 @@ let renderer = (function() {
 
 
         let a = new THREE.Vector3(0, 20, -40);
-        let initNamePosition = new THREE.Vector3(-6, 10, -40);
+        let initNamePosition = new THREE.Vector3(-6, 12, -40);
         let initOKPosition = new THREE.Vector3(-1, 4, -40);
         let yAxis = new THREE.Vector3(0, 1, 0);
         let angle = document.querySelector('a-camera').getAttribute('rotation');
