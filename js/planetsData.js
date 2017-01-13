@@ -128,7 +128,7 @@ let planets = {
         defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -78),
         radius: defaultRadius * 1.2,
         // original 0.24766 but too small so *2 
-        texture: 'img/txtr-fire.png',
+        texture: 'img/txtr-fire.jpg',
         // http://orig14.deviantart.net/e267/f/2014/311/a/d/background_fire_theme_by_lockeliefather-d85ka9h.png
         rotationPeriod: defaultRotationPeriod,
         distanceToEarth: 'around 378 light years away, situated in the Andromeda constellation',
