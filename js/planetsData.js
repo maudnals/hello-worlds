@@ -195,7 +195,7 @@ let planets = {
         defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -105),
         radius: defaultRadius * 0.8,
         // original 0.24766 but too small so *2 
-        texture: 'img/txtr-waterworld.png',
+        texture: 'img/txtr-waterworld.jpg',
         rotationPeriod: defaultRotationPeriod,
         distanceToEarth: '44',
         discovery: '2009',
