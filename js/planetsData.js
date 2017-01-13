@@ -18,7 +18,6 @@ let planets = {
         // original 0.2440 but too small
         texture: 'img/2k_mercury.jpg',
         rotationPeriod: '58000',
-        textPosition: textPosition,
         specificity: "As the planet nearest the sun, the surface of Mercury can reach a scorching 450 degrees Celsius. However, since this world doesn't have enough atmosphere to entrap any heat, at night temperatures can plummet to -170 degrees Celsius. That's a huge temperature swing and the greatest in the solar system."
     },
     'venus': {
@@ -30,7 +29,6 @@ let planets = {
         // original 0.6052 but too small
         texture: 'img/2k_venus_surface.jpg',
         rotationPeriod: '243000',
-        textPosition: textPosition,
         specificity: "Although Venus is only the planet second nearest the sun, its dense, toxic atmosphere traps heat in a runaway version of the greenhouse effect that warms up the Earth. As a result, temperatures on Venus reach 465 degrees Celsius, more than hot enough to melt lead."
     },
     'earth': {
@@ -42,7 +40,6 @@ let planets = {
         // original 0.6378 but too small
         texture: 'img/2k_earth_daymap.jpg',
         rotationPeriod: '10000',
-        textPosition: textPosition,
         specificity: "It might seem a bit like navel-gazing to point out how special Earth is — after all, we live here. Although Earth is covered in oceans of water, Mars could have once hosted seas as well. But nowhere else in the solar system can one find atmospheres loaded with free oxygen, which ultimately proved vital to one of the other unique features of Earth — us."
     },
     'mars': {
@@ -54,7 +51,6 @@ let planets = {
         // original 0.3397 but too small so *2
         texture: 'img/2k_mars.jpg',
         rotationPeriod: '10200',
-        textPosition: textPosition,
         specificity: "The dust storms of Mars are the largest in the solar system, capable of blanketing the entire red planet and lasting for months. One theory as to why dust storms can grow so big on Mars starts with airborne dust particles absorbing sunlight, warming the Martian atmosphere in their vicinity. Warm pockets of air flow toward colder regions, generating winds. Strong winds lift more dust off the ground, which in turn heats the atmosphere, raising more wind and kicking up more dust."
     },
     'jupiter': {
@@ -65,7 +61,6 @@ let planets = {
         radius: '7.1492',
         texture: 'img/Txtr-Jupiter.jpg',
         rotationPeriod: '4100',
-        textPosition: textPosition,
         specificity: "The most extraordinary feature on Jupiter's surface is undoubtedly the Great Red Spot, a giant storm seen for more than 300 years. At its widest diameter, the Great Red Spot is roughly three times as wide as Earth. Every now and again, the spot fades entirely."
     },
     'saturn': {
@@ -76,7 +71,6 @@ let planets = {
         radius: '6.0368',
         texture: 'img/2k_saturn.jpg',
         rotationPeriod: '4400',
-        textPosition: textPosition,
         discovery: '1610 (Galileo)',
         specificity: "Saturn is most famous for its spectacular rings. One ring, too faint to be seen from Earth and discovered just in 2009, measures at least 200 times the diameter of the planet — a billion Earths could fit inside the ring."
     },
@@ -89,7 +83,6 @@ let planets = {
         // original 0.25559 but too small so *2 
         texture: 'img/2k_uranus.jpg',
         rotationPeriod: '7000',
-        textPosition: textPosition,
         discovery: '1781 (Herschel)',
         specificity: 'Unlike other worlds, Uranus is tilted so far that it essentially orbits the sun on its side, with the axis of its spin nearly pointing at the star. Many astronomers believe this unusual orientation might be due to a collision with an Earth-sized planet soon after it was formed.'
     },
@@ -102,7 +95,6 @@ let planets = {
         // original 0.24766 but too small so *2 
         texture: 'img/2k_neptune.jpg',
         rotationPeriod: '6700',
-        textPosition: textPosition,
         discovery: '~1850 (Galle and Le Verrier)',
         specificity: "On Neptune, one can find jet stream winds traveling at more than 1,500 mph. It remains a mystery as to how it gets the energy to drive the fastest planetary winds seen in the solar system, despite it being so far from the sun — at times farther from the sun than Pluto — and having relatively weak internal heat."
     },
@@ -119,7 +111,6 @@ let planets = {
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-pink.jpg',
         rotationPeriod: defaultRotationPeriod,
-        textPosition: textPosition,
         distanceToEarth: '57 light-years',
         distanceToEarthAlias: 'short',
         specificity: 'The only pink planet ever discovered. Extremely far away from the star it orbits, which is challenging ideas on how giant planets form.  At first glance, the planet appears covered in a dark shade of pink. The planet is still glowing from the heat of its formation, thus causing the uncommon planetary hue, according to NASA. But beyond its peculiar magenta coloring, this particular world has scientists reconsidering how planets and solar systems form. Although the  is about the same size as Jupiter, it\'s much farther from its parent star than many astronomers believed such a huge planet could form—debris was believed to be too sparse to form such large celestial bodies. At 43.5 AU (1 AU, or astronomical unit, is the distance from the Earth to the sun), GJ 504b is farther from its star than even Neptune is from the sun. Yet there it is in all its pink glory.',
@@ -140,7 +131,6 @@ let planets = {
         texture: 'img/txtr-fire.png',
         // http://orig14.deviantart.net/e267/f/2014/311/a/d/background_fire_theme_by_lockeliefather-d85ka9h.png
         rotationPeriod: defaultRotationPeriod,
-        textPosition: textPosition,
         distanceToEarth: 'around 378 light years away, situated in the Andromeda constellation',
         specificity: 'Surface temperature is 3,200 degrees Celsius. It’s the hottest planet in the known universe. The planet flies very close to it’s star, which also happens to be the hottest known star in the universe.',
         geometry: 'It’s a huge planet, 4 times the size of Jupiter.',
@@ -158,7 +148,6 @@ let planets = {
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-diamond-4.jpg',
         rotationPeriod: defaultRotationPeriod,
-        textPosition: textPosition,
         distanceToEarth: '40 light-years',
         specificity: "Want to make a quick $26.9 nonillion? ? That's $26.9 followed 29 zeros, and that's how much the diamonds on this planets would be worth, if only you could travel 40 light-years to retrieve them. One-third of this planet's surface is likely to be made of diamonds due to high temperatures, interior pressures, and carbon-based composition. Scientists say this planet offers the first glimpse of a world with an extremely different chemistry from our own. The Diamond Planet is twice the size of Earth and eight times as dense. However, mining the planet is out of the question. Despite the 40-light-year distance, surface temperatures reach close to 3900 degrees Celsius. However, there are a few other planets with a similar bling composition, such as WASP-12b and the next planet on our list. Strange things transpire in the twilight zone, and stranger still is the place where the sun never rises nor sets, but remains trapped at dusk. The planet Janssen (scientific name 55 Cancri e) is tidally locked, a two-faced super-Earth with the dayside of the planet molten from the heat of its star Copernicus and its nightside plunged permanently into darkness. You might think you’d survive in the twilight or “terminator” zone, where the day and night sides meet. But Janssen’s year is only 18 hours long. That means the backside of the planet is just cool enough to harden the dayside’s boiling hellish world of possible lava flows. Don’t get on this planet’s bad side–either of them–or you’ll be toast.",
         geometry: '',
@@ -176,7 +165,6 @@ let planets = {
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-waterworld.png',
         rotationPeriod: defaultRotationPeriod,
-        textPosition: textPosition,
         distanceToEarth: '42 light years away from us',
         specificity: 'Discovered in December 2009, this planet has the best possibility of being an ocean planet over any exoplanet yet discovered. Ocean planets are, of course, completely covered by one giant ocean, with depths far deeper than the oceans on Earth. These depths could cause a core to form, composed of different forms of ice. The planet most likely hosts water in a medley of phases, including as steam, liquid, and plasma.',
         geometry: '',
@@ -195,7 +183,6 @@ let planets = {
         texture: 'img/txtr-blackHole.jpg',
         // http://jasonyesser.com/wp-content/uploads/2014/03/Black-Red-Grunge-Texture.jpg
         rotationPeriod: defaultRotationPeriod,
-        textPosition: textPosition,
 
         // http: //orig01.deviantart.net/0088/f/2013/005/a/3/red_and_black_sprayed_wppr_by_rentehman-d5qj9ks.jpg
         distanceToEarth: '750 light-years',

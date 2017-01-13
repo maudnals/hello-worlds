@@ -43,30 +43,23 @@ let cursorListener = (function() {
                     if (that === document.querySelector('#leaveButton') || that === document.querySelector('#leaveButtonPlane')) {
                         updateState(none, state.currentPlanet);
 
-                        if ('speechSynthesis' in window) {
-                            speechSynthesis.cancel();
-                        }
+                        // if ('speechSynthesis' in window) {
+                        //     speechSynthesis.cancel();
+                        // }
                     }
                     if (planets[this.id]) {
                         updateState(planets[this.id]);
 
-                        if ('speechSynthesis' in window) {
-                            let name = planets[this.id].name;
-                            let specificity = planets[this.id].specificity;
-                            let text = name + ". " + specificity;
-                            let msg = new SpeechSynthesisUtterance();
-
-                            // let voices = window.speechSynthesis.getVoices();
-                            msg.voice = voices[66];
-                            // msg.voice = voices["Google UK English Female"];
-
-                            msg.rate = 0.9;
-                            //https://codepen.io/SteveJRobertson/pen/emGWaR
-
-                            //msg.pitch = $('#pitch').val();
-                            msg.text = text;
-                            speechSynthesis.speak(msg);
-                        }
+                        // if ('speechSynthesis' in window) {
+                        //     let name = planets[this.id].name;
+                        //     let specificity = planets[this.id].specificity;
+                        //     let text = name + ". " + specificity;
+                        //     let msg = new SpeechSynthesisUtterance();
+                        //     msg.voice = voices[66]; // ["Google UK English Female"];
+                        //     msg.rate = 0.9;
+                        //     msg.text = text;
+                        //     speechSynthesis.speak(msg);
+                        // }
                     }
                     renderer.updateView();
                 });
