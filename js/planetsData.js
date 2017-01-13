@@ -1,7 +1,7 @@
 // Main sources:
 
 // discovery Date
-// distance to earth / age you'd be
+// distance to earth / in generations
 // planet type
 
 const defaultRotationPeriod = '8000';
@@ -77,6 +77,7 @@ let planets = {
         texture: 'img/2k_saturn.jpg',
         rotationPeriod: '4400',
         textPosition: textPosition,
+        discovery: '1610 (Galileo)',
         specificity: "Saturn is most famous for its spectacular rings. One ring, too faint to be seen from Earth and discovered just in 2009, measures at least 200 times the diameter of the planet — a billion Earths could fit inside the ring."
     },
     'uranus': {
@@ -89,6 +90,7 @@ let planets = {
         texture: 'img/2k_uranus.jpg',
         rotationPeriod: '7000',
         textPosition: textPosition,
+        discovery: '1781 (Herschel)',
         specificity: 'Unlike other worlds, Uranus is tilted so far that it essentially orbits the sun on its side, with the axis of its spin nearly pointing at the star. Many astronomers believe this unusual orientation might be due to a collision with an Earth-sized planet soon after it was formed.'
     },
     'neptune': {
@@ -101,6 +103,7 @@ let planets = {
         texture: 'img/2k_neptune.jpg',
         rotationPeriod: '6700',
         textPosition: textPosition,
+        discovery: '~1850 (Galle and Le Verrier)',
         specificity: "On Neptune, one can find jet stream winds traveling at more than 1,500 mph. It remains a mystery as to how it gets the energy to drive the fastest planetary winds seen in the solar system, despite it being so far from the sun — at times farther from the sun than Pluto — and having relatively weak internal heat."
     },
 
