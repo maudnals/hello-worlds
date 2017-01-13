@@ -7,10 +7,12 @@ let renderer = (function() {
 
     let sky;
     let leaveButton;
+    let leaveButtonPlane;
     let camera;
 
     function init() {
         leaveButton = document.querySelector('#leaveButton');
+        leaveButtonPlane = document.querySelector('#leaveButtonPlane');
         sky = document.querySelector('a-sky');
         camera = document.querySelector('a-camera');
     }
@@ -61,7 +63,8 @@ let renderer = (function() {
             growPlanetRadius(state.currentPlanet);
 
             let focusPos_init = new THREE.Vector3(0, 20, -40);
-            let leaveButtonPos_init = new THREE.Vector3(-1, -2, -40);
+            let leaveButtonPos_init = new THREE.Vector3(-3, -2, -40);
+            let leaveButtonPlanePos_init = new THREE.Vector3(-0, -2, -42);
             let yAxis = new THREE.Vector3(0, 1, 0);
             let angle = camera.getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
@@ -85,6 +88,9 @@ let renderer = (function() {
             leaveButton.setAttribute('rotation', camera.getAttribute('rotation'));
 
 
+            let leaveButtonPlanePos_updated = leaveButtonPlanePos_init.applyAxisAngle(yAxis, angleRad);
+            leaveButtonPlane.setAttribute('position', vectorHelper.getPositionFromVector(leaveButtonPlanePos_updated));
+            leaveButtonPlane.setAttribute('rotation', camera.getAttribute('rotation'));
 
 
             hidePlanets(utils.getOtherPlanets());
@@ -120,10 +126,12 @@ let renderer = (function() {
 
     function showLeaveButton() {
         leaveButton.setAttribute('visible', 'true');
+        leaveButtonPlane.setAttribute('visible', 'true');
     }
 
     function hideLeaveButton() {
         leaveButton.setAttribute('visible', 'false');
+        leaveButtonPlane.setAttribute('visible', 'false');
     }
 
     function updatePlanetName() {

@@ -31,8 +31,7 @@
                 <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="color" fill="forwards" from="mediumspringgreen" to="whitesmoke" dur="280"></a-animation>
                 <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="4 4 4" to="1 1 1" dur="280"></a-animation>
             </a-cursor>
-            <!--             <a-plane color="darkslategrey" height="2" width="6" position="0 -10 -15">
-            </a-plane> -->
+
             <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
         </a-camera>
         <!--         <a-entity>
@@ -65,9 +64,11 @@
             
         </a-entity>
         <a-entity material="color: white" text="text: PLANET;" rotation="0 0 0" visible="false" id="planetName"></a-entity>
-        <a-entity material="color: mediumspringgreen" text="text: OK; font: Cartoon Marker; size: .9;" rotation="0 0 0" visible="false" id="leaveButton" cursor-listener>
+        <a-entity material="color: mediumspringgreen" text="text: DONE; font: Cartoon Marker; size: 3;" rotation="0 0 0" visible="false" id="leaveButton" position="-3 -2 -40" cursor-listener>
             <!--             dur="2000" -->
         </a-entity>
+        <a-plane id="leaveButtonPlane" color="white" height="5" width="14" position="0 -2 -42" rotation="0 0 0" visible="false">
+        </a-plane>
         <a-sky src="img/Mountains.jpg" color="whitesmoke">
             <a-animation attribute="color" begin="darkenSky" from="whitesmoke" to="darkslategray" fill="forwards">
                 <!--             dur="2000" -->
