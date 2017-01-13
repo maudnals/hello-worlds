@@ -60,17 +60,18 @@ let renderer = (function() {
 
             growPlanetRadius(state.currentPlanet);
 
-            let a = new THREE.Vector3(0, 20, -40);
+            let focusPos_init = new THREE.Vector3(0, 20, -40);
             let initNamePosition = new THREE.Vector3(-6, 10, -40);
             let initOKPosition = new THREE.Vector3(-1, 4, -40);
             let yAxis = new THREE.Vector3(0, 1, 0);
-            let angle = document.querySelector('a-camera').getAttribute('rotation');
+            let angle = camera.getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
-            let b = a.applyAxisAngle(yAxis, angleRad);
+
+            let focusPos_updated = focusPos_init.applyAxisAngle(yAxis, angleRad);
             let bPrim = initNamePosition.applyAxisAngle(yAxis, angleRad);
             let initOKPositionPrim = initOKPosition.applyAxisAngle(yAxis, angleRad);
 
-            let c = new THREE.Vector3(b.x / 2, b.y / 2 + 5, b.z / 2);
+            let c = new THREE.Vector3(focusPos_updated.x / 2, focusPos_updated.y / 2 + 5, focusPos_updated.z / 2);
 
             let d = new THREE.Vector3(initOKPositionPrim.x / 4, initOKPositionPrim.y / 4, initOKPositionPrim.z / 4);
 
