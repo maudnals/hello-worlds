@@ -64,8 +64,14 @@
             
         </a-entity>
         <a-entity material="color: white" text="text: PLANET;" rotation="0 0 0" visible="false" id="planetName"></a-entity>
-        <a-entity material="color: white" text="text: DONE; font: Cartoon Marker; size: 1.2;" rotation="0 0 0" visible="false" id="leaveButton" cursor-listener>
-            <!--             dur="2000" -->
+
+
+        <a-entity position="0 0 -40" id="planetInfo" cursor-listener>
+            <a-entity material="color: white" text="text: Discovered:  1988; size: 1.1;" rotation="0 0 0" visible="true"></a-entity>
+           <a-entity material="color: white" text="text: Travel time:  10 years; size: 1.1;" position="0 -3 0" rotation="0 0 0" visible="true"></a-entity>
+            <!-- Positions are relative to their parent, here the planetInfo group-->
+        </a-entity>
+
         <a-entity material="color: white" text="text: DONE; font: Cartoon Marker; size: 1.1;" visible="false" id="leaveButton" cursor-listener>
         </a-entity>
         <a-plane id="leaveButtonPlane" material="color: mediumspringgreen; opacity: 0.4;" height="5" width="12" visible="false" cursor-listener>
