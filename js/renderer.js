@@ -46,7 +46,7 @@ let renderer = (function() {
             let sphere = document.querySelector('#' + state.currentPlanet.id);
             let moveAnim = document.createElement('a-animation');
             //moveAnim.setAttribute('id', 'mb-' + planets[p].id);
-            moveAnim.setAttribute('begin', 'moveBack');
+            moveAnim.setAttribute('begin', 'moveTowardsUser');
             moveAnim.setAttribute('attribute', 'position');
             moveAnim.setAttribute('from', state.currentPlanet.defaultPosition);
             moveAnim.setAttribute('to', vectorHelper.getPositionFromVector(c));
@@ -74,7 +74,7 @@ let renderer = (function() {
 
             //console.log("FOCUS mbAnimation", mbAnimation);
             // Emit animated event
-            document.querySelector('#' + state.currentPlanet.id).emit('moveBack');
+            document.querySelector('#' + state.currentPlanet.id).emit('moveTowardsUser');
 
 
 
@@ -100,7 +100,7 @@ let renderer = (function() {
 
                 let sphere = document.querySelector('#' + state.lastPlanet.id);
                 let moveAnim = document.createElement('a-animation');
-                moveAnim.setAttribute('begin', 'moveB');
+                moveAnim.setAttribute('begin', 'moveToInitPos');
                 moveAnim.setAttribute('attribute', 'position');
                 moveAnim.setAttribute('from', c);
                 moveAnim.setAttribute('to', state.lastPlanet.defaultPosition);
@@ -114,7 +114,7 @@ let renderer = (function() {
 
 
                 // Emit animated event
-                document.querySelector('#' + state.lastPlanet.id).emit('moveB');
+                document.querySelector('#' + state.lastPlanet.id).emit('moveToInitPos');
                 document.querySelector('#' + state.lastPlanet.id).setAttribute('radius', state.lastPlanet.radius);
             }
 
