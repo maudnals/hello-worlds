@@ -66,9 +66,10 @@
         <a-entity material="color: white" text="text: PLANET;" rotation="0 0 0" visible="false" id="planetName"></a-entity>
 
 
-        <a-entity position="-6.4 2 -40" id="planetInfo" cursor-listener>
-            <a-entity material="color: white" text="text: Discovered:  1988; size: 1.1;" position="1 0 0" visible="true"></a-entity>
-            <a-entity material="color: white" text="text: Travel time:  10 years; size: 1.1;" position="0 -2.5 0" rotation="0 0 0" visible="true"></a-entity>
+        <a-entity position="-6.4 2.4 -40" id="planetInfo" cursor-listener>
+            <a-entity id="info-discovery" material="color: white" text="text: Discovered:  1988; size: 1;" position="1 0 0" visible="true"></a-entity>
+            <a-entity id="info-travel" material="color: white" text="text: Travel time:  10 years; size: 1;" position="0 -2 0" rotation="0 0 0" visible="true"></a-entity>
+            <a-entity id="info-specificity" material="color: white" text="text: Specificity:  Black hole in the; size: 1;" position="-2 -4 0" rotation="0 0 0" visible="true"></a-entity>
             <!-- Positions are relative to their parent, here the planetInfo group-->
         </a-entity>
 

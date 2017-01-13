@@ -63,8 +63,8 @@ let renderer = (function() {
             growPlanetRadius(state.currentPlanet);
 
             let focusPos_init = new THREE.Vector3(0, 20, -40);
-            let leaveButtonPos_init = new THREE.Vector3(-2.9, -6.7, -40);
-            let leaveButtonPlanePos_init = new THREE.Vector3(-0, -6.4, -42);
+            let leaveButtonPos_init = new THREE.Vector3(-2.9, -7.7, -40);
+            let leaveButtonPlanePos_init = new THREE.Vector3(-0, -7.4, -42);
             let yAxis = new THREE.Vector3(0, 1, 0);
             let angle = camera.getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
