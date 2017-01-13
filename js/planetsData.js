@@ -114,7 +114,7 @@ let planets = {
         id: 'GJ-504b',
         name: 'Pink Planet',
         color: 'deeppink',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -62),
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -64),
         radius: defaultRadius * 0.3,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-pink.jpg',
@@ -134,8 +134,8 @@ let planets = {
         id: 'WASP-33b',
         name: 'Hell',
         color: 'red',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -75),
-        radius: defaultRadius * 1.3,
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -78),
+        radius: defaultRadius * 1.2,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-fire.png',
         // http://orig14.deviantart.net/e267/f/2014/311/a/d/background_fire_theme_by_lockeliefather-d85ka9h.png
@@ -153,7 +153,7 @@ let planets = {
         id: 'p-55-Cancri-e',
         name: 'Diamond planet',
         color: 'white',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -90),
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -92),
         radius: defaultRadius * 0.6,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-diamond-4.jpg',
@@ -171,7 +171,7 @@ let planets = {
         id: 'GJ-1214-b',
         name: 'Waterworld',
         color: 'lightblue',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -102),
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -105),
         radius: defaultRadius * 0.8,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-waterworld.png',
@@ -189,7 +189,7 @@ let planets = {
         id: 'TrES-2b',
         name: 'Dark World',
         color: 'black',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -120),
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -125),
         radius: defaultRadius * 1.6,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-blackHole.jpg',
