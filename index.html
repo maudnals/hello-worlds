@@ -24,7 +24,7 @@
     <a-scene id="myScene">
         <a-camera>
             <!--         <a-box src="#boxTexture"f position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
-            <a-cursor color="whitesmoke" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;">
+            <a-cursor id="cursor" color="whitesmoke" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;">
                 <!-- begin="click" -->
                 <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="4 4 4" dur="880"></a-animation>
                 <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="color" fill="forwards" from="whitesmoke" to="mediumspringgreen" dur="880"></a-animation>

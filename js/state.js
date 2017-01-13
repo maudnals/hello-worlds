@@ -1,4 +1,5 @@
 let state = {
+	type: none,
     currentPlanet: none,
     lastPlanet: none
 };

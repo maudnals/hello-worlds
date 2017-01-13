@@ -34,6 +34,7 @@ let cursorListener = (function() {
 
             init: function() {
                 let that = this.el;
+
                 this.el.addEventListener('click', function() {
 
                     // this.el is the entity on which cursor-listener is present as attribute (= the spheres)
@@ -48,7 +49,6 @@ let cursorListener = (function() {
                     }
                     if (planets[this.id]) {
                         updateState(planets[this.id]);
-
 
                         if ('speechSynthesis' in window) {
                             let name = planets[this.id].name;
@@ -75,6 +75,7 @@ let cursorListener = (function() {
     }
 
     return {
+        updateState: updateState,
         init: init
     }
 

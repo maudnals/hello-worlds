@@ -38,7 +38,7 @@ let renderer = (function() {
         });
     }
 
-    function getCurrentCameraFocusPoint(){
+    function getCurrentCameraFocusPoint() {
 
     }
 
@@ -182,8 +182,13 @@ let renderer = (function() {
         }
     }
 
+    function updateViewFuse(planetId) {
+        cursorListener.updateState(planets[planetId]);
+        updatePlanetName();
+    }
+
     function updateView() {
-        console.log('update view');
+        //console.log('update view');
         updateSky();
         updatePlanets();
         updatePlanetName();
@@ -192,7 +197,8 @@ let renderer = (function() {
 
     return {
         init: init,
-        updateView: updateView
+        updateView: updateView,
+        updateViewFuse: updateViewFuse
     }
 
 })();
