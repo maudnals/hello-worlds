@@ -26,17 +26,20 @@ let renderer = (function() {
             document.querySelector('#' + state.currentPlanet.id).setAttribute('radius', radiusFocus);
 
             let a = new THREE.Vector3(0, 20, -40);
-            let aPrim = new THREE.Vector3(-2, 20, -40);
+            let initNamePosition = new THREE.Vector3(-6, 10, -40);
+            let initOKPosition = new THREE.Vector3(-1, 4, -40);
             let yAxis = new THREE.Vector3(0, 1, 0);
             let angle = document.querySelector('a-camera').getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
             let b = a.applyAxisAngle(yAxis, angleRad);
-            let bPrim = aPrim.applyAxisAngle(yAxis, angleRad);
+            let bPrim = initNamePosition.applyAxisAngle(yAxis, angleRad);
+            let initOKPositionPrim = initOKPosition.applyAxisAngle(yAxis, angleRad);
 
             let c = new THREE.Vector3(b.x / 2, b.y / 2 + 5, b.z / 2);
-            let d = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4 - 5, bPrim.z / 4);
 
-            let e = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4 - 3, bPrim.z / 4);
+            let d = new THREE.Vector3(initOKPositionPrim.x / 4, initOKPositionPrim.y / 4, initOKPositionPrim.z / 4);
+
+            let e = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4, bPrim.z / 4);
 
             let currentPosition = document.querySelector('#' + state.currentPlanet.id).getAttribute('position');
 
