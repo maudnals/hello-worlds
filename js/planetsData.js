@@ -119,7 +119,7 @@ let planets = {
         textPosition: textPosition,
         distanceToEarth: '57 light-years',
         distanceToEarthAlias: 'short',
-        specificity: 'The only pink planet ever discovered. Extremely far away from the star it orbits, which is challenging ideas on how giant planets form.  At first glance, the planet appears covered in a dark shade of pink. The planet\'s still glowing from the heat of its formation, thus causing the uncommon planetary hue, according to NASA. But beyond its peculiar magenta coloring, this particular world has scientists reconsidering how planets and solar systems form. Although the  is about the same size as Jupiter, it\'s much farther from its parent star than many astronomers believed such a huge planet could form—debris was believed to be too sparse to form such large celestial bodies. At 43.5 AU (1 AU, or astronomical unit, is the distance from the Earth to the sun), GJ 504b is farther from its star than even Neptune is from the sun. Yet there it is in all its pink glory.',
+        specificity: 'The only pink planet ever discovered. Extremely far away from the star it orbits, which is challenging ideas on how giant planets form.  At first glance, the planet appears covered in a dark shade of pink. The planet is still glowing from the heat of its formation, thus causing the uncommon planetary hue, according to NASA. But beyond its peculiar magenta coloring, this particular world has scientists reconsidering how planets and solar systems form. Although the  is about the same size as Jupiter, it\'s much farther from its parent star than many astronomers believed such a huge planet could form—debris was believed to be too sparse to form such large celestial bodies. At 43.5 AU (1 AU, or astronomical unit, is the distance from the Earth to the sun), GJ 504b is farther from its star than even Neptune is from the sun. Yet there it is in all its pink glory.',
         geometry: 'It has several times the mass of Jupiter, yet it’s about the same size.',
         otherData: {
             star: '59 Virginis, a yellow dwarf star',
@@ -146,8 +146,8 @@ let planets = {
         }
     },
 
-    'planet-55-Cancri-e': {
-        id: 'planet-55-Cancri-e',
+    'p-55-Cancri-e': {
+        id: 'p-55-Cancri-e',
         name: 'Diamond planet',
         color: 'white',
         defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -80),
