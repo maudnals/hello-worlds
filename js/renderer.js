@@ -11,17 +11,13 @@ let renderer = (function() {
 
     function init() {
         leaveButton = document.querySelector('#leaveButton');
-        //this.sky = document.querySelector("a-sky");
         sky = document.querySelector('a-sky');
         camera = document.querySelector('a-camera');
-        // this.skky = document.querySelector("a-sky");
-        // this.tss = document.querySelector("a-sky");
-        //console.log('sky', this.sky);
     }
 
-    function createMoveAnim(from, to, trigger) {
+    function createMoveAnim(from, to, triggerEvent) {
         let moveAnim = document.createElement('a-animation');
-        moveAnim.setAttribute('begin', trigger);
+        moveAnim.setAttribute('begin', triggerEvent);
         moveAnim.setAttribute('attribute', 'position');
         moveAnim.setAttribute('from', from);
         moveAnim.setAttribute('to', to);
@@ -42,6 +38,18 @@ let renderer = (function() {
         });
     }
 
+    function getCurrentCameraBeam(){
+
+    }
+
+    function getCurrentPosFromInitPos(initPos){
+
+    }
+
+    function getCurrentPos(element){
+        return getCurrentPosFromInitPos(element.initPos);
+    }
+
     // function hidePlanetName() {
     //     let planetName = document.querySelector('#planetName');
     //     planetName.setAttribute('visible', 'false');
@@ -50,8 +58,7 @@ let renderer = (function() {
     function updatePlanets() {
         if (utils.checkObserving()) {
 
-            // Unify radius
-            document.querySelector('#' + state.currentPlanet.id).setAttribute('radius', radiusFocus);
+            growPlanetRadius(state.currentPlanet);
 
             let a = new THREE.Vector3(0, 20, -40);
             let initNamePosition = new THREE.Vector3(-6, 10, -40);
@@ -91,7 +98,7 @@ let renderer = (function() {
 
             if (state.lastPlanet !== none) {
                 moveToInitPos(state.lastPlanet);
-                updatePlanetRadius(state.lastPlanet);
+                resetPlanetRadius(state.lastPlanet);
             }
 
         }
@@ -106,8 +113,12 @@ let renderer = (function() {
         document.querySelector('#' + planet.id).emit('moveToInitPos');
     }
 
-    function updatePlanetRadius(planet) {
+    function resetPlanetRadius(planet) {
         document.querySelector('#' + planet.id).setAttribute('radius', planet.radius);
+    }
+
+    function growPlanetRadius(planet) {
+        document.querySelector('#' + planet.id).setAttribute('radius', radiusFocus);
     }
 
 
@@ -118,21 +129,6 @@ let renderer = (function() {
     function hideLeaveButton() {
         leaveButton.setAttribute('visible', 'false');
     }
-
-    // function showPlanetName() {
-    //     let planetName = document.querySelector('#' + planetName);
-    //     if (planetName) {
-    //         planetName.setAttribute('visible', 'true');
-    //     }
-    // }
-
-    // function hidePlanetName(planetId) {
-    //     let planetName = document.querySelector('#planet-name-' + planetId);
-    //     if (planetName) {
-    //         planetName.setAttribute('visible', 'false');
-    //     }
-    // }
-
 
     function updatePlanetName() {
 
