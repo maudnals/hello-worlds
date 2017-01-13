@@ -9,12 +9,20 @@ let renderer = (function() {
     let leaveButton;
     let leaveButtonPlane;
     let camera;
+    let infoContainer;
+    let infoDiscovery;
+    let infoTravel;
+    let infoSpecificity;
 
     function init() {
         leaveButton = document.querySelector('#leaveButton');
         leaveButtonPlane = document.querySelector('#leaveButtonPlane');
         sky = document.querySelector('a-sky');
         camera = document.querySelector('a-camera');
+        infoContainer = document.getElementById('info');
+        infoDiscovery = document.getElementById('info-discovery');
+        infoTravel = document.getElementById('info-travel');
+        infoSpecificity = document.getElementById('info-specificity');
     }
 
     function createMoveAnim(from, to, triggerEvent) {
@@ -134,7 +142,7 @@ let renderer = (function() {
         leaveButtonPlane.setAttribute('visible', 'false');
     }
 
-    function updatePlanetInfo(){
+    // function updatePlanetInfo(){
         // let planetInfoPos_init = new THREE.Vector3(0, 0, -40);
         // let yAxis = new THREE.Vector3(0, 1, 0);
         
@@ -142,12 +150,9 @@ let renderer = (function() {
         // let cameraPos = camera.getAttribute('position');
 
         // let cameraToPlanetVector = getVectorFromPosition(planetPos) - getVectorFromPosition(cameraPos);
-    }
+    // }
 
     function updatePlanetName() {
-
-
-
 
 
         let a = new THREE.Vector3(0, 20, -40);
@@ -184,6 +189,57 @@ let renderer = (function() {
         }
     }
 
+
+    function updatePlanetInfo() {
+        let infoPos_init = new THREE.Vector3(-6.4, 2.4, -40);
+        let yAxis = new THREE.Vector3(0, 1, 0);
+        let angle = camera.getAttribute('rotation');
+        let angleRad = angle.y * 2 * Math.PI / 360;
+        let infoPos_updated = infoPos_init.applyAxisAngle(yAxis, angleRad);
+        // let initOKPositionPrim = initOKPosition.applyAxisAngle(yAxis, angleRad);
+
+        // let c = new THREE.Vector3(b.x / 2, b.y / 2 + 5, b.z / 2);
+
+        // let d = new THREE.Vector3(initOKPositionPrim.x / 4, initOKPositionPrim.y / 4, initOKPositionPrim.z / 4);
+
+        //let infoPos_vf = new THREE.Vector3(infoPos_updated.x / 4, infoPos_updated.y / 4, infoPos_updated.z / 4);
+
+        //let planetName = document.querySelector('#planetName');
+
+        if (utils.checkObserving()) {
+
+            if (state.currentPlanet.id !== 'earth') {
+                infoDiscovery.setAttribute('text', "text: Discovered in " 
+                    + state.currentPlanet.discovery 
+                    + "; size: 1;");
+            } else {
+                infoDiscovery.setAttribute('text', "");
+            }
+            
+            if (state.currentPlanet.distanceToEarth) {
+                infoTravel.setAttribute('text', "text: " 
+                    + state.currentPlanet.distanceToEarth 
+                    + " light-years away; size: 1;");
+            } else {
+                infoTravel.setAttribute('text', "");
+            }
+
+            infoSpecificity.setAttribute('text', "text: Specificity: " 
+                + state.currentPlanet.specificity
+                + "; size: 1;");
+
+            infoContainer.setAttribute('position', vectorHelper.getPositionFromVector(infoPos_updated));
+            infoContainer.setAttribute('rotation', camera.getAttribute('rotation'));
+            // only along y!!!
+            infoContainer.setAttribute('visible', 'true');
+
+        } else {
+            if (state.lastPlanet !== none) {
+                infoContainer.setAttribute('visible', 'false');
+            }
+        }
+    }
+
     function updateLeaveButton() {
         if (utils.checkObserving()) {
             showLeaveButton();
@@ -203,7 +259,7 @@ let renderer = (function() {
     function updateViewFuse(planetId) {
         cursorListener.updateState(planets[planetId]);
         updatePlanetName();
-        updatePlanetInfo();
+        //updatePlanetInfo();
     }
 
     function updateView() {
@@ -211,6 +267,7 @@ let renderer = (function() {
         updateSky();
         updatePlanets();
         updatePlanetName();
+        updatePlanetInfo();
         updateLeaveButton();
     }
 

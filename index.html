@@ -24,7 +24,7 @@
     <a-scene id="myScene">
         <a-camera>
             <!--         <a-box src="#boxTexture"f position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
-            <a-cursor id="cursor" color="whitesmoke" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;">
+            <a-cursor id="cursor" color="whitesmoke" fuse="true" fuse-timeout="2600" geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;">
                 <!-- begin="click" -->
                 <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="3 3 3" dur="880"></a-animation>
                 <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="color" fill="forwards" from="whitesmoke" to="springgreen" dur="880"></a-animation>
@@ -66,16 +66,16 @@
         <a-entity material="color: white" text="text: PLANET;" rotation="0 0 0" visible="false" id="planetName"></a-entity>
 
 
-        <a-entity position="-6.4 2.4 -40" id="planetInfo" cursor-listener>
-            <a-entity id="info-discovery" material="color: white" text="text: Discovered:  1988; size: 1;" position="1 0 0" visible="true"></a-entity>
-            <a-entity id="info-travel" material="color: white" text="text: Travel time:  10 years; size: 1;" position="0 -2 0" rotation="0 0 0" visible="true"></a-entity>
-            <a-entity id="info-specificity" material="color: white" text="text: Specificity:  Black hole in the; size: 1;" position="-2 -4 0" rotation="0 0 0" visible="true"></a-entity>
+        <a-entity id="info" visible="false">
+            <a-entity id="info-discovery" material="color: white" text="" position="1 0 0"></a-entity>
+            <a-entity id="info-travel" material="color: white" text="" position="0 -2 0" rotation="0 0 0"></a-entity>
+            <a-entity id="info-specificity" material="color: white" text="" position="-2 -4 0" rotation="0 0 0"></a-entity>
             <!-- Positions are relative to their parent, here the planetInfo group-->
         </a-entity>
 
         <a-entity material="color: white" text="text: DONE; font: Cartoon Marker; size: 1.1;" visible="false" id="leaveButton" cursor-listener>
         </a-entity>
-        <a-plane id="leaveButtonPlane" material="color: mediumspringgreen; opacity: 0.3;" height="5" width="12" visible="false" cursor-listener>
+        <a-plane id="leaveButtonPlane" material="color: mediumspringgreen; opacity: 0.3;" height="5" width="12" visible="false" fill="backwards" cursor-listener>
         </a-plane>
         <a-sky src="img/Mountains.jpg" color="whitesmoke">
             <a-animation attribute="color" begin="darkenSky" from="whitesmoke" to="darkslategray" fill="forwards">
