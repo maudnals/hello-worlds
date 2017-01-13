@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     cursor.addEventListener('mouseenter', function(event) {
         console.log("mouseenter", event.detail.intersectedEl.id);
         if (event.detail.intersectedEl.className === "planet-sphere") {
+        	document.getElementById('leaveButtonPlane').setAttribute("material", material="color: mediumspringgreen; opacity: 0.3;");
             let planetId = event.detail.intersectedEl.id;
             renderer.updateViewFuse(planetId);
         }
