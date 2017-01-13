@@ -5,7 +5,7 @@
 // planet type
 
 const defaultRotationPeriod = '8000';
-const defaultRadius = '1.2';
+const defaultRadius = '4.2';
 
 let planets = {
     // SOLAR SYSTEM
@@ -111,8 +111,8 @@ let planets = {
         id: 'GJ-504b',
         name: 'Pink Planet',
         color: 'deeppink',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -60),
-        radius: defaultRadius,
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -62),
+        radius: defaultRadius * 0.3,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-pink.jpg',
         rotationPeriod: defaultRotationPeriod,
@@ -131,8 +131,8 @@ let planets = {
         id: 'WASP-33b',
         name: 'Hell',
         color: 'red',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -70),
-        radius: defaultRadius,
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -75),
+        radius: defaultRadius * 1.3,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-fire.png',
         // http://orig14.deviantart.net/e267/f/2014/311/a/d/background_fire_theme_by_lockeliefather-d85ka9h.png
@@ -150,8 +150,8 @@ let planets = {
         id: 'p-55-Cancri-e',
         name: 'Diamond planet',
         color: 'white',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -80),
-        radius: defaultRadius,
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -90),
+        radius: defaultRadius * 0.6,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-diamond-4.jpg',
         rotationPeriod: defaultRotationPeriod,
@@ -168,8 +168,8 @@ let planets = {
         id: 'GJ-1214-b',
         name: 'Waterworld',
         color: 'lightblue',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -90),
-        radius: defaultRadius,
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -102),
+        radius: defaultRadius * 0.8,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-waterworld.png',
         rotationPeriod: defaultRotationPeriod,
@@ -186,8 +186,8 @@ let planets = {
         id: 'TrES-2b',
         name: 'Dark World',
         color: 'black',
-        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -100),
-        radius: defaultRadius,
+        defaultPosition: vectorHelper.generateNeighborPosition(frontPlanetPosition, -120),
+        radius: defaultRadius * 1.6,
         // original 0.24766 but too small so *2 
         texture: 'img/txtr-blackHole.jpg',
         // http://jasonyesser.com/wp-content/uploads/2014/03/Black-Red-Grunge-Texture.jpg
