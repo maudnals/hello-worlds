@@ -40,7 +40,7 @@ let cursorListener = (function() {
                     // this.el is the entity on which cursor-listener is present as attribute (= the spheres)
                     // Click is like gaze
 
-                    if (that === document.querySelector('#leaveButton')) {
+                    if (that === document.querySelector('#leaveButton') || that === document.querySelector('#leaveButtonPlane')) {
                         updateState(none, state.currentPlanet);
 
                         if ('speechSynthesis' in window) {

@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    cursor.addEventListener('mouseenter', function(event) {
+        console.log("mouseenter", event.detail.intersectedEl.id);
+        if (event.detail.intersectedEl.id === "leaveButtonPlane") {
+            event.detail.intersectedEl.setAttribute("material", material="color: mediumspringgreen; opacity: 0.8;");
+            //renderer.updateViewFuse(planetId);
+        }
+    });
+
     // cursor.addEventListener('mouseleave', ... // Not needed
 
 });
