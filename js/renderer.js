@@ -61,21 +61,22 @@ let renderer = (function() {
             growPlanetRadius(state.currentPlanet);
 
             let focusPos_init = new THREE.Vector3(0, 20, -40);
-            let initNamePosition = new THREE.Vector3(-6, 10, -40);
-            let initOKPosition = new THREE.Vector3(-1, 4, -40);
+            let namePos_init = new THREE.Vector3(-6, 10, -40);
+            let leaveButtonPos_init = new THREE.Vector3(-1, 4, -40);
             let yAxis = new THREE.Vector3(0, 1, 0);
             let angle = camera.getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
 
             let focusPos_updated = focusPos_init.applyAxisAngle(yAxis, angleRad);
-            let bPrim = initNamePosition.applyAxisAngle(yAxis, angleRad);
-            let initOKPositionPrim = initOKPosition.applyAxisAngle(yAxis, angleRad);
+            let namePos_updated = namePos_init.applyAxisAngle(yAxis, angleRad);
+            let leaveButtonPos_updated = leaveButtonPos_init.applyAxisAngle(yAxis, angleRad);
 
             let c = new THREE.Vector3(focusPos_updated.x / 2, focusPos_updated.y / 2 + 5, focusPos_updated.z / 2);
 
-            let d = new THREE.Vector3(initOKPositionPrim.x / 4, initOKPositionPrim.y / 4, initOKPositionPrim.z / 4);
+            let d = new THREE.Vector3(leaveButtonPos_updated.x / 4, leaveButtonPos_updated.y / 4, leaveButtonPos_updated.z / 4);
 
-            let e = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4, bPrim.z / 4);
+            let namePos_vf = new THREE.Vector3(namePos_updated.x / 4, namePos_updated.y / 4, namePos_updated.z / 4);
+            // e
 
             let currentPosition = document.querySelector('#' + state.currentPlanet.id).getAttribute('position');
 
