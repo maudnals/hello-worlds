@@ -156,10 +156,10 @@ let renderer = (function() {
 
         let e = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4, bPrim.z / 4);
 
+        let planetName = document.querySelector('#planetName');
 
-        if (utils.checkObserving()) {
+        if (utils.checkObserving() && ! planetName.getAttribute('visible')) {
 
-            let planetName = document.querySelector('#planetName');
             let textAttribute = text = "text: " + state.currentPlanet.id.toUpperCase() + "; font: Cartoon Marker;"
             planetName.setAttribute('text', textAttribute);
             planetName.setAttribute('position', vectorHelper.getPositionFromVector(e));
