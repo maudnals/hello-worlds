@@ -62,7 +62,7 @@ let renderer = (function() {
 
             let focusPos_init = new THREE.Vector3(0, 20, -40);
             let namePos_init = new THREE.Vector3(-6, 10, -40);
-            let leaveButtonPos_init = new THREE.Vector3(-1, 4, -40);
+            let leaveButtonPos_init = new THREE.Vector3(-1, -2, -40);
             let yAxis = new THREE.Vector3(0, 1, 0);
             let angle = camera.getAttribute('rotation');
             let angleRad = angle.y * 2 * Math.PI / 360;
@@ -73,12 +73,12 @@ let renderer = (function() {
 
             let c = new THREE.Vector3(focusPos_updated.x / 2, focusPos_updated.y / 2 + 5, focusPos_updated.z / 2);
 
-            let d = new THREE.Vector3(leaveButtonPos_updated.x / 4, leaveButtonPos_updated.y / 4, leaveButtonPos_updated.z / 4);
+            //let d = new THREE.Vector3(leaveButtonPos_updated.x / 4, leaveButtonPos_updated.y / 4, leaveButtonPos_updated.z / 4);
 
             let namePos_vf = new THREE.Vector3(namePos_updated.x / 4, namePos_updated.y / 4, namePos_updated.z / 4);
             // e
 
-            let currentPosition = document.querySelector('#' + state.currentPlanet.id).getAttribute('position');
+            //let currentPosition = document.querySelector('#' + state.currentPlanet.id).getAttribute('position');
 
             let sphere = document.querySelector('#' + state.currentPlanet.id);
 
@@ -86,7 +86,7 @@ let renderer = (function() {
             let moveTowardsUserAnim = createMoveAnim(state.currentPlanet.defaultPosition, vectorHelper.getPositionFromVector(c), 'moveTowardsUser');
             sphere.append(moveTowardsUserAnim);
 
-            leaveButton.setAttribute('position', vectorHelper.getPositionFromVector(d));
+            leaveButton.setAttribute('position', vectorHelper.getPositionFromVector(leaveButtonPos_updated));
             leaveButton.setAttribute('rotation', camera.getAttribute('rotation'));
 
             document.querySelector('#' + state.currentPlanet.id).emit('moveTowardsUser');
