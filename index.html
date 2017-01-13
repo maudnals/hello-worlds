@@ -26,10 +26,10 @@
             <!--         <a-box src="#boxTexture"f position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
             <a-cursor id="cursor" color="whitesmoke" fuse="true" fuse-timeout="3000" geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;">
                 <!-- begin="click" -->
-                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="4 4 4" dur="880"></a-animation>
-                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="color" fill="forwards" from="whitesmoke" to="mediumspringgreen" dur="880"></a-animation>
-                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="color" fill="forwards" from="mediumspringgreen" to="whitesmoke" dur="280"></a-animation>
-                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="4 4 4" to="1 1 1" dur="280"></a-animation>
+                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="3 3 3" dur="880"></a-animation>
+                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="color" fill="forwards" from="whitesmoke" to="springgreen" dur="880"></a-animation>
+                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="color" fill="forwards" from="springgreen" to="whitesmoke" dur="280"></a-animation>
+                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="3 3 3" to="1 1 1" dur="280"></a-animation>
             </a-cursor>
 
             <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
