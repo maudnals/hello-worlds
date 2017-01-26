@@ -1,18 +1,8 @@
-// Todo today:
-
-//OK Better init only based on data (not on dom classes)
-//OK Position generator
-//OK Fix move transition
-//OK Better text display
-//OK Smooth transition
-//OK Enrich content
-
 // Click vs fuse - Display text on click
 // cool button
 // Refactor
 // Templating
-//rotate planet (see example earth)
-// put next to earth for comparison
+// Put next to earth for comparison
 // UX angle calculation
 
 
@@ -27,6 +17,16 @@ let cursorListener = (function() {
         state.lastPlanet = last;
     }
 
+    function isPlanet(element) {
+        // Or with class?
+        return (planets[element.id]? true: false);
+    }
+
+    function isLeaveButton(element) {
+        return (element === document.querySelector('#leaveButton') 
+            || element === document.querySelector('#leaveButtonPlane'));
+    }
+
     // To be called hen DOM is ready
     function init() {
 
@@ -34,21 +34,30 @@ let cursorListener = (function() {
 
             init: function() {
                 let that = this.el;
+                let mode = idle;
+                let planet = none;
 
                 this.el.addEventListener('click', function() {
 
                     // this.el is the entity on which cursor-listener is present as attribute (= the spheres)
                     // Click is like gaze
 
-                    if (that === document.querySelector('#leaveButton') || that === document.querySelector('#leaveButtonPlane')) {
-                        updateState(none, state.currentPlanet);
+                    console.log("click");
+
+                    if (isLeaveButton(that)) {
+                        //updateState(none, state.currentPlanet);
+
+                        console.log("that's a leave button");
 
                         // if ('speechSynthesis' in window) {
                         //     speechSynthesis.cancel();
                         // }
                     }
-                    if (planets[this.id]) {
-                        updateState(planets[this.id]);
+                    if (isPlanet(that)) {
+                        // updateState(planets[this.id]);
+                        console.log("that's a planet");
+                        mode = "visit";
+                        planet = planets[that.id];
 
                         // if ('speechSynthesis' in window) {
                         //     let name = planets[this.id].name;
@@ -61,7 +70,10 @@ let cursorListener = (function() {
                         //     speechSynthesis.speak(msg);
                         // }
                     }
-                    renderer.updateView();
+                    renderer.updateView(mode, planet);
+                    // renderer.updateView("observe", planetId);
+                    // renderer.updateView("observe", planetId);
+                    // renderer.updateView("observe", planetId);
                 });
             }
         });

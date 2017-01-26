@@ -4,8 +4,6 @@ UTILS
 
 let utils = (function() {
 
-    let leaveButton;
-
     function init() {
         leaveButton = document.querySelector('#leaveButton');
     }
@@ -27,8 +25,8 @@ let utils = (function() {
     return {
         init: init,
     	getAllPlanets: getAllPlanets,
-    	getOtherPlanets: getOtherPlanets,
-    	checkObserving: checkObserving,
-        leaveButton: leaveButton
+    	getOtherPlanets: getOtherPlanets
+        //,
+    	//checkObserving: checkObserving,
     }
 })();

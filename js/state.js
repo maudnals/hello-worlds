@@ -1,5 +1,5 @@
 let state = {
-	type: none,
+    type: idle,
     currentPlanet: none,
     lastPlanet: none
 };
