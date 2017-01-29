@@ -72,7 +72,7 @@ let planetGenerator = (function() {
             }
         }
 
-        let planetEntities = utils.getAllPlanets();
+        let planetEntities = utils.getAllPlanetElements();
         planetEntities.forEach(function(p) {
 
             let planetId = p.getAttribute('id');

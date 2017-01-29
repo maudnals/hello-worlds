@@ -8,25 +8,40 @@ let utils = (function() {
         leaveButton = document.querySelector('#leaveButton');
     }
 
-    function getAllPlanets() {
+    function getAllPlanetElements() {
         return document.querySelectorAll('.planet-sphere');
     }
 
-    function getOtherPlanets() {
-        let currentPlanetId = state.currentPlanet.id;
-        let otherPlanets = document.querySelectorAll('.planet-sphere:not(#' + currentPlanetId + ')');
-        return otherPlanets;
+    function show(element) {
+        if (element) {
+            element.setAttribute('visible', 'true');
+        }
     }
 
-    function checkObserving() {
-        return !(state.currentPlanet === 'none');
+    function hide(element) {
+        if (element) {
+            element.setAttribute('visible', 'false');
+        }
+    }
+    
+    function showAll(elements) {
+        elements.forEach(function(e) {
+            show(e);
+        });
+    }
+
+    function hideAll(elements) {
+        elements.forEach(function(e) {
+            hide(e);
+        });
     }
 
     return {
         init: init,
-    	getAllPlanets: getAllPlanets,
-    	getOtherPlanets: getOtherPlanets
-        //,
-    	//checkObserving: checkObserving,
+    	getAllPlanetElements: getAllPlanetElements,
+        show: show,
+        showAll: showAll,
+        hide: hide,
+        hideAll: hideAll
     }
 })();

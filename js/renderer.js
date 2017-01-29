@@ -36,23 +36,6 @@ let renderer = (function() {
         return moveAnim;
     }
 
-    function getCurrentCameraFocusPoint() {
-
-    }
-
-    // function getCurrentPosFromInitPos(initPos){
-
-    // }
-
-    // function getCurrentPos(element){
-    //     return getCurrentPosFromInitPos(element.initPos);
-    // }
-
-    // On rotate camera
-    // update all elements pos?
-    // No too expensive
-
-
     function moveToInitPos(element, initPos, animate) {
         let currentPosition = element.getAttribute('position');
         let c = vectorHelper.getPositionFromVector(currentPosition);
@@ -62,7 +45,7 @@ let renderer = (function() {
             let moveToInitPosAnim = createMoveAnim(c, initPos, 'moveToInitPos');
             element.append(moveToInitPosAnim);
             element.emit('moveToInitPos');
-        } 
+        }
     }
 
 
@@ -102,25 +85,6 @@ let renderer = (function() {
 
     }
 
-    function show(element) {
-
-    }
-
-    function hideAllButOne(elementsToHide, elementToShow) {
-        elementsToHide.forEach(function(e) {
-            if (e.id !== elementToShow.id) {
-                e.setAttribute('visible', 'false');
-            }
-        });
-    }
-
-    function showAll(elementsToShow) {
-        elementsToShow.forEach(function(e) {
-            e.setAttribute('visible', 'true');
-        });
-    }
-
-
     function updateLeaveButton(mode) {
 
         let leaveButtonPos_init = new THREE.Vector3(-2.9, -7.7, -40);
@@ -138,19 +102,22 @@ let renderer = (function() {
 
     function updatePlanets(mode, planet) {
 
+        let allPlanets = utils.getAllPlanetElements();
+
         if (mode === 'visit') {
 
             let planetEl = document.getElementById(planet.id);
             growPlanetRadius(planetEl);
             moveToFocus(planetEl, planet.defaultPosition, false, true);
-            hideAllButOne(utils.getAllPlanets(), planet);
+            utils.hideAll(allPlanets);
+            utils.show(planetEl);
 
         } else {
 
-            showAll(utils.getAllPlanets());
+            utils.showAll(allPlanets);
 
             //showAll(utils.getAllPlanets());
-            utils.getAllPlanets().forEach(function(pEl) {
+            allPlanets.forEach(function(pEl) {
                 // //p.setAttribute('visible', 'true');
                 // let el = document.getElementById(p.id);
                 moveToInitPos(pEl, planets[pEl.id].defaultPosition, true);
@@ -164,6 +131,23 @@ let renderer = (function() {
             //     resetPlanetRadius(state.lastPlanet);
             // }
 
+        }
+    }
+
+
+    function updatePlanetName(mode, planet) {
+
+        let planetEl = document.getElementById(planet.id);
+        let planetName = document.getElementById('planetName');
+        let namePos_init = new THREE.Vector3(-2, 6, -20);
+
+        if (mode === 'visit') {
+            let textAttribute = "text: " + planet.id.toUpperCase() + "; font: Cartoon Marker;";
+            planetName.setAttribute('text', textAttribute);
+            moveToFocus(planetName, namePos_init, true, false);
+            planetName.setAttribute('visible', 'true');
+        } else {
+            utils.hide(planetName);
         }
     }
 
@@ -181,13 +165,13 @@ let renderer = (function() {
 
 
     function showLeaveButton() {
-        leaveButton.setAttribute('visible', 'true');
-        leaveButtonPlane.setAttribute('visible', 'true');
+        utils.show(leaveButton);
+        utils.show(leaveButtonPlane);
     }
 
     function hideLeaveButton() {
-        leaveButton.setAttribute('visible', 'false');
-        leaveButtonPlane.setAttribute('visible', 'false');
+        utils.hide(leaveButton);
+        utils.hide(leaveButtonPlane);
     }
 
     // function updatePlanetInfo(){
@@ -200,44 +184,7 @@ let renderer = (function() {
     // let cameraToPlanetVector = getVectorFromPosition(planetPos) - getVectorFromPosition(cameraPos);
     // }
 
-    function updatePlanetName(mode, planet) {
 
-        // let a = new THREE.Vector3(0, 20, -40);
-        // let initNamePosition = new THREE.Vector3(-6, 13, -40);
-        // let initOKPosition = new THREE.Vector3(-1, 4, -40);
-        // let yAxis = new THREE.Vector3(0, 1, 0);
-        // let angle = document.querySelector('a-camera').getAttribute('rotation');
-        // let angleRad = angle.y * 2 * Math.PI / 360;
-        // let b = a.applyAxisAngle(yAxis, angleRad);
-        // let bPrim = initNamePosition.applyAxisAngle(yAxis, angleRad);
-        // let initOKPositionPrim = initOKPosition.applyAxisAngle(yAxis, angleRad);
-
-        // let c = new THREE.Vector3(b.x / 2, b.y / 2 + 5, b.z / 2);
-
-        // let d = new THREE.Vector3(initOKPositionPrim.x / 4, initOKPositionPrim.y / 4, initOKPositionPrim.z / 4);
-
-        // let e = new THREE.Vector3(bPrim.x / 4, bPrim.y / 4, bPrim.z / 4);
-
-        // let planetName = document.querySelector('#planetName');
-
-        if (mode === 'over' || mode === 'visit') {
-
-            console.log("Move and show planet name " + planet.id);
-
-            // let textAttribute = text = "text: " + state.currentPlanet.id.toUpperCase() + "; font: Cartoon Marker;"
-            // planetName.setAttribute('text', textAttribute);
-            // planetName.setAttribute('position', vectorHelper.getPositionFromVector(e));
-            // planetName.setAttribute('rotation', camera.getAttribute('rotation'));
-            // planetName.setAttribute('visible', 'true');
-
-        } else {
-            // Hide name
-            // if (state.lastPlanet !== none) {
-            //     let planetName = document.querySelector('#planetName');
-            //     planetName.setAttribute('visible', 'false');
-            // }
-        }
-    }
 
 
     function updatePlanetInfo(mode, planet) {
@@ -286,16 +233,12 @@ let renderer = (function() {
             // infoContainer.setAttribute('visible', 'true');
 
         } else {
-            hideInfoContainer();
+            utils.hide(infoContainer);
             // Hide infoContainer
             // if (state.lastPlanet !== none) {
             //     infoContainer.setAttribute('visible', 'false');
             // }
         }
-    }
-
-    function hideInfoContainer() {
-        infoContainer.setAttribute('visible', 'false');
     }
 
     function updateSky(mode) {
@@ -316,9 +259,9 @@ let renderer = (function() {
         updateSky(mode);
         updateLeaveButton(mode);
         updatePlanets(mode, planet);
+        updatePlanetName(mode, planet);
 
         // if (mode === 'visit') {
-        // updatePlanetName(mode, planet);
         // updatePlanetInfo(mode, planet);
         // }
     }
