@@ -1,4 +1,3 @@
-let state = {
-  currentPlanet: null,
-  lastPlanet: null
+const state = {
+  selectedPlanet: null
 }

@@ -3,9 +3,8 @@ CURSOR LISTENER
 ------------------ */
 
 let cursorListener = (function () {
-  function updateState(current, last = null) {
-    state.currentPlanet = current
-    state.lastPlanet = last
+  function updateState(selectedPlanet) {
+    state = { selectedPlanet }
   }
 
   function isPlanet(element) {

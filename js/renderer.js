@@ -167,7 +167,7 @@ let renderer = (function () {
     if (mode === 'visit') {
       console.log('Show Info ' + planet.id)
 
-      if (state.currentPlanet?.id !== 'earth') {
+      if (state.selectedPlanet?.id !== 'earth') {
         infoDiscovery.setAttribute(
           'text',
           'text: Discovered in ' + planets[planet.id].discovery + '; size: 1;'
@@ -176,7 +176,7 @@ let renderer = (function () {
         infoDiscovery.setAttribute('text', '')
       }
 
-      if (state.currentPlanet?.distanceToEarth) {
+      if (state.selectedPlanet?.distanceToEarth) {
         infoTravel.setAttribute(
           'text',
           'text: ' +
