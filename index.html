@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Hello, Worlds!</title>
-    <meta name="description" content="Hello, Worlds!">
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-    <!--     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script> -->
-    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
-    <script src="js/cartoonMarker.typeface.js"></script>
+    <meta name="description" content="Hello, Worlds!" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="js/const.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/vectorHelper.js"></script>
@@ -18,74 +14,167 @@
     <script src="js/planetGenerator.js"></script>
     <script src="js/app.js"></script>
     <script src="js/state.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <a-scene id="myScene">
-        <a-camera>
-            <!--         <a-box src="#boxTexture"f position="0 0 -20" rotation="0 45 45" scale="2 2 2" visible="true"></a-box> -->
-            <a-cursor id="cursor" color="whitesmoke" fuse="true" fuse-timeout="1300" geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;">
-                <!-- begin="click" -->
-                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="1 1 1" to="3 3 3" dur="880"></a-animation>
-                <a-animation begin="cursor-fusing" easing="ease-in-out-quint" attribute="color" fill="forwards" from="whitesmoke" to="springgreen" dur="880"></a-animation>
-                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="color" fill="forwards" from="springgreen" to="whitesmoke" dur="280"></a-animation>
-                <a-animation begin="mouseleave" easing="ease-in-out-quint" attribute="scale" fill="forwards" from="3 3 3" to="1 1 1" dur="280"></a-animation>
-            </a-cursor>
+      <a-camera position="0 3 0">
+        <a-cursor
+          id="cursor"
+          color="whitesmoke"
+          fuse="true"
+          fuse-timeout="1300"
+          geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;"
+        >
+          <a-sphere
+            position="-1 1.6 -5"
+            animation="property: rotation; to: 0 360 39; dur: 2000; easing: linear; loop: true"
+            color="tomato"
+          ></a-sphere>
+          <a-entity text="value: Hi;"></a-entity>
+          <a-text value="Hey!"></a-text>
+          <a-animation
+            begin="cursor-fusing"
+            easing="ease-in-out-quint"
+            attribute="scale"
+            fill="forwards"
+            from="1 1 1"
+            to="3 3 3"
+            dur="880"
+          ></a-animation>
+          <a-animation
+            begin="cursor-fusing"
+            easing="ease-in-out-quint"
+            attribute="color"
+            fill="forwards"
+            from="whitesmoke"
+            to="springgreen"
+            dur="880"
+          ></a-animation>
+          <a-animation
+            begin="mouseleave"
+            easing="ease-in-out-quint"
+            attribute="color"
+            fill="forwards"
+            from="springgreen"
+            to="whitesmoke"
+            dur="280"
+          ></a-animation>
+          <a-animation
+            begin="mouseleave"
+            easing="ease-in-out-quint"
+            attribute="scale"
+            fill="forwards"
+            from="3 3 3"
+            to="1 1 1"
+            dur="280"
+          ></a-animation>
+        </a-cursor>
 
-            <!--By default on desktop, fuse = false, ie need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
-        </a-camera>
-        <!--         <a-entity>
-            <a-entity template="src: cubes.template" position="-4 0 -8"></a-entity>
-            <a-entity template="src: cubes.template" position="0 4 -8"></a-entity>
-            <a-entity template="src: cubes.template" position="4 0 -8"></a-entity>
-            <a-animation attribute="rotation" dur="2000" to="0 360 0" repeat="indefinite"></a-animation>
-        </a-entity>
-        <a-entity>
-            <a-entity template="src: planet.template" position="0 180 -280"></a-entity>
-        </a-entity> -->
+        <!--By default on desktop, fuse = false, i.e. need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
+      </a-camera>
+      <a-entity id="allPlanetsContainer">
+        <a-sphere class="planet-sphere" id="mercury" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="venus" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="earth" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="mars" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="jupiter" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="saturn" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="uranus" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="neptune" cursor-listener></a-sphere>
+        <a-sphere class="planet-sphere" id="GJ-504b" cursor-listener></a-sphere>
+        <a-sphere
+          class="planet-sphere"
+          id="WASP-33b"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere"
+          id="p-55-Cancri-e"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere"
+          id="GJ-1214-b"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere class="planet-sphere" id="TrES-2b" cursor-listener></a-sphere>
+      </a-entity>
 
+      <a-entity
+        material="color: white"
+        text="text: PLANET;"
+        rotation="0 0 0"
+        visible="false"
+        id="planetName"
+      ></a-entity>
+      <a-entity id="info" visible="false">
+        <a-entity
+          id="info-discovery"
+          material="color: white"
+          text=""
+          position="1 0 0"
+        ></a-entity>
+        <a-entity
+          id="info-travel"
+          material="color: white"
+          text=""
+          position="0 -2 0"
+          rotation="0 0 0"
+        ></a-entity>
+        <a-entity
+          id="info-specificity"
+          material="color: white"
+          text=""
+          position="-2 -4 0"
+          rotation="0 0 0"
+        ></a-entity>
+        <!-- Positions are relative to their parent, here the planetInfo group-->
+      </a-entity>
+      <a-entity
+        cursor-listener
+        visible="false"
+        id="leaveButton"
+        text="value: DONE;"
+      ></a-entity>
 
-        <a-entity id="allPlanetsContainer">
+      <a-entity
+        material="color: white"
+        text="text: DONE; size: 1.1;"
+        visible="false"
+        id="leaveButton"
+        cursor-listener
+      >
+        <a-entity text="value: DONE;"></a-entity>
+      </a-entity>
+      <a-plane
+        id="leaveButtonPlane"
+        material="color: mediumspringgreen; opacity: 0.3;"
+        height="5"
+        width="12"
+        visible="false"
+        fill="backwards"
+        cursor-listener
+      >
+      </a-plane>
 
-            <a-sphere id="mercury" cursor-listener></a-sphere>
-            <a-sphere id="venus" cursor-listener></a-sphere>
-            <a-sphere id="earth" cursor-listener></a-sphere>
-            <a-sphere id="mars" cursor-listener></a-sphere>
-            <a-sphere id="jupiter" cursor-listener></a-sphere>
-            <a-sphere id="saturn" cursor-listener></a-sphere>
-            <a-sphere id="uranus" cursor-listener></a-sphere>
-            <a-sphere id="neptune" cursor-listener></a-sphere>
-
-            <a-sphere id="GJ-504b" cursor-listener></a-sphere>
-            <a-sphere id="WASP-33b" cursor-listener></a-sphere>
-            <a-sphere id="p-55-Cancri-e" cursor-listener></a-sphere>
-            <a-sphere id="GJ-1214-b" cursor-listener></a-sphere>
-            <a-sphere id="TrES-2b" cursor-listener></a-sphere>
-            
-        </a-entity>
-        <a-entity material="color: white" text="text: PLANET;" rotation="0 0 0" visible="false" id="planetName"></a-entity>
-
-
-        <a-entity id="info" visible="false">
-            <a-entity id="info-discovery" material="color: white" text="" position="1 0 0"></a-entity>
-            <a-entity id="info-travel" material="color: white" text="" position="0 -2 0" rotation="0 0 0"></a-entity>
-            <a-entity id="info-specificity" material="color: white" text="" position="-2 -4 0" rotation="0 0 0"></a-entity>
-            <!-- Positions are relative to their parent, here the planetInfo group-->
-        </a-entity>
-
-        <a-entity material="color: white" text="text: DONE; font: Cartoon Marker; size: 1.1;" visible="false" id="leaveButton" cursor-listener>
-        </a-entity>
-        <a-plane id="leaveButtonPlane" material="color: mediumspringgreen; opacity: 0.3;" height="5" width="12" visible="false" fill="backwards" cursor-listener>
-        </a-plane>
-        <a-sky src="img/Mountains.jpg" color="whitesmoke">
-            <a-animation attribute="color" begin="darkenSky" from="whitesmoke" to="darkslategray" fill="forwards">
-                <!--             dur="2000" -->
-            </a-animation>
-            <a-animation attribute="color" begin="resetSky" from="darkslategray" to="whitesmoke">
-                <!--             dur="2000" -->
-            </a-animation>
-        </a-sky>
+      <a-sky src="img/Mountains.jpg" color="whitesmoke">
+        <a-animation
+          attribute="color"
+          begin="darkenSky"
+          from="whitesmoke"
+          to="darkslategray"
+          fill="forwards"
+        >
+        </a-animation>
+        <a-animation
+          attribute="color"
+          begin="resetSky"
+          from="darkslategray"
+          to="whitesmoke"
+        >
+        </a-animation>
+      </a-sky>
     </a-scene>
-</body>
-
+  </body>
 </html>
