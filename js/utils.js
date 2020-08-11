@@ -12,15 +12,11 @@ let utils = (function () {
   }
 
   function show(element) {
-    if (element) {
-      element.setAttribute('visible', 'true')
-    }
+    element.setAttribute('visible', 'true')
   }
 
   function hide(element) {
-    if (element) {
-      element.setAttribute('visible', 'false')
-    }
+    element.setAttribute('visible', 'false')
   }
 
   function showAll(elements) {
