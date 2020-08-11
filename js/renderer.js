@@ -181,7 +181,7 @@ let renderer = (function () {
     if (mode === 'visit') {
       console.log('Show Info ' + planet.id)
 
-      if (state.currentPlanet.id !== 'earth') {
+      if (state.currentPlanet?.id !== 'earth') {
         infoDiscovery.setAttribute(
           'text',
           'text: Discovered in ' + planets[planet.id].discovery + '; size: 1;'
@@ -190,7 +190,7 @@ let renderer = (function () {
         infoDiscovery.setAttribute('text', '')
       }
 
-      if (state.currentPlanet.distanceToEarth) {
+      if (state.currentPlanet?.distanceToEarth) {
         infoTravel.setAttribute(
           'text',
           'text: ' +
@@ -236,8 +236,10 @@ let renderer = (function () {
     updateSky(mode)
     updateLeaveButton(mode)
     updatePlanets(mode, planet)
-    updatePlanetName(mode, planet)
-    updatePlanetInfo(mode, planet)
+    if (planet) {
+      updatePlanetName(mode, planet)
+      updatePlanetInfo(mode, planet)
+    }
   }
 
   return {
