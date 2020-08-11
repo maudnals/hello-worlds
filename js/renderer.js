@@ -37,8 +37,6 @@ let renderer = (function () {
   function moveToInitPos(element, initPos, animate) {
     let currentPosition = element.getAttribute('position')
     let c = vectorHelper.getPositionFromVector(currentPosition)
-    //let sphere = document.querySelector('#' + planet.id);
-
     if (animate) {
       let moveToInitPosAnim = createMoveAnim(c, initPos, 'moveToInitPos')
       element.append(moveToInitPosAnim)
@@ -48,8 +46,6 @@ let renderer = (function () {
 
   function moveToFocus(element, initPos, presentFace, animate) {
     let focusPos_init = new THREE.Vector3(0, 20, -40)
-    let leaveButtonPos_init = new THREE.Vector3(-2.9, -7.7, -40)
-    let leaveButtonPlanePos_init = new THREE.Vector3(-0, -7.4, -42)
     let yAxis = new THREE.Vector3(0, 1, 0)
     let angle = camera.getAttribute('rotation')
     let angleRad = (angle.y * 2 * Math.PI) / 360
@@ -67,7 +63,6 @@ let renderer = (function () {
     }
 
     if (animate) {
-      //let el = document.querySelector('#' + element.id);
       let moveTowardsUserAnim = createMoveAnim(
         initPos,
         vectorHelper.getPositionFromVector(c),
@@ -76,8 +71,6 @@ let renderer = (function () {
       element.append(moveTowardsUserAnim)
       element.emit('moveTowardsUser')
     } else {
-      //document.getElementById(element.id).setAttribute('position', vectorHelper.getPositionFromVector(c));
-
       let updatedPos = initPos.applyAxisAngle(yAxis, angleRad)
       element.setAttribute(
         'position',
@@ -93,7 +86,6 @@ let renderer = (function () {
   function updateLeaveButton(mode) {
     let leaveButtonPos_init = new THREE.Vector3(-2.9, -7.7, -40)
     let leaveButtonPlanePos_init = new THREE.Vector3(-0, -7.4, -42)
-
     if (mode === 'visit') {
       moveToFocus(this.leaveButton, leaveButtonPos_init, true, false)
       moveToFocus(this.leaveButtonPlane, leaveButtonPlanePos_init, true, false)
@@ -137,12 +129,6 @@ let renderer = (function () {
 
   function updateRadius(sphereEl, newRadius) {
     sphereEl.setAttribute('radius', newRadius)
-  }
-
-  function resetPlanetRadius(planet) {
-    document
-      .querySelector('#' + planet.id)
-      .setAttribute('radius', planet.radius)
   }
 
   function growPlanetRadius(planet) {
@@ -206,14 +192,12 @@ let renderer = (function () {
         'text: Specificity: ' + planets[planet.id].specificity + '; size: 1;'
       )
 
-      //moveToFocus(infoContainer, infoPos_init, true, false);
-
       infoContainer.setAttribute(
         'position',
         vectorHelper.getPositionFromVector(infoPos_updated)
       )
       infoContainer.setAttribute('rotation', camera.getAttribute('rotation'))
-      // // only along y!!!
+      // only along y!!!
       utils.show(infoContainer)
     } else {
       utils.hide(infoContainer)
