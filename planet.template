@@ -1,4 +1,0 @@
-<a-sphere radius="71.492" color="blue" cursor-listener></a-sphere>
-<!--Radius and color are applied to a sphere, not to just a generic entity!!!!!-->
-<!--ie in the html a-entity template="src: planet.template" position="0 0 -380" radius="71.492" color="blue" doesn't work-->
-<!--position will be applied, but not radius nor color-->

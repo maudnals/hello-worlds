@@ -62,11 +62,6 @@ let renderer = (function () {
       focusPos_updated.z / 2
     )
 
-    // let namePos_init = new THREE.Vector3(-6, 10, -40);
-    // let namePos_updated = namePos_init.applyAxisAngle(yAxis, angleRad);
-    // let namePos_vf = new THREE.Vector3(namePos_updated.x / 4, namePos_updated.y / 4, namePos_updated.z / 4);
-    // // e
-
     if (presentFace) {
       element.setAttribute('rotation', camera.getAttribute('rotation'))
     }
@@ -159,7 +154,6 @@ let renderer = (function () {
   //
 
   function updatePlanetName(mode, planet) {
-    let planetEl = document.getElementById(planet.id)
     let planetName = document.getElementById('planetName')
     let namePos_init = new THREE.Vector3(-2, 6, -20)
 
@@ -172,16 +166,6 @@ let renderer = (function () {
       utils.hide(planetName)
     }
   }
-
-  // function updatePlanetInfo(){
-  // let planetInfoPos_init = new THREE.Vector3(0, 0, -40);
-  // let yAxis = new THREE.Vector3(0, 1, 0);
-
-  // let planetPos = document.getElementById('earth').getAttribute('position');
-  // let cameraPos = camera.getAttribute('position');
-
-  // let cameraToPlanetVector = getVectorFromPosition(planetPos) - getVectorFromPosition(cameraPos);
-  // }
 
   //
   // PLANET INFO
