@@ -86,7 +86,7 @@ let renderer = (function () {
   function updateLeaveButton(mode) {
     let leaveButtonPos_init = new THREE.Vector3(-2.9, -7.7, -40)
     let leaveButtonPlanePos_init = new THREE.Vector3(-0, -7.4, -42)
-    if (mode === 'visit') {
+    if (mode === MODE.VISIT) {
       moveToFocus(this.leaveButton, leaveButtonPos_init, true, false)
       moveToFocus(this.leaveButtonPlane, leaveButtonPlanePos_init, true, false)
       showLeaveButton()
@@ -112,7 +112,7 @@ let renderer = (function () {
   function updatePlanets(mode, planet) {
     let allPlanets = utils.getAllPlanetElements()
 
-    if (mode === 'visit') {
+    if (mode === MODE.VISIT) {
       let planetEl = document.getElementById(planet.id)
       growPlanetRadius(planetEl)
       moveToFocus(planetEl, planet.defaultPosition, false, true)
@@ -143,7 +143,7 @@ let renderer = (function () {
     let planetName = document.getElementById('planetName')
     let namePos_init = new THREE.Vector3(-2, 6, -20)
 
-    if (mode === 'visit') {
+    if (mode === MODE.VISIT) {
       let textAttribute = 'text: ' + planet.id.toUpperCase()
       planetName.setAttribute('text', textAttribute)
       moveToFocus(planetName, namePos_init, true, false)
@@ -164,7 +164,7 @@ let renderer = (function () {
     let angleRad = (angle.y * 2 * Math.PI) / 360
     let infoPos_updated = infoPos_init.applyAxisAngle(yAxis, angleRad)
 
-    if (mode === 'visit') {
+    if (mode === MODE.VISIT) {
       console.log('Show Info ' + planet.id)
 
       if (state.selectedPlanet?.id !== 'earth') {
@@ -197,7 +197,7 @@ let renderer = (function () {
         vectorHelper.getPositionFromVector(infoPos_updated)
       )
       infoContainer.setAttribute('rotation', camera.getAttribute('rotation'))
-      // only along y!!!
+      // only along y
       utils.show(infoContainer)
     } else {
       utils.hide(infoContainer)
@@ -209,7 +209,7 @@ let renderer = (function () {
   //
 
   function updateSky(mode) {
-    if (mode === 'visit') {
+    if (mode === MODE.VISIT) {
       sky.emit('darkenSky')
     } else {
       sky.emit('resetSky')
