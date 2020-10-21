@@ -1,9 +1,5 @@
 // Main sources:
 
-// discovery Date
-// distance to earth / in generations
-// planet type
-
 const defaultRotationPeriod = '8000'
 const defaultRadius = '4.2'
 

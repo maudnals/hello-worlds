@@ -1,7 +1,3 @@
-/* ------------------
-PLANET GENERATOR
------------------- */
-
 let planetGenerator = (function () {
   function init() {
     let planetElements = utils.getAllPlanetElements()

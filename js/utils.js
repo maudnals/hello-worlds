@@ -1,11 +1,4 @@
-/* ------------------
-UTILS
------------------- */
-
 let utils = (function () {
-  function init() {
-    leaveButton = document.querySelector('#leaveButton')
-  }
   function getAllPlanetElements() {
     return document.querySelectorAll('.planet-sphere')
   }
@@ -27,7 +20,6 @@ let utils = (function () {
   }
 
   return {
-    init: init,
     getAllPlanetElements: getAllPlanetElements,
     show: show,
     showAll: showAll,
