@@ -36,5 +36,3 @@ let vectorHelper = (function () {
     getPositionFromVector: getPositionFromVector
   }
 })()
-
-// camera should rotate along y only

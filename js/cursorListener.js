@@ -11,7 +11,7 @@ let cursorListener = (function () {
     return planets[element.id]
   }
 
-  // must be called only once DOM is ready
+  // can be called only once DOM is ready
   function init() {
     AFRAME.registerComponent('cursor-listener', {
       init: function () {
