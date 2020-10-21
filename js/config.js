@@ -1,2 +1,2 @@
-const frontPlanetPosition = '0 21 -40'
-const radiusFocus = 6
+const frontPlanetPosition = '0 20 -40'
+const selectedPlanetRadius = 6

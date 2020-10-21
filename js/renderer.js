@@ -4,8 +4,8 @@ RENDERER
 
 let renderer = (function () {
   let sky
-  let leaveButton
-  let leaveButtonPlane
+  let exitText
+  let exitButton
   let camera
   let infoContainer
   let infoDiscovery
@@ -13,8 +13,8 @@ let renderer = (function () {
   let infoSpecificity
 
   function init() {
-    leaveButton = document.querySelector('#leaveButton')
-    leaveButtonPlane = document.querySelector('#leaveButtonPlane')
+    exitText = document.getElementById('exitText')
+    exitButton = document.getElementById('exitButton')
     sky = document.querySelector('a-sky')
     camera = document.querySelector('a-camera')
     infoContainer = document.getElementById('info')
@@ -84,11 +84,11 @@ let renderer = (function () {
   //
 
   function updateLeaveButton(mode) {
-    let leaveButtonPos_init = new THREE.Vector3(-2.9, -7.7, -40)
-    let leaveButtonPlanePos_init = new THREE.Vector3(-0, -7.4, -42)
+    let exitTextPos_init = new THREE.Vector3(-2.9, -7.7, -40)
+    let exitButtonPos_init = new THREE.Vector3(-0, -7.4, -42)
     if (mode === MODE.VISIT) {
-      moveToFocus(this.leaveButton, leaveButtonPos_init, true, false)
-      moveToFocus(this.leaveButtonPlane, leaveButtonPlanePos_init, true, false)
+      moveToFocus(exitText, exitTextPos_init, true, false)
+      moveToFocus(exitButton, exitButtonPos_init, true, false)
       showLeaveButton()
     } else {
       hideLeaveButton()
@@ -96,13 +96,13 @@ let renderer = (function () {
   }
 
   function showLeaveButton() {
-    utils.show(leaveButton)
-    utils.show(leaveButtonPlane)
+    utils.show(exitText)
+    utils.show(exitButton)
   }
 
   function hideLeaveButton() {
-    utils.hide(leaveButton)
-    utils.hide(leaveButtonPlane)
+    utils.hide(exitText)
+    utils.hide(exitButton)
   }
 
   //
@@ -132,7 +132,9 @@ let renderer = (function () {
   }
 
   function growPlanetRadius(planet) {
-    document.querySelector('#' + planet.id).setAttribute('radius', radiusFocus)
+    document
+      .querySelector('#' + planet.id)
+      .setAttribute('radius', selectedPlanetRadius)
   }
 
   //
