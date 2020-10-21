@@ -158,23 +158,12 @@
         cursor-listener
       >
       </a-plane>
-
-      <a-sky src="img/Mountains.jpg" color="whitesmoke">
-        <a-animation
-          attribute="color"
-          begin="darkenSky"
-          from="whitesmoke"
-          to="darkslategray"
-          fill="forwards"
+      <a-sky
+        src="img/Mountains.jpg"
+        material="color: peachpuff"
+        animation__darken="property: components.material.material.color; type: color; to: royalblue; startEvents: darkenSky; dur: 500"
+        animation__reset="property: components.material.material.color; type: color; to: peachpuff; startEvents: resetSky; dur: 500"
         >
-        </a-animation>
-        <a-animation
-          attribute="color"
-          begin="resetSky"
-          from="darkslategray"
-          to="whitesmoke"
-        >
-        </a-animation>
       </a-sky>
     </a-scene>
   </body>
