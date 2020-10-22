@@ -1,7 +1,3 @@
-/* ------------------
-VECTOR HELPER
------------------- */
-
 let vectorHelper = (function () {
   function degToRad(angle) {
     // 360 deg = 2Pi radians
