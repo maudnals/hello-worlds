@@ -20,88 +20,89 @@
   <body>
     <a-scene id="myScene">
       <a-camera position="0 3 0">
-        <a-cursor
-          id="cursor"
-          color="whitesmoke"
-          fuse="true"
-          fuse-timeout="1300"
-          geometry="primitive: ring; radiusOuter: 0.014; radiusInner: 0.010;"
-        >
-          <a-sphere
-            position="-1 1.6 -5"
-            animation="property: rotation; to: 0 360 39; dur: 2000; easing: linear; loop: true"
-            color="tomato"
-          ></a-sphere>
-          <a-entity text="value: Hi;"></a-entity>
-          <a-text value="Hey!"></a-text>
-          <a-text value="HOHO!" position="0 2 -10"></a-text>
-
-          <!-- <a-animation
-            begin="cursor-fusing"
-            easing="ease-in-out-quint"
-            attribute="scale"
-            fill="forwards"
-            from="1 1 1"
-            to="3 3 3"
-            dur="880"
-          ></a-animation>
-          <a-animation
-            begin="cursor-fusing"
-            easing="ease-in-out-quint"
-            attribute="color"
-            fill="forwards"
-            from="whitesmoke"
-            to="springgreen"
-            dur="880"
-          ></a-animation>
-          <a-animation
-            begin="mouseleave"
-            easing="ease-in-out-quint"
-            attribute="color"
-            fill="forwards"
-            from="springgreen"
-            to="whitesmoke"
-            dur="280"
-          ></a-animation>
-          <a-animation
-            begin="mouseleave"
-            easing="ease-in-out-quint"
-            attribute="scale"
-            fill="forwards"
-            from="3 3 3"
-            to="1 1 1"
-            dur="280"
-          ></a-animation> -->
-        </a-cursor>
+        <a-entity
+          raycaster="far: 1000; interval: 200; objects: .clickable"
+          cursor="fuse: true; fuseTimeout: 1400;"
+          material="color: whitesmoke; shader: flat"
+          position="0 0 -3"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.035;"
+          animation__fusing="property: scale; startEvents: fusing; dur: 1000; delay: 400; easing: easeInCirc; from: 1 1 1; to: 2.6 2.6 2.6;"
+          animation__click="property: scale; startEvents: click; dur: 80; easing: easeInOutQuad; from: 2.6 2.6 2.6; to: 1 1 1;"
+          animation__mouseenter="property: components.material.material.color; type: color; startEvents: mouseenter; dur: 100; ease: easeInOutQuad; from: whitesmoke; to: springgreen;"
+          animation__mouseeleave="property: components.material.material.color; type: color; startEvents: mouseleave; dur: 100; ease: easeInOutQuad; from: springgreen; to: whitesmoke;"
+        ></a-entity>
+        <a-entity text="value: Hi;"></a-entity>
+        <a-text value="Hey!"></a-text>
+        <a-text value="HOHO!" position="0 2 -10"></a-text>
 
         <!--By default on desktop, fuse = false, i.e. need click. Here I made it true to see from the desktop browser how it would behave in the mobile browser, for debugging purposes. -->
       </a-camera>
       <a-entity id="allPlanetsContainer">
-        <a-sphere class="planet-sphere" id="mercury" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="venus" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="earth" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="mars" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="jupiter" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="saturn" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="uranus" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="neptune" cursor-listener></a-sphere>
-        <a-sphere class="planet-sphere" id="GJ-504b" cursor-listener></a-sphere>
         <a-sphere
-          class="planet-sphere"
+          class="planet-sphere clickable"
+          id="mercury"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="venus"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="earth"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="mars"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="jupiter"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="saturn"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="uranus"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="neptune"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="GJ-504b"
+          cursor-listener
+        ></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
           id="WASP-33b"
           cursor-listener
         ></a-sphere>
         <a-sphere
-          class="planet-sphere"
+          class="planet-sphere clickable"
           id="p-55-Cancri-e"
           cursor-listener
         ></a-sphere>
         <a-sphere
-          class="planet-sphere"
+          class="planet-sphere clickable"
           id="GJ-1214-b"
           cursor-listener
         ></a-sphere>
-        <a-sphere class="planet-sphere" id="TrES-2b" cursor-listener></a-sphere>
+        <a-sphere
+          class="planet-sphere clickable"
+          id="TrES-2b"
+          cursor-listener
+        ></a-sphere>
       </a-entity>
 
       <a-entity
@@ -132,8 +133,9 @@
           position="-2 -4 0"
           rotation="0 0 0"
         ></a-entity>
-        <!-- Positions are relative to their parent, here the planetInfo group-->
       </a-entity>
+      <!-- Positions are relative to their parent, here the planetInfo group-->
+
       <a-text
         id="exitText"
         visible="false"
@@ -142,7 +144,7 @@
       ></a-text>
       <a-plane
         id="exitButton"
-        material="color: mediumspringgreen; opacity: 0.3;"
+        material="color: springgreen; opacity: 0.3;"
         height="2"
         width="4"
         position="0 2 -10"
